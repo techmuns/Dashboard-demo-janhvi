@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --shadow-glass: 0 16px 40px -18px rgba(28, 38, 92, 0.18),
+    0 4px 12px -6px rgba(28, 38, 92, 0.08);
+  --shadow-glass-sm: 0 8px 22px -12px rgba(28, 38, 92, 0.15);
+  --shadow-glow: 0 18px 40px -18px rgba(91, 141, 239, 0.45);
+  --gradient-brand: linear-gradient(135deg, #5b8def 0%, #7b6cf6 100%);
+  --gradient-warm: linear-gradient(135deg, #f5b461 0%, #ff7aa2 100%);
+  --gradient-cool: linear-gradient(135deg, #3ecbc7 0%, #5b8def 100%);
+  --gradient-mint: linear-gradient(135deg, #3ed598 0%, #3ecbc7 100%);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply min-h-screen text-slate-800 antialiased;
+    background-image: radial-gradient(
+        900px 600px at 0% 0%,
+        rgba(123, 108, 246, 0.18),
+        transparent 60%
+      ),
+      radial-gradient(800px 500px at 100% 0%, rgba(62, 203, 199, 0.18), transparent 55%),
+      linear-gradient(180deg, #f5f7ff 0%, #f9f7ff 50%, #f3fbf7 100%);
+    background-attachment: fixed;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  button,
+  input,
+  select {
+    @apply outline-none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(123, 108, 246, 0.25);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(123, 108, 246, 0.4);
+  }
+}
+
+@layer components {
+  /* Primary frosted glass surface — calm and readable */
+  .glass {
+    @apply rounded-2xl border bg-white/70 backdrop-blur-xl;
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Smaller glass (cards inside cards) */
+  .glass-sm {
+    @apply rounded-xl border bg-white/65 backdrop-blur-md;
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow-glass-sm);
+  }
+
+  /* Frosted dark glass for sidebar */
+  .glass-dark {
+    @apply rounded-2xl border backdrop-blur-xl;
+    border-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(15, 22, 41, 0.85);
+  }
+
+  /* Gradient text */
+  .text-gradient-brand {
+    background-image: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Primary gradient button */
+  .btn-gradient {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white transition;
+    background-image: var(--gradient-brand);
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-gradient:hover {
+    filter: brightness(1.08);
+  }
+
+  /* Glass input wrapper */
+  .field-glass {
+    @apply flex items-center gap-2.5 rounded-xl border bg-white/70 px-3.5 py-2.5 backdrop-blur-md;
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .table-cell {
+    @apply whitespace-nowrap px-4 py-3.5 text-sm text-slate-700;
+  }
+
+  .surface {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bg-gradient-brand { background-image: var(--gradient-brand); }
+  .bg-gradient-warm  { background-image: var(--gradient-warm); }
+  .bg-gradient-cool  { background-image: var(--gradient-cool); }
+  .bg-gradient-mint  { background-image: var(--gradient-mint); }
+
+  .shadow-glass    { box-shadow: var(--shadow-glass); }
+  .shadow-glass-sm { box-shadow: var(--shadow-glass-sm); }
+  .shadow-glow     { box-shadow: var(--shadow-glow); }
+}
