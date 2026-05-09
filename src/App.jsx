@@ -20,6 +20,7 @@ import AnalyticsChart from "./components/AnalyticsChart";
 import AnalysisCard from "./components/AnalysisCard";
 import EmployeeTable from "./components/EmployeeTable";
 import EmployeeDetailDrawer from "./components/EmployeeDetailDrawer";
+import LiveKmpAppointments from "./components/LiveKmpAppointments";
 import { companies, companyData } from "./data/mockData";
 import {
   buildDashboardSnapshot,
@@ -642,7 +643,12 @@ export default function App() {
       return renderReportsView();
     }
 
-    return <div className="surface">{renderRecordView(activeView)}</div>;
+    return <div className="surface">
+      {activeView === "appointments" ? (
+        <LiveKmpAppointments defaultCompanyName={selectedCompany.name} />
+      ) : null}
+      {renderRecordView(activeView)}
+    </div>;
   }
 
   return (
