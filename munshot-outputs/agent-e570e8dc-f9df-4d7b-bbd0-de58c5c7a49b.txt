@@ -1,0 +1,15 @@
+HTTP/2 401 
+server: nginx/1.24.0 (Ubuntu)
+date: Sat, 09 May 2026 09:24:38 GMT
+content-type: application/json; charset=utf-8
+content-length: 234
+x-powered-by: Express
+access-control-allow-origin: *
+x-request-id: 3bc3aed3-f63a-4c4d-aa9c-567d898af954
+x-session-id: bfe2caea-18da-418d-961c-fed2dced3d5a
+x-ratelimit-limit: 250
+x-ratelimit-remaining: 249
+x-ratelimit-reset: 1
+etag: W/"ea-HooyBrTTikXdVDAxIaXWt8HiIjk"
+
+{"statusCode":401,"timestamp":"2026-05-09T09:24:38.912Z","path":"/agents/run","requestId":"3bc3aed3-f63a-4c4d-aa9c-567d898af954","sessionId":"bfe2caea-18da-418d-961c-fed2dced3d5a","message":{"message":"Unauthorized","statusCode":401}}
