@@ -20,9 +20,7 @@ import AnalyticsChart from "./components/AnalyticsChart";
 import AnalysisCard from "./components/AnalysisCard";
 import EmployeeTable from "./components/EmployeeTable";
 import EmployeeDetailDrawer from "./components/EmployeeDetailDrawer";
-import LiveKmpPanel from "./components/LiveKmpPanel";
-
-const LIVE_KMP_VIEWS = new Set(["appointments", "resignations", "terminations", "retirements"]);
+import { fetchAllLiveRecords } from "./lib/munsToRecords";
 import { companies, companyData } from "./data/mockData";
 import {
   buildDashboardSnapshot,
@@ -96,9 +94,24 @@ export default function App() {
   const [dateRange, setDateRange] = useState("12");
   const [activeView, setActiveView] = useState("dashboard");
   const [drawerState, setDrawerState] = useState({ isOpen: false, record: null, type: "appointments" });
+  const [liveRecords, setLiveRecords] = useState(null);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const selectedCompany = companyData[selectedCompanyId];
   const snapshot = buildDashboardSnapshot(selectedCompany, dateRange);
+
+  async function handleRefresh() {
+    if (isRefreshing) return;
+    setIsRefreshing(true);
+    try {
+      const result = await fetchAllLiveRecords();
+      setLiveRecords(result);
+    } catch (error) {
+      console.error("Refresh failed:", error);
+    } finally {
+      setIsRefreshing(false);
+    }
+  }
 
   function handleCompanySelect(companyId) {
     startTransition(() => {
@@ -523,12 +536,18 @@ export default function App() {
     );
   }
 
+  function recordsFor(type) {
+    const live = liveRecords?.[type]?.records;
+    if (live && live.length > 0) return live;
+    return snapshot.filteredRecords[type];
+  }
+
   function renderRecordView(type) {
     const config = recordViews[type];
     return (
       <EmployeeTable
         type={type}
-        records={snapshot.filteredRecords[type]}
+        records={recordsFor(type)}
         onViewDetails={openEmployeeDetail}
         title={config.title}
         subtitle={config.subtitle}
@@ -645,12 +664,7 @@ export default function App() {
       return renderReportsView();
     }
 
-    return <div className="surface">
-      {LIVE_KMP_VIEWS.has(activeView) ? (
-        <LiveKmpPanel kind={activeView} defaultCompanyName={selectedCompany.name} />
-      ) : null}
-      {renderRecordView(activeView)}
-    </div>;
+    return <div className="surface">{renderRecordView(activeView)}</div>;
   }
 
   return (
@@ -667,6 +681,8 @@ export default function App() {
             selectedCompany={selectedCompany}
             dateRange={dateRange}
             onDateRangeChange={handleRangeChange}
+            onRefresh={handleRefresh}
+            isRefreshing={isRefreshing}
           />
 
           {renderContent()}

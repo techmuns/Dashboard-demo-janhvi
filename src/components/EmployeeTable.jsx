@@ -177,10 +177,11 @@ export default function EmployeeTable({ type, records, onViewDetails, title, sub
 
     if (column.key === "effectiveImpact") {
       const field = getEffectiveDateField(type);
+      const why = record.whyItMatters || getWhyItMatters(type, record);
       return (
         <div className="max-w-md">
           <p className="text-sm font-semibold text-slate-900">{formatDate(record[field])}</p>
-          <p className="mt-1 text-xs leading-5 text-slate-500">{getWhyItMatters(type, record)}</p>
+          <p className="mt-1 text-xs leading-5 text-slate-500">{why}</p>
         </div>
       );
     }
