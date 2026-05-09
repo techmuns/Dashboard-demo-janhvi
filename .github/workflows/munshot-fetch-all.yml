@@ -1,0 +1,113 @@
+name: munshot-fetch-all
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: Stock ticker
+        required: false
+        default: JIOFIN
+      company_name:
+        description: Stock company name
+        required: false
+        default: Jio Financial Services Ltd.
+      country:
+        description: Stock country
+        required: false
+        default: INDIA
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - kind: appointments
+            uuid: e570e8dc-f9df-4d7b-bbd0-de58c5c7a49b
+          - kind: resignations
+            uuid: 0053242d-6f6e-41a1-aa00-02bca8e7c1ce
+          - kind: terminations
+            uuid: f900b1d1-29f6-4ab9-b730-12cc899ad2d8
+          - kind: retirements
+            uuid: c42c5eb1-48e1-4c83-bc02-5c6a18783ac8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Capture ${{ matrix.kind }} agent
+        env:
+          MUNS_TOKEN: ${{ secrets.MUNS_TOKEN }}
+          TICKER: ${{ github.event.inputs.ticker }}
+          COMPANY: ${{ github.event.inputs.company_name }}
+          COUNTRY: ${{ github.event.inputs.country }}
+        run: |
+          mkdir -p munshot-outputs
+          TO_DATE="$(date -u +%Y-%m-%d)"
+          OUTFILE="munshot-outputs/agent-${{ matrix.kind }}-${{ matrix.uuid }}.txt"
+          jq -n \
+            --arg uuid "${{ matrix.uuid }}" \
+            --arg ticker "$TICKER" \
+            --arg company "$COMPANY" \
+            --arg country "$COUNTRY" \
+            --arg to_date "$TO_DATE" \
+            '{
+              agent_library_id: $uuid,
+              metadata: {
+                stock_ticker: $ticker,
+                stock_company_name: $company,
+                context_company_name: $company,
+                stock_country: $country,
+                to_date: $to_date,
+                timezone: "UTC"
+              }
+            }' > /tmp/payload.json
+          curl -i -sS -X POST https://devde.muns.io/agents/run \
+            -H "Authorization: Bearer ${MUNS_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data @/tmp/payload.json > "$OUTFILE"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: munshot-${{ matrix.kind }}
+          path: munshot-outputs/agent-${{ matrix.kind }}-${{ matrix.uuid }}.txt
+
+  commit:
+    needs: fetch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all captures
+        uses: actions/download-artifact@v4
+        with:
+          path: munshot-outputs
+          merge-multiple: true
+
+      - name: Commit and push
+        run: |
+          ls -la munshot-outputs/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add munshot-outputs/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          git commit -m "munshot: capture all 4 KMP agent samples"
+          for attempt in 1 2 3; do
+            git fetch origin "$BRANCH"
+            git rebase "origin/$BRANCH" || git rebase --abort
+            if git push origin "HEAD:$BRANCH"; then
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying..."
+            sleep 2
+          done
+          echo "All push attempts failed." >&2
+          exit 1
