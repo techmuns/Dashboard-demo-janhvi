@@ -20,7 +20,9 @@ import AnalyticsChart from "./components/AnalyticsChart";
 import AnalysisCard from "./components/AnalysisCard";
 import EmployeeTable from "./components/EmployeeTable";
 import EmployeeDetailDrawer from "./components/EmployeeDetailDrawer";
-import LiveKmpAppointments from "./components/LiveKmpAppointments";
+import LiveKmpPanel from "./components/LiveKmpPanel";
+
+const LIVE_KMP_VIEWS = new Set(["appointments", "resignations", "terminations", "retirements"]);
 import { companies, companyData } from "./data/mockData";
 import {
   buildDashboardSnapshot,
@@ -644,8 +646,8 @@ export default function App() {
     }
 
     return <div className="surface">
-      {activeView === "appointments" ? (
-        <LiveKmpAppointments defaultCompanyName={selectedCompany.name} />
+      {LIVE_KMP_VIEWS.has(activeView) ? (
+        <LiveKmpPanel kind={activeView} defaultCompanyName={selectedCompany.name} />
       ) : null}
       {renderRecordView(activeView)}
     </div>;
