@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExternalLink, Loader2, Sparkles } from "lucide-react";
-import { runKmpAppointmentsAgent } from "../lib/munsAgent";
+import { runKmpAgent } from "../lib/munsAgent";
 import { parseMunsTable } from "../lib/munsParse";
-import { munsRowsToAppointments } from "../lib/munsToAppointments";
-import { DEFAULT_AGENT_METADATA } from "../lib/agentConfig";
+import { munsRowsToKmpEntries } from "../lib/munsToKmpRows";
+import { DEFAULT_AGENT_METADATA, KMP_AGENTS } from "../lib/agentConfig";
 
 const kindChip = {
   appointment: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100",
@@ -16,7 +16,9 @@ const kindChip = {
 
 const looksLikeUrl = (value) => /^https?:\/\//i.test(value);
 
-export default function LiveKmpAppointments({ defaultCompanyName }) {
+export default function LiveKmpPanel({ kind, defaultCompanyName }) {
+  const agent = KMP_AGENTS[kind];
+
   const [ticker, setTicker] = useState(DEFAULT_AGENT_METADATA.stock_ticker);
   const [companyName, setCompanyName] = useState(
     defaultCompanyName || DEFAULT_AGENT_METADATA.stock_company_name,
@@ -26,11 +28,21 @@ export default function LiveKmpAppointments({ defaultCompanyName }) {
   const [rows, setRows] = useState([]);
   const [fetchedAt, setFetchedAt] = useState(null);
 
+  // Reset fetched state when switching between view kinds.
+  useEffect(() => {
+    setRows([]);
+    setError(null);
+    setFetchedAt(null);
+  }, [kind]);
+
+  if (!agent) return null;
+
   const fetchLive = async () => {
     setLoading(true);
     setError(null);
     try {
-      const raw = await runKmpAppointmentsAgent({
+      const raw = await runKmpAgent({
+        kind,
         ticker: ticker.trim(),
         companyName: companyName.trim(),
       });
@@ -38,7 +50,7 @@ export default function LiveKmpAppointments({ defaultCompanyName }) {
       if (!parsed) {
         throw new Error("Could not find a markdown table in the agent response.");
       }
-      const mapped = munsRowsToAppointments(parsed);
+      const mapped = munsRowsToKmpEntries(parsed);
       setRows(mapped);
       setFetchedAt(new Date());
     } catch (err) {
@@ -58,12 +70,9 @@ export default function LiveKmpAppointments({ defaultCompanyName }) {
             Live via MUNS
           </div>
           <h2 className="mt-2 text-xl font-semibold tracking-tight text-slate-900">
-            Live KMP appointments
+            {agent.title}
           </h2>
-          <p className="mt-1 max-w-xl text-sm text-slate-500">
-            Pull verified Key Managerial Personnel changes for any listed company straight
-            from official announcements via the MUNS agent.
-          </p>
+          <p className="mt-1 max-w-xl text-sm text-slate-500">{agent.blurb}</p>
         </div>
 
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end">

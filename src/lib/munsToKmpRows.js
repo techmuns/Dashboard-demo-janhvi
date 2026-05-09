@@ -17,7 +17,7 @@ export function classifyChange(value) {
   return "other";
 }
 
-export function munsRowsToAppointments(parsed) {
+export function munsRowsToKmpEntries(parsed) {
   if (!parsed || parsed.rows.length === 0) return [];
   const { columns, rows } = parsed;
 
