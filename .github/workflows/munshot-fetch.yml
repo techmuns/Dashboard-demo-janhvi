@@ -42,6 +42,17 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
+            BRANCH="$(git rev-parse --abbrev-ref HEAD)"
             git commit -m "munshot: capture sample"
-            git push
+            for attempt in 1 2 3; do
+              git fetch origin "$BRANCH"
+              git rebase "origin/$BRANCH" || git rebase --abort
+              if git push origin "HEAD:$BRANCH"; then
+                exit 0
+              fi
+              echo "Push attempt $attempt failed; retrying..."
+              sleep 2
+            done
+            echo "All push attempts failed." >&2
+            exit 1
           fi
