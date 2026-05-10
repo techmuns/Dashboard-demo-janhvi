@@ -102,7 +102,7 @@ export default function CompanySearch({ selected, onSelect }) {
       </div>
 
       {isOpen ? (
-        <div className="glass absolute left-0 right-0 top-[calc(100%+0.5rem)] z-40 max-h-80 overflow-y-auto p-2">
+        <div className="glass absolute left-0 right-0 top-[calc(100%+0.5rem)] z-50 max-h-80 overflow-y-auto p-2">
           {query.trim() ? (
             <p className="px-3 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
               Results for &ldquo;{query.trim()}&rdquo;

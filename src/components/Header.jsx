@@ -17,7 +17,7 @@ export default function Header({
   isRefreshing = false,
 }) {
   return (
-    <header className="surface mb-6 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+    <header className="surface relative z-30 mb-6 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
       <div className="flex flex-1 items-center gap-2">
         <CompanySearch selected={selectedRemoteCompany} onSelect={onRemoteCompanySelect} />
         {onRefresh ? (
