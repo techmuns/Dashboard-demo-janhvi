@@ -20,7 +20,7 @@ import AnalyticsChart from "./components/AnalyticsChart";
 import AnalysisCard from "./components/AnalysisCard";
 import EmployeeTable from "./components/EmployeeTable";
 import EmployeeDetailDrawer from "./components/EmployeeDetailDrawer";
-import { fetchAllLiveRecords } from "./lib/munsToRecords";
+import { buildLiveCompany, fetchAllLiveRecords } from "./lib/liveCompany";
 import { companies, companyData } from "./data/mockData";
 import {
   buildDashboardSnapshot,
@@ -98,12 +98,14 @@ export default function App() {
   const [remoteCompany, setRemoteCompany] = useState(null);
 
   const selectedCompany = companyData[selectedCompanyId];
-  const snapshot = buildDashboardSnapshot(selectedCompany, dateRange);
-  const displayCompany = {
-    ...selectedCompany,
-    name: remoteCompany?.name || selectedCompany.name,
-    sector: remoteCompany?.industry || selectedCompany.sector,
-  };
+  const liveCompany = buildLiveCompany({
+    remoteCompany,
+    liveRecords,
+    fallback: selectedCompany,
+  });
+  const effectiveCompany = liveCompany || selectedCompany;
+  const snapshot = buildDashboardSnapshot(effectiveCompany, dateRange);
+  const displayCompany = effectiveCompany;
 
   async function runRefresh(context) {
     if (isRefreshing) return;
@@ -155,7 +157,7 @@ export default function App() {
   }
 
   function handleExport(reportName = "leadership-report") {
-    const payload = createExportPayload(selectedCompany, snapshot, dateRange);
+    const payload = createExportPayload(effectiveCompany, snapshot, dateRange);
     const blob = new Blob([JSON.stringify(payload, null, 2)], {
       type: "application/json",
     });
@@ -205,7 +207,7 @@ export default function App() {
               { label: "Head Office", value: displayCompany.headquarters, gradient: "bg-gradient-warm" },
               {
                 label: "Active KMP",
-                value: formatCompactNumber(selectedCompany.activeEmployees),
+                value: formatCompactNumber(displayCompany.activeEmployees),
                 gradient: "bg-gradient-mint",
               },
             ].map((item) => (
@@ -563,8 +565,6 @@ export default function App() {
   }
 
   function recordsFor(type) {
-    const live = liveRecords?.[type]?.records;
-    if (live && live.length > 0) return live;
     return snapshot.filteredRecords[type];
   }
 
