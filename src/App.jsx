@@ -90,21 +90,26 @@ const recordViews = {
 
 export default function App() {
   const [selectedCompanyId, setSelectedCompanyId] = useState(companies[0].id);
-  const [companyQuery, setCompanyQuery] = useState("");
   const [dateRange, setDateRange] = useState("12");
   const [activeView, setActiveView] = useState("dashboard");
   const [drawerState, setDrawerState] = useState({ isOpen: false, record: null, type: "appointments" });
   const [liveRecords, setLiveRecords] = useState(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [remoteCompany, setRemoteCompany] = useState(null);
 
   const selectedCompany = companyData[selectedCompanyId];
   const snapshot = buildDashboardSnapshot(selectedCompany, dateRange);
+  const displayCompany = {
+    ...selectedCompany,
+    name: remoteCompany?.name || selectedCompany.name,
+    sector: remoteCompany?.industry || selectedCompany.sector,
+  };
 
-  async function handleRefresh() {
+  async function runRefresh(context) {
     if (isRefreshing) return;
     setIsRefreshing(true);
     try {
-      const result = await fetchAllLiveRecords();
+      const result = await fetchAllLiveRecords(context || {});
       setLiveRecords(result);
     } catch (error) {
       console.error("Refresh failed:", error);
@@ -113,11 +118,32 @@ export default function App() {
     }
   }
 
+  function handleRefresh() {
+    runRefresh(
+      remoteCompany
+        ? {
+            ticker: remoteCompany.ticker,
+            companyName: remoteCompany.name,
+            country: remoteCompany.country,
+          }
+        : undefined,
+    );
+  }
+
+  function handleRemoteCompanySelect(entry) {
+    setRemoteCompany(entry);
+    setDrawerState({ isOpen: false, record: null, type: "appointments" });
+    runRefresh({
+      ticker: entry.ticker,
+      companyName: entry.name,
+      country: entry.country,
+    });
+  }
+
   function handleCompanySelect(companyId) {
     startTransition(() => {
       setSelectedCompanyId(companyId);
       setDrawerState({ isOpen: false, record: null, type: "appointments" });
-      setCompanyQuery("");
     });
   }
 
@@ -136,7 +162,7 @@ export default function App() {
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = `${selectedCompany.name.toLowerCase().replaceAll(" ", "-")}-${reportName}.json`;
+    anchor.download = `${displayCompany.name.toLowerCase().replaceAll(" ", "-")}-${reportName}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
   }
@@ -164,7 +190,7 @@ export default function App() {
             </span>
             <div>
               <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-                {selectedCompany.name}
+                {displayCompany.name}
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
                 Key Managerial Personnel movements (CEO, CFO, COO, CTO, CHRO, General Counsel, Chairman,
@@ -175,8 +201,8 @@ export default function App() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              { label: "Sector", value: selectedCompany.sector, gradient: "bg-gradient-cool" },
-              { label: "Head Office", value: selectedCompany.headquarters, gradient: "bg-gradient-warm" },
+              { label: "Sector", value: displayCompany.sector, gradient: "bg-gradient-cool" },
+              { label: "Head Office", value: displayCompany.headquarters, gradient: "bg-gradient-warm" },
               {
                 label: "Active KMP",
                 value: formatCompactNumber(selectedCompany.activeEmployees),
@@ -582,7 +608,7 @@ export default function App() {
         <section className="glass p-6">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Reports</h2>
           <p className="mt-1 text-sm text-slate-500">
-            Generate ready-to-share reports for {selectedCompany.name} and the selected window.
+            Generate ready-to-share reports for {displayCompany.name} and the selected window.
           </p>
 
           <div className="mt-5 grid gap-4 xl:grid-cols-3">
@@ -614,7 +640,7 @@ export default function App() {
           <div className="border-b border-white/40 px-6 py-5">
             <h3 className="text-lg font-semibold tracking-tight text-slate-900">Report Summary</h3>
             <p className="mt-1 text-sm text-slate-500">
-              Latest snapshot prepared for {selectedCompany.name}.
+              Latest snapshot prepared for {displayCompany.name}.
             </p>
           </div>
           <div className="overflow-x-auto">
@@ -673,12 +699,8 @@ export default function App() {
         <Sidebar activeView={activeView} onNavigate={handleNavigate} />
         <main className="surface min-w-0 flex-1 px-4 py-4 md:px-6 lg:px-8">
           <Header
-            companies={companies}
-            companyQuery={companyQuery}
-            onCompanyQueryChange={setCompanyQuery}
-            onCompanySelect={handleCompanySelect}
-            onExport={() => handleExport("leadership-report")}
-            selectedCompany={selectedCompany}
+            selectedRemoteCompany={remoteCompany}
+            onRemoteCompanySelect={handleRemoteCompanySelect}
             dateRange={dateRange}
             onDateRangeChange={handleRangeChange}
             onRefresh={handleRefresh}
