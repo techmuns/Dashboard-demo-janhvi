@@ -1,4 +1,4 @@
-import { startTransition, useState } from "react";
+import { startTransition, useMemo, useState } from "react";
 import {
   ArrowDownUp,
   ArrowUpRight,
@@ -7,8 +7,11 @@ import {
   DoorClosed,
   FileSpreadsheet,
   LineChart,
+  RefreshCw,
+  Search,
   Sparkles,
   TrendingDown,
+  Trash2,
   UserPlus,
   Users,
   UserX,
@@ -22,7 +25,12 @@ import EmployeeTable from "./components/EmployeeTable";
 import EmployeeDetailDrawer from "./components/EmployeeDetailDrawer";
 import LoadingAnalysis from "./components/LoadingAnalysis";
 import { buildLiveCompany, fetchAllLiveRecords } from "./lib/liveCompany";
-import { companies, companyData } from "./data/mockData";
+import {
+  countsFromLiveRecords,
+  loadRecentCompanies,
+  removeRecentCompany,
+  upsertRecentCompany,
+} from "./lib/recentCompanies";
 import {
   buildDashboardSnapshot,
   createExportPayload,
@@ -60,6 +68,33 @@ const kpiIcons = {
 
 const statusPieColors = ["#5b8def", "#3ed598", "#f5b461", "#ff7aa2", "#3ecbc7"];
 
+// Recent-cache entries are flatter than the "remote company" shape that
+// flows out of the header search; this normalises one into the other.
+function entryToRemote(entry) {
+  if (!entry) return null;
+  return {
+    ticker: entry.ticker,
+    name: entry.name,
+    country: entry.country,
+    industry: entry.industry || "",
+  };
+}
+
+function formatRelative(iso) {
+  if (!iso) return "—";
+  const then = new Date(iso).getTime();
+  if (Number.isNaN(then)) return "—";
+  const seconds = Math.max(0, Math.round((Date.now() - then) / 1000));
+  if (seconds < 60) return "just now";
+  const minutes = Math.round(seconds / 60);
+  if (minutes < 60) return `${minutes}m ago`;
+  const hours = Math.round(minutes / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.round(hours / 24);
+  if (days < 30) return `${days}d ago`;
+  return new Date(iso).toLocaleDateString();
+}
+
 const tooltipStyle = {
   borderRadius: 18,
   border: "1px solid rgba(255,255,255,0.6)",
@@ -90,30 +125,50 @@ const recordViews = {
 };
 
 export default function App() {
-  const [selectedCompanyId, setSelectedCompanyId] = useState(companies[0].id);
+  const [recentCompanies, setRecentCompanies] = useState(() => loadRecentCompanies());
+  // activeCompany holds the search-result entry currently driving the dashboard.
+  // liveRecords holds the four agent payloads for that entry. Both null = empty state.
+  const [activeCompany, setActiveCompany] = useState(() => {
+    const initial = loadRecentCompanies();
+    return initial[0] ? entryToRemote(initial[0]) : null;
+  });
+  const [liveRecords, setLiveRecords] = useState(() => {
+    const initial = loadRecentCompanies();
+    return initial[0]?.liveRecords || null;
+  });
   const [dateRange, setDateRange] = useState("12");
   const [activeView, setActiveView] = useState("dashboard");
   const [drawerState, setDrawerState] = useState({ isOpen: false, record: null, type: "appointments" });
-  const [liveRecords, setLiveRecords] = useState(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const [remoteCompany, setRemoteCompany] = useState(null);
 
-  const selectedCompany = companyData[selectedCompanyId];
-  const liveCompany = buildLiveCompany({
-    remoteCompany,
-    liveRecords,
-    fallback: selectedCompany,
-  });
-  const effectiveCompany = liveCompany || selectedCompany;
-  const snapshot = buildDashboardSnapshot(effectiveCompany, dateRange);
-  const displayCompany = effectiveCompany;
+  const liveCompany = useMemo(
+    () => buildLiveCompany({ remoteCompany: activeCompany, liveRecords }),
+    [activeCompany, liveRecords],
+  );
+  const snapshot = liveCompany ? buildDashboardSnapshot(liveCompany, dateRange) : null;
+  const displayCompany = liveCompany;
 
-  async function runRefresh(context) {
-    if (isRefreshing) return;
+  async function runRefresh(entry) {
+    if (isRefreshing || !entry) return;
     setIsRefreshing(true);
+    setActiveCompany(entry);
     try {
-      const result = await fetchAllLiveRecords(context || {});
+      const result = await fetchAllLiveRecords({
+        ticker: entry.ticker,
+        companyName: entry.name,
+        country: entry.country,
+      });
       setLiveRecords(result);
+      setRecentCompanies((current) =>
+        upsertRecentCompany(current, {
+          ticker: entry.ticker,
+          name: entry.name,
+          country: entry.country,
+          industry: entry.industry || "",
+          fetchedAt: new Date().toISOString(),
+          liveRecords: result,
+        }),
+      );
     } catch (error) {
       console.error("Refresh failed:", error);
     } finally {
@@ -122,31 +177,32 @@ export default function App() {
   }
 
   function handleRefresh() {
-    runRefresh(
-      remoteCompany
-        ? {
-            ticker: remoteCompany.ticker,
-            companyName: remoteCompany.name,
-            country: remoteCompany.country,
-          }
-        : undefined,
-    );
+    if (activeCompany) runRefresh(activeCompany);
   }
 
   function handleRemoteCompanySelect(entry) {
-    setRemoteCompany(entry);
     setDrawerState({ isOpen: false, record: null, type: "appointments" });
-    runRefresh({
-      ticker: entry.ticker,
-      companyName: entry.name,
-      country: entry.country,
-    });
+    runRefresh(entry);
   }
 
-  function handleCompanySelect(companyId) {
-    startTransition(() => {
-      setSelectedCompanyId(companyId);
-      setDrawerState({ isOpen: false, record: null, type: "appointments" });
+  function handleSelectRecent(stored) {
+    setDrawerState({ isOpen: false, record: null, type: "appointments" });
+    setActiveCompany(entryToRemote(stored));
+    setLiveRecords(stored.liveRecords || null);
+    setActiveView("dashboard");
+    // Bump LRU order so this becomes the most-recent again.
+    setRecentCompanies((current) => upsertRecentCompany(current, stored));
+  }
+
+  function handleRemoveRecent(ticker) {
+    setRecentCompanies((current) => {
+      const next = removeRecentCompany(current, ticker);
+      if (activeCompany?.ticker?.toUpperCase() === ticker.toUpperCase()) {
+        const fallback = next[0];
+        setActiveCompany(fallback ? entryToRemote(fallback) : null);
+        setLiveRecords(fallback?.liveRecords || null);
+      }
+      return next;
     });
   }
 
@@ -158,7 +214,8 @@ export default function App() {
   }
 
   function handleExport(reportName = "leadership-report") {
-    const payload = createExportPayload(effectiveCompany, snapshot, dateRange);
+    if (!displayCompany || !snapshot) return;
+    const payload = createExportPayload(displayCompany, snapshot, dateRange);
     const blob = new Blob([JSON.stringify(payload, null, 2)], {
       type: "application/json",
     });
@@ -521,46 +578,161 @@ export default function App() {
   }
 
   function renderCompaniesView() {
+    if (!recentCompanies.length) {
+      return renderEmptyCompanies();
+    }
+
     return (
-      <section className="surface grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {companies.map((company) => {
-          const isActive = selectedCompany.id === company.id;
-          return (
-            <button
-              key={company.id}
-              className={`glass relative overflow-hidden p-5 text-left transition hover:-translate-y-1 ${
-                isActive ? "ring-2 ring-brand-indigo/40" : ""
-              }`}
-              onClick={() => handleCompanySelect(company.id)}
-              type="button"
-            >
-              {isActive && (
-                <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-gradient-brand px-2.5 py-1 text-[10px] font-semibold text-white shadow-glow">
-                  <Sparkles className="h-3 w-3" /> Selected
-                </span>
-              )}
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h2 className="text-lg font-semibold tracking-tight text-slate-900">{company.name}</h2>
-                  <p className="mt-1 text-sm text-slate-500">{company.sector}</p>
-                </div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow">
-                  <Building2 className="h-5 w-5" />
+      <section className="surface">
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+              Recent Companies
+            </h2>
+            <p className="mt-1 text-sm text-slate-500">
+              Last {recentCompanies.length} {recentCompanies.length === 1 ? "company" : "companies"} you analysed.
+              Stored in this browser only. Click a card to load the cached snapshot; refresh to re-run the agents.
+            </p>
+          </div>
+          <span className="rounded-full border border-white/60 bg-white/55 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 backdrop-blur">
+            {recentCompanies.length} / 5 stored locally
+          </span>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {recentCompanies.map((stored) => {
+            const isActive =
+              activeCompany?.ticker?.toUpperCase() === stored.ticker?.toUpperCase();
+            const counts = countsFromLiveRecords(stored.liveRecords);
+            return (
+              <div
+                key={stored.ticker}
+                className={`glass relative overflow-hidden p-5 transition ${
+                  isActive ? "ring-2 ring-brand-indigo/40" : ""
+                }`}
+              >
+                {isActive && (
+                  <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-gradient-brand px-2.5 py-1 text-[10px] font-semibold text-white shadow-glow">
+                    <Sparkles className="h-3 w-3" /> Active
+                  </span>
+                )}
+                <button
+                  type="button"
+                  onClick={() => handleSelectRecent(stored)}
+                  className="block w-full text-left"
+                >
+                  <div className="flex items-start justify-between gap-3 pr-16">
+                    <div className="min-w-0">
+                      <h3 className="truncate text-lg font-semibold tracking-tight text-slate-900">
+                        {stored.name}
+                      </h3>
+                      <p className="mt-1 truncate text-sm text-slate-500">
+                        {stored.industry || stored.country || "—"}
+                      </p>
+                    </div>
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow">
+                      <Building2 className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className="inline-flex items-center rounded-md bg-indigo-50 px-2 py-0.5 text-[11px] font-semibold text-indigo-700">
+                      {stored.ticker}
+                    </span>
+                    <span className="text-[11px] text-slate-500">
+                      Refreshed {formatRelative(stored.fetchedAt)}
+                    </span>
+                  </div>
+
+                  <div className="mt-4 grid grid-cols-4 gap-2">
+                    {[
+                      { label: "Appts", value: counts.appointments, tone: "from-emerald-500 to-teal-500" },
+                      { label: "Resig", value: counts.resignations, tone: "from-amber-500 to-rose-500" },
+                      { label: "Term", value: counts.terminations, tone: "from-rose-500 to-pink-500" },
+                      { label: "Retire", value: counts.retirements, tone: "from-sky-500 to-indigo-500" },
+                    ].map((tile) => (
+                      <div
+                        key={tile.label}
+                        className="rounded-xl border border-white/60 bg-white/40 px-2 py-2 text-center backdrop-blur"
+                      >
+                        <p
+                          className={`bg-gradient-to-r ${tile.tone} bg-clip-text text-lg font-semibold text-transparent`}
+                        >
+                          {tile.value}
+                        </p>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                          {tile.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </button>
+
+                <div className="mt-4 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    onClick={() => runRefresh(entryToRemote(stored))}
+                    disabled={isRefreshing}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/60 bg-white/55 px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    <RefreshCw className={`h-3.5 w-3.5 ${isRefreshing && isActive ? "animate-spin" : ""}`} />
+                    Refresh
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveRecent(stored.ticker)}
+                    aria-label={`Remove ${stored.name} from recents`}
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-xl text-slate-400 transition hover:bg-rose-50 hover:text-rose-600"
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                  </button>
                 </div>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/60 bg-white/40 px-4 py-3 backdrop-blur">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Head Office</p>
-                  <p className="mt-1.5 text-sm font-semibold text-slate-900">{company.headquarters}</p>
-                </div>
-                <div className="rounded-2xl border border-white/60 bg-white/40 px-4 py-3 backdrop-blur">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Active KMP</p>
-                  <p className="mt-1.5 text-sm font-semibold text-slate-900">{company.activeEmployees}</p>
-                </div>
-              </div>
-            </button>
-          );
-        })}
+            );
+          })}
+        </div>
+      </section>
+    );
+  }
+
+  function renderEmptyCompanies() {
+    return (
+      <section className="surface">
+        <div className="glass flex flex-col items-center gap-4 p-12 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow">
+            <Building2 className="h-6 w-6" />
+          </div>
+          <div className="max-w-md">
+            <h2 className="text-xl font-semibold tracking-tight text-slate-900">
+              No companies yet
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Search a real listed company in the header above and we'll run the four KMP agents
+              for you. The result lives in your browser; the last five companies show up here.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  function renderEmptyDashboard() {
+    return (
+      <section className="surface">
+        <div className="glass flex flex-col items-center gap-4 p-12 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow">
+            <Search className="h-6 w-6" />
+          </div>
+          <div className="max-w-md">
+            <h2 className="text-xl font-semibold tracking-tight text-slate-900">
+              Pick a company to begin
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Search a real listed company in the header above. We'll fetch its KMP appointments,
+              resignations, terminations and retirements — takes about 3 minutes the first time.
+            </p>
+          </div>
+        </div>
       </section>
     );
   }
@@ -670,12 +842,17 @@ export default function App() {
   }
 
   function renderContent() {
-    if (activeView === "dashboard") {
-      return renderDashboardView();
-    }
-
+    // Companies tab is the only view that's meaningful with no active company.
     if (activeView === "companies") {
       return renderCompaniesView();
+    }
+
+    if (!displayCompany || !snapshot) {
+      return renderEmptyDashboard();
+    }
+
+    if (activeView === "dashboard") {
+      return renderDashboardView();
     }
 
     if (activeView === "analytics") {
@@ -700,18 +877,18 @@ export default function App() {
         <Sidebar activeView={activeView} onNavigate={handleNavigate} />
         <main className="surface min-w-0 flex-1 px-4 py-4 md:px-6 lg:px-8">
           <Header
-            selectedRemoteCompany={remoteCompany}
+            selectedRemoteCompany={activeCompany}
             onRemoteCompanySelect={handleRemoteCompanySelect}
             dateRange={dateRange}
             onDateRangeChange={handleRangeChange}
-            onRefresh={handleRefresh}
+            onRefresh={activeCompany ? handleRefresh : null}
             isRefreshing={isRefreshing}
           />
 
           {isRefreshing ? (
             <LoadingAnalysis
-              companyName={remoteCompany?.name || displayCompany.name}
-              ticker={remoteCompany?.ticker}
+              companyName={activeCompany?.name}
+              ticker={activeCompany?.ticker}
             />
           ) : (
             renderContent()
