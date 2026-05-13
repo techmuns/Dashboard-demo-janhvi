@@ -20,6 +20,7 @@ import AnalyticsChart from "./components/AnalyticsChart";
 import AnalysisCard from "./components/AnalysisCard";
 import EmployeeTable from "./components/EmployeeTable";
 import EmployeeDetailDrawer from "./components/EmployeeDetailDrawer";
+import LoadingAnalysis from "./components/LoadingAnalysis";
 import { buildLiveCompany, fetchAllLiveRecords } from "./lib/liveCompany";
 import { companies, companyData } from "./data/mockData";
 import {
@@ -707,7 +708,14 @@ export default function App() {
             isRefreshing={isRefreshing}
           />
 
-          {renderContent()}
+          {isRefreshing ? (
+            <LoadingAnalysis
+              companyName={remoteCompany?.name || displayCompany.name}
+              ticker={remoteCompany?.ticker}
+            />
+          ) : (
+            renderContent()
+          )}
         </main>
       </div>
 
