@@ -1,6 +1,9 @@
 # Munshot Leadership Workforce Dashboard
 
-A polished HR and company management dashboard UI built with React, Vite, Tailwind CSS, Recharts, and Lucide React. The interface is designed for HR, management, and operations teams to monitor leadership lifecycle records across multiple companies using realistic mock data.
+A live HR / management dashboard that fetches Key Managerial Personnel (KMP)
+movements — appointments, resignations, terminations and retirements — for
+any real listed company, on demand, via the MUNS agent API. Built with React,
+Vite, Tailwind CSS, Recharts and Lucide React.
 
 ## Getting Started
 
@@ -38,39 +41,44 @@ npm run preview
     │   ├── CompanySearch.jsx
     │   ├── EmployeeDetailDrawer.jsx
     │   ├── EmployeeTable.jsx
-    │   ├── EmployeeTabs.jsx
     │   ├── Header.jsx
     │   ├── KPICard.jsx
+    │   ├── LoadingAnalysis.jsx
     │   ├── Sidebar.jsx
     │   └── StatusBadge.jsx
-    ├── data
-    │   └── mockData.js
+    ├── lib
+    │   ├── agentConfig.js          // MUNS token + agent UUIDs
+    │   ├── birdnest.js             // ticker / company search
+    │   ├── liveCompany.js          // assembles a dashboard-shaped company from agent output
+    │   ├── munsAgent.js            // /agents/run client
+    │   ├── munsParse.js            // <ans> markdown-table parser
+    │   ├── munsToKmpRows.js
+    │   ├── munsToRecords.js        // fetches all 4 KMP agents in parallel
+    │   └── recentCompanies.js      // last-5 LRU cache in localStorage
     └── utils
         └── dashboard.js
 ```
 
-## Features
+## How it works
 
-- Company selector with mock company switching
-- Leadership KPI cards with month-over-month comparison text
-- Recharts analytics for movement, status, functions, and attrition
-- Four lifecycle tabs: appointments, terminations, resignations, retirements
-- Search, department filter, location filter, chronological sorting, pagination, and empty states
-- Leadership detail drawer with timeline and notes
-- Dedicated leadership analysis section with professional management insights
+1. Search a real listed company in the header — backed by the Birdnest
+   stock-search endpoint.
+2. The dashboard fans out four MUNS agents in parallel (appointments,
+   resignations, terminations, retirements). Combined runtime is ~3 minutes,
+   during which a progress overlay (`LoadingAnalysis`) keeps the tab live.
+3. The parsed result drives the KPI cards, charts, employee tables and analysis
+   cards directly — there is no mock data anywhere in the app.
+4. The company plus its full result is cached in `localStorage` as a
+   most-recently-used list of the last five companies. The **Companies** tab
+   shows that list. Clicking a card reloads the cached snapshot instantly;
+   the **Refresh** button on the card re-runs the agents.
 
-## Mock Data
+The bearer token used by both endpoints is a single hardcoded export at
+`src/lib/agentConfig.js` — swap it there when it expires.
 
-Mock data is stored in [`src/data/mockData.js`](./src/data/mockData.js). It includes leadership-only records for:
+## GitHub Action
 
-- Key managerial personnel
-- Board-level executives
-- CXOs and senior leadership
-- Company secretary, compliance, finance, and governance roles
-
-- 5 companies
-- 8 appointment records per company
-- 8 resignation records per company
-- 8 termination records per company
-- 8 retirement records per company
-- department and month-level analytics derived from those records
+`.github/workflows/munshot-fetch-all.yml` captures the raw responses for one
+hardcoded company (currently JIOFIN) and commits them under `munshot-outputs/`.
+Used only as a parser / sample-data source during development; the dashboard
+runtime hits MUNS directly from the browser.

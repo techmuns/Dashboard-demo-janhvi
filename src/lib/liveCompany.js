@@ -2,7 +2,7 @@ import { fetchAllLiveRecords } from "./munsToRecords";
 
 export { fetchAllLiveRecords };
 
-export function buildLiveCompany({ remoteCompany, liveRecords, fallback }) {
+export function buildLiveCompany({ remoteCompany, liveRecords }) {
   if (!remoteCompany) return null;
 
   const apps = liveRecords?.appointments?.records || [];
@@ -18,12 +18,12 @@ export function buildLiveCompany({ remoteCompany, liveRecords, fallback }) {
   return {
     id: `live-${remoteCompany.ticker}`,
     name: remoteCompany.name,
-    sector: remoteCompany.industry || fallback?.sector || "—",
-    headquarters: remoteCompany.country || fallback?.headquarters || "—",
+    sector: remoteCompany.industry || "—",
+    headquarters: remoteCompany.country || "—",
     totalEmployees,
     previousHeadcount: totalEmployees,
     activeEmployees,
-    accent: fallback?.accent || "brand.blue",
+    accent: "brand.blue",
     baselines: {
       appointments: 0,
       resignations: 0,
