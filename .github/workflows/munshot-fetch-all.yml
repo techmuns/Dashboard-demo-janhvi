@@ -1,20 +1,16 @@
 name: munshot-fetch-all
 
+# One-shot capture of all 4 KMP agent outputs for a single real listed
+# company. Overwrites the existing files under munshot-outputs/.
+# Change TICKER / COMPANY / COUNTRY below if you want a different company.
+
 on:
   workflow_dispatch:
-    inputs:
-      ticker:
-        description: Stock ticker
-        required: false
-        default: JIOFIN
-      company_name:
-        description: Stock company name
-        required: false
-        default: Jio Financial Services Ltd.
-      country:
-        description: Stock country
-        required: false
-        default: INDIA
+
+env:
+  TICKER: JIOFIN
+  COMPANY: Jio Financial Services Ltd.
+  COUNTRY: INDIA
 
 jobs:
   fetch:
@@ -39,10 +35,8 @@ jobs:
       - name: Capture ${{ matrix.kind }} agent
         env:
           MUNS_TOKEN: ${{ secrets.MUNS_TOKEN }}
-          TICKER: ${{ github.event.inputs.ticker }}
-          COMPANY: ${{ github.event.inputs.company_name }}
-          COUNTRY: ${{ github.event.inputs.country }}
         run: |
+          set -euo pipefail
           mkdir -p munshot-outputs
           TO_DATE="$(date -u +%Y-%m-%d)"
           OUTFILE="munshot-outputs/agent-${{ matrix.kind }}-${{ matrix.uuid }}.txt"
@@ -63,10 +57,26 @@ jobs:
                 timezone: "UTC"
               }
             }' > /tmp/payload.json
-          curl -i -sS -X POST https://devde.muns.io/agents/run \
+
+          HTTP_CODE=$(curl -sS -o "$OUTFILE.body" -D "$OUTFILE.headers" -w '%{http_code}' \
+            -X POST https://devde.muns.io/agents/run \
             -H "Authorization: Bearer ${MUNS_TOKEN}" \
             -H "Content-Type: application/json" \
-            --data @/tmp/payload.json > "$OUTFILE"
+            --data @/tmp/payload.json)
+
+          cat "$OUTFILE.headers" "$OUTFILE.body" > "$OUTFILE"
+          rm -f "$OUTFILE.headers" "$OUTFILE.body"
+
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::MUNS returned HTTP $HTTP_CODE for ${{ matrix.kind }}"
+            cat "$OUTFILE"
+            exit 1
+          fi
+          if ! grep -q '<ans>' "$OUTFILE"; then
+            echo "::error::No <ans> block in response for ${{ matrix.kind }}"
+            cat "$OUTFILE"
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -89,7 +99,10 @@ jobs:
           merge-multiple: true
 
       - name: Commit and push
+        env:
+          TICKER: JIOFIN
         run: |
+          set -euo pipefail
           ls -la munshot-outputs/
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -99,15 +112,15 @@ jobs:
             exit 0
           fi
           BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-          git commit -m "munshot: capture all 4 KMP agent samples"
-          for attempt in 1 2 3; do
+          git commit -m "munshot: refresh ${TICKER} KMP agent samples"
+          for attempt in 1 2 3 4; do
             git fetch origin "$BRANCH"
             git rebase "origin/$BRANCH" || git rebase --abort
             if git push origin "HEAD:$BRANCH"; then
               exit 0
             fi
             echo "Push attempt $attempt failed; retrying..."
-            sleep 2
+            sleep $((2 ** attempt))
           done
           echo "All push attempts failed." >&2
           exit 1
