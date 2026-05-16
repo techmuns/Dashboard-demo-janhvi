@@ -1,8 +1,8 @@
 // Single replaceable spot for the MUNS bearer token + agent wiring.
-// Token is injected at build time from VITE_MUNS_TOKEN (Cloudflare Pages
+// Token is injected at build time from MUNS_ACCESS_TOKEN (Cloudflare Pages
 // env var / local .env). Never commit the token value.
 
-export const MUNS_TOKEN = import.meta.env.VITE_MUNS_TOKEN;
+export const MUNS_TOKEN = import.meta.env.MUNS_ACCESS_TOKEN;
 
 export const MUNS_AGENT_ENDPOINT = "https://devde.muns.io/agents/run";
 
