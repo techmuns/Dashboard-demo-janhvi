@@ -1,10 +1,12 @@
 // Single replaceable spot for the MUNS bearer token + agent wiring.
-// Swap MUNS_TOKEN here when it expires.
+// Token is injected at build time from MUNS_ACCESS_TOKEN (Cloudflare Pages
+// env var / local .env). Never commit the token value.
 
-export const MUNS_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZWE5ZGMyYi0xZDBmLTQ2MzctOGE2Ny0wM2VhNzFmMGYyY2YiLCJlbWFpbCI6Im5hZGFtc2FsdWphQGdtYWlsLmNvbSIsIm9yZ0lkIjoiMSIsImF1dGhvcml0eSI6ImFkbWluIiwiaWF0IjoxNzc4NDM0MDY4LCJleHAiOjE3Nzg4NjYwNjh9.uqQ3uVj2JcwpF3eoaZ2VZ5kMaa2U1Pm47nC9ejHo1rQ";
+export const MUNS_TOKEN = import.meta.env.MUNS_ACCESS_TOKEN;
 
 export const MUNS_AGENT_ENDPOINT = "https://devde.muns.io/agents/run";
+
+export const MUNS_USER_INDEX = 124;
 
 // Backwards-compatible single export still used by older code paths.
 export const KMP_APPOINTMENTS_AGENT_ID = "e570e8dc-f9df-4d7b-bbd0-de58c5c7a49b";
