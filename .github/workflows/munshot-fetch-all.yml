@@ -11,9 +11,8 @@ env:
   TICKER: JIOFIN
   COMPANY: Jio Financial Services Ltd.
   COUNTRY: INDIA
-  # Same consumer-product-style hardcoded token as src/lib/agentConfig.js.
-  # Swap this string when it expires.
-  MUNS_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZWE5ZGMyYi0xZDBmLTQ2MzctOGE2Ny0wM2VhNzFmMGYyY2YiLCJlbWFpbCI6Im5hZGFtc2FsdWphQGdtYWlsLmNvbSIsIm9yZ0lkIjoiMSIsImF1dGhvcml0eSI6ImFkbWluIiwiaWF0IjoxNzc4NDM0MDY4LCJleHAiOjE3Nzg4NjYwNjh9.uqQ3uVj2JcwpF3eoaZ2VZ5kMaa2U1Pm47nC9ejHo1rQ
+  USER_INDEX: "124"
+  MUNS_TOKEN: ${{ secrets.MUNS_TOKEN }}
 
 jobs:
   fetch:
@@ -50,11 +49,13 @@ jobs:
 
           jq -n \
             --arg uuid "${{ matrix.uuid }}" \
+            --argjson user_index "$USER_INDEX" \
             --arg ticker "$TICKER" \
             --arg company "$COMPANY" \
             --arg country "$COUNTRY" \
             --arg to_date "$TO_DATE" \
             '{
+              user_index: $user_index,
               agent_library_id: $uuid,
               metadata: {
                 stock_ticker: $ticker,

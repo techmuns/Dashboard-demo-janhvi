@@ -1,6 +1,7 @@
 import {
   MUNS_TOKEN,
   MUNS_AGENT_ENDPOINT,
+  MUNS_USER_INDEX,
   KMP_AGENTS,
   KMP_APPOINTMENTS_AGENT_ID,
   DEFAULT_AGENT_METADATA,
@@ -26,6 +27,7 @@ export async function runMunsAgent({ agentId, ticker, companyName, country, toDa
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      user_index: MUNS_USER_INDEX,
       agent_library_id: agentId,
       metadata,
     }),
