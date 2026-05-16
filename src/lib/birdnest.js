@@ -1,6 +1,6 @@
-import { MUNS_TOKEN } from "./agentConfig";
+import { MUNS_TOKEN, MUNS_USER_INDEX } from "./agentConfig";
 
-const BIRDNEST_SEARCH_URL = "https://birdnest.muns.io/stock/search";
+const MUNS_STOCK_SEARCH_URL = "https://devde.muns.io/stock/search";
 
 export function mapBirdnestEntry(ticker, value) {
   const [country, name, industry] = Array.isArray(value) ? value : [];
@@ -16,13 +16,13 @@ export async function searchStocks(query) {
   const trimmed = (query || "").trim();
   if (!trimmed) return [];
 
-  const response = await fetch(BIRDNEST_SEARCH_URL, {
+  const response = await fetch(MUNS_STOCK_SEARCH_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${MUNS_TOKEN}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ query: trimmed }),
+    body: JSON.stringify({ user_index: MUNS_USER_INDEX, query: trimmed }),
   });
 
   if (!response.ok) {
