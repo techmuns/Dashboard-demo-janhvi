@@ -385,11 +385,35 @@ _DESIGNATION_TOKENS = {
     "Chairwoman", "President", "Vice", "Head", "Compliance", "Financial",
     "Operating", "Technology", "Human", "Information", "Risk", "General",
     "Senior", "Joint", "Deputy", "Additional", "Non-Executive", "Non",
+    "Part-Time", "Part", "Time", "Full-Time", "Full", "Acting", "Interim",
+    "Lead", "Co-CEO", "Co-Chairman",
     # Bare role acronyms — frequently leak into the name slot from headlines
     # like "CEO Nayak retires".
     "CEO", "CFO", "COO", "CTO", "CHRO", "CIO", "CRO", "MD", "WTD", "ED",
     "Sr", "Jr",
 }
+
+# Common English headline words that get title-cased and impersonate names.
+_COMMON_WORD_TOKENS = {
+    "In", "Over", "Due", "Course", "Differences", "Ethical", "After",
+    "Notice", "Move", "Major", "New", "Latest", "Big", "Top", "Best",
+    "Report", "Update", "Following", "Before", "During", "Amid", "Despite",
+    "Without", "With", "And", "Or", "But", "For", "From", "To", "Of",
+    "On", "At", "By", "Up", "Down", "Out", "Off", "If", "Why", "How",
+    "When", "Where", "What", "Who", "Which", "While", "Whereas", "Such",
+    "These", "Those", "This", "That", "All", "Some", "Any", "More", "Most",
+    "Less", "Few", "Many", "Several", "Other", "Another", "Next", "Last",
+    "First", "Second", "Third", "Final", "Total", "Net", "Gross",
+    "Resignation", "Appointment", "Retirement", "Termination", "Removal",
+    "Cessation", "Reappointment",
+}
+
+
+def _has_common_first_token(candidate: str) -> bool:
+    tokens = candidate.split()
+    if not tokens:
+        return False
+    return tokens[0] in _COMMON_WORD_TOKENS
 
 
 def _candidate_is_clean(candidate: str) -> bool:
@@ -397,6 +421,8 @@ def _candidate_is_clean(candidate: str) -> bool:
     if len(tokens) < 2:
         return False
     if tokens[0] in _NOISE_WORDS or tokens[0] in _DESIGNATION_TOKENS:
+        return False
+    if tokens[0] in _COMMON_WORD_TOKENS:
         return False
     lowered = candidate.lower()
     if any(bad in lowered for bad in _FORBIDDEN_TOKEN_SUBSTRINGS):
@@ -410,6 +436,11 @@ def _candidate_is_clean(candidate: str) -> bool:
             return False
         if tok in _NOISE_WORDS:
             return False
+        if tok in _COMMON_WORD_TOKENS:
+            return False
+    # Reject the "<COMPANY-ACRONYM> MD <Name>" pattern (SBI MD, HDFC MD, etc.)
+    if len(tokens) >= 3 and tokens[0].isupper() and 2 <= len(tokens[0]) <= 5:
+        return False
     return True
 
 
@@ -417,12 +448,21 @@ def extract_person(text: str) -> str:
     text_clean = re.sub(r"\s+", " ", text)
     # Strip possessive prefixes like "Flipkart's" / "Infosys'".
     text_clean = re.sub(r"\b[A-Z][\w-]*['’]s\s+", "", text_clean)
-    for pattern in _NAME_PATTERNS:
-        for match in pattern.finditer(text_clean):
-            candidate = re.sub(rf"^{_HONORIFIC}", "", match.group(1).strip())
-            candidate = candidate.rstrip(",.;:'")
-            if _candidate_is_clean(candidate):
-                return candidate
+    # Prefer matches that immediately follow an honorific. Two scan passes:
+    # first only accept honorific-preceded names, then accept any clean match.
+    for require_honorific in (True, False):
+        for pattern in _NAME_PATTERNS:
+            for match in pattern.finditer(text_clean):
+                raw = match.group(1).strip()
+                preceded = bool(re.match(rf"^{_HONORIFIC}", raw)) or (
+                    match.start() >= 4 and re.search(
+                        rf"{_HONORIFIC}$", text_clean[: match.start()].rstrip() + " ")
+                )
+                if require_honorific and not preceded:
+                    continue
+                candidate = re.sub(rf"^{_HONORIFIC}", "", raw).rstrip(",.;:'")
+                if _candidate_is_clean(candidate):
+                    return candidate
     return ""
 
 
