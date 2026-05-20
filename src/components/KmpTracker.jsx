@@ -145,10 +145,6 @@ export default function KmpTracker() {
     return annotated.filter((e) => e._confidence_tier !== "needs_review");
   }, [annotated, filters.confidence]);
 
-  const verifiedTotal = useMemo(
-    () => annotated.filter((e) => e._confidence_tier !== "needs_review").length,
-    [annotated],
-  );
   const auditTotal = useMemo(
     () => annotated.filter((e) => e._confidence_tier === "needs_review").length,
     [annotated],
@@ -162,17 +158,6 @@ export default function KmpTracker() {
     return [...map.entries()].sort((a, b) => a[1].localeCompare(b[1]));
   }, [eligibleEvents]);
 
-  // KPI cards always reflect the verified pool, even when the user is
-  // peeking at the audit bucket via the confidence dropdown.
-  const countsByType = useMemo(() => {
-    const acc = {};
-    annotated.forEach((event) => {
-      if (event._confidence_tier === "needs_review") return;
-      acc[event.event_type] = (acc[event.event_type] || 0) + 1;
-    });
-    return acc;
-  }, [annotated]);
-
   const rangeBound = useMemo(() => {
     if (filters.range === "all") return null;
     const days = Number(filters.range);
@@ -182,10 +167,13 @@ export default function KmpTracker() {
     return cutoff;
   }, [filters.range]);
 
-  const filteredEvents = useMemo(() => {
+  // Events the KPI cards count over: the verified pool narrowed by
+  // every non-event-type filter (date range, company, confidence,
+  // search). Excludes the active KPI itself so all six tiles still
+  // reflect what's selectable, not just the current selection.
+  const kpiScope = useMemo(() => {
     const q = filters.query.trim().toLowerCase();
     return eligibleEvents.filter((event) => {
-      if (activeKpi !== "all" && event.event_type !== activeKpi) return false;
       if (filters.company !== "all" && event.ticker !== filters.company) return false;
       if (
         filters.confidence !== "all" &&
@@ -217,7 +205,22 @@ export default function KmpTracker() {
         .toLowerCase();
       return haystack.includes(q);
     });
-  }, [eligibleEvents, filters, activeKpi, rangeBound]);
+  }, [eligibleEvents, filters.company, filters.confidence, filters.query, rangeBound]);
+
+  const verifiedTotal = kpiScope.length;
+
+  const countsByType = useMemo(() => {
+    const acc = {};
+    kpiScope.forEach((event) => {
+      acc[event.event_type] = (acc[event.event_type] || 0) + 1;
+    });
+    return acc;
+  }, [kpiScope]);
+
+  const filteredEvents = useMemo(() => {
+    if (activeKpi === "all") return kpiScope;
+    return kpiScope.filter((event) => event.event_type === activeKpi);
+  }, [kpiScope, activeKpi]);
 
   function toggleKpi(key) {
     setActiveKpi((current) => (current === key ? "all" : key));
