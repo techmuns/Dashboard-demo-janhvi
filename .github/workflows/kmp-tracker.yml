@@ -1,0 +1,112 @@
+name: kmp-tracker
+
+# Pulls KMP movement events from bot-friendly sources (Tijori / Trendlyne /
+# Google + Bing News RSS / optional SerpAPI) and commits the result to this
+# branch as data/kmp-events.json and public/data/kmp-events.json.
+
+on:
+  schedule:
+    # Every 6 hours.
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: "Comma-separated tickers to restrict the run (optional)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Optionally narrow companies for this run
+        if: ${{ github.event.inputs.tickers != '' }}
+        run: |
+          python - <<'PY'
+          import json, os
+          tickers = {t.strip().upper() for t in os.environ["TICKERS"].split(",") if t.strip()}
+          path = "data/companies.json"
+          data = json.load(open(path))
+          data["companies"] = [c for c in data["companies"] if c["ticker"].upper() in tickers]
+          json.dump(data, open(path, "w"), indent=2)
+          print("narrowed to:", [c["ticker"] for c in data["companies"]])
+          PY
+        env:
+          TICKERS: ${{ github.event.inputs.tickers }}
+
+      - name: Fetch KMP events
+        run: python scripts/fetch_kmp_events.py
+
+      - name: Show summary
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open("data/kmp-events.json"))
+          print(f"generated_at: {d['generated_at']}")
+          print(f"companies: {d['company_count']}, events: {d['event_count']}")
+          by_company = {}
+          by_conf = {}
+          for ev in d["events"]:
+              by_company[ev["ticker"]] = by_company.get(ev["ticker"], 0) + 1
+              by_conf[ev["confidence_score"]] = by_conf.get(ev["confidence_score"], 0) + 1
+          print("by_company:", by_company)
+          print("by_confidence:", by_conf)
+          PY
+
+      - name: Restore companies.json (if narrowed)
+        if: ${{ github.event.inputs.tickers != '' }}
+        run: git checkout -- data/companies.json
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kmp-events
+          path: |
+            data/kmp-events.json
+            public/data/kmp-events.json
+          if-no-files-found: warn
+
+      - name: Commit and push
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/kmp-events.json public/data/kmp-events.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          BRANCH="${GITHUB_REF_NAME}"
+          git commit -m "kmp-tracker: refresh events ($(date -u +%Y-%m-%dT%H:%MZ))"
+          for attempt in 1 2 3 4; do
+            git fetch origin "$BRANCH" || true
+            git rebase "origin/$BRANCH" || git rebase --abort || true
+            if git push origin "HEAD:$BRANCH"; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            sleep $((2 ** attempt))
+          done
+          echo "::error::all push attempts failed"
+          exit 1

@@ -1,4 +1,5 @@
 import {
+  Activity,
   BarChart3,
   BriefcaseBusiness,
   Building2,
@@ -10,6 +11,7 @@ import {
 
 export const navigation = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { key: "tracker", label: "KMP Tracker", icon: Activity },
   { key: "companies", label: "Companies", icon: Building2 },
   { key: "appointments", label: "Appointments", icon: UserPlus },
   { key: "resignations", label: "Resignations", icon: ScrollText },
