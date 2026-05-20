@@ -23,6 +23,7 @@ import AnalyticsChart from "./components/AnalyticsChart";
 import AnalysisCard from "./components/AnalysisCard";
 import EmployeeTable from "./components/EmployeeTable";
 import EmployeeDetailDrawer from "./components/EmployeeDetailDrawer";
+import KmpTracker from "./components/KmpTracker";
 import LoadingAnalysis from "./components/LoadingAnalysis";
 import { buildLiveCompany, fetchAllLiveRecords } from "./lib/liveCompany";
 import {
@@ -842,7 +843,13 @@ export default function App() {
   }
 
   function renderContent() {
-    // Companies tab is the only view that's meaningful with no active company.
+    // Tracker is fully driven by the GitHub-Action JSON snapshot,
+    // so it's meaningful even without an active company.
+    if (activeView === "tracker") {
+      return <KmpTracker />;
+    }
+
+    // Companies tab is the only other view that's meaningful with no active company.
     if (activeView === "companies") {
       return renderCompaniesView();
     }
