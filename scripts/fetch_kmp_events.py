@@ -147,6 +147,15 @@ NEWS_DOMAINS = {
     "trendlyne.com":                ("Trendlyne",           "aggregator"),
 }
 
+# Final-row exclusions: even if these have an event match, drop the row.
+# Per the brief: do not add a final dashboard row sourced only from LinkedIn
+# or generic social-media posts.
+SOCIAL_BLOCK_DOMAINS = (
+    "linkedin.com", "x.com", "twitter.com", "facebook.com", "instagram.com",
+    "youtube.com", "reddit.com", "telegram.org", "t.me",
+)
+
+
 OFFICIAL_HINT_TOKENS = (
     "regulation 30", "lodr", "stock exchange", "intimation",
     "intimation to", "bse intimation", "nse intimation", "annexure",
@@ -376,6 +385,10 @@ _DESIGNATION_TOKENS = {
     "Chairwoman", "President", "Vice", "Head", "Compliance", "Financial",
     "Operating", "Technology", "Human", "Information", "Risk", "General",
     "Senior", "Joint", "Deputy", "Additional", "Non-Executive", "Non",
+    # Bare role acronyms — frequently leak into the name slot from headlines
+    # like "CEO Nayak retires".
+    "CEO", "CFO", "COO", "CTO", "CHRO", "CIO", "CRO", "MD", "WTD", "ED",
+    "Sr", "Jr",
 }
 
 
@@ -717,9 +730,13 @@ def fetch_news_events(company: dict) -> list[Event]:
             publisher_name = (entry.get("publisher_name") or "").strip()
             if publisher_url:
                 source_name, source_type = normalize_source(publisher_url)
+                # If the host isn't on the curated news/aggregator allow-list,
+                # don't promote it to "news" just because Google gave us a
+                # publisher name — leave it as "search" so it lands at low
+                # confidence. This keeps HDFC Sky / scanx / TipRanks / etc.
+                # out of the "medium" bucket.
                 if source_type == "search" and publisher_name:
                     source_name = publisher_name
-                    source_type = "news"
             else:
                 resolved = resolve_news_redirect(link) or link
                 source_name, source_type = normalize_source(resolved)
@@ -883,6 +900,9 @@ def dedupe_and_rank(events: Iterable[Event]) -> list[Event]:
     by_key: dict[str, Event] = {}
     for ev in events:
         if not ev.person_name:
+            continue
+        host = urlparse(ev.source_url).netloc.lower()
+        if any(blocked in host for blocked in SOCIAL_BLOCK_DOMAINS):
             continue
         key_date = ev.effective_date or ev.announcement_date or ""
         key = f"{ev.ticker}|{ev.person_name.lower().strip()}|{ev.event_type}|{key_date[:7]}"
