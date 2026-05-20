@@ -16,6 +16,7 @@ import {
   Users,
   UserX,
 } from "lucide-react";
+import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import KPICard from "./components/KPICard";
 import AnalyticsChart from "./components/AnalyticsChart";
@@ -880,6 +881,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen text-slate-900">
       <div className="relative flex min-h-screen">
+        <Sidebar activeView={activeView} onNavigate={handleNavigate} />
         <main className="surface min-w-0 flex-1 px-4 py-4 md:px-6 lg:px-8">
           <Header
             selectedRemoteCompany={activeCompany}
