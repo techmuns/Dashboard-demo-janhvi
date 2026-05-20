@@ -1,36 +1,84 @@
 import { useEffect, useMemo, useState } from "react";
 import {
-  ArrowUpRight,
+  ChevronRight,
   ExternalLink,
-  Filter,
+  Layers,
   RefreshCw,
+  Search,
   ShieldCheck,
   ShieldAlert,
   ShieldQuestion,
-  Search,
-  Sparkles,
+  X,
 } from "lucide-react";
+import { annotateEvents } from "../utils/kmpQuality";
 
-const EVENT_TYPE_TONE = {
-  appointment:   "border-emerald-200/70 bg-emerald-50/80 text-emerald-700",
-  reappointment: "border-teal-200/70 bg-teal-50/80 text-teal-700",
-  resignation:   "border-amber-200/70 bg-amber-50/80 text-amber-700",
-  termination:   "border-rose-200/70 bg-rose-50/80 text-rose-700",
-  retirement:    "border-sky-200/70 bg-sky-50/80 text-sky-700",
-};
+// Sober, low-contrast event tones (used by row pills and KPI card accents).
+const EVENT_TYPES = [
+  {
+    key: "appointment",
+    label: "Appointments",
+    short: "Appointment",
+    pill: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    dot: "bg-emerald-400",
+    accent: "from-emerald-200/70 to-emerald-50/40",
+    border: "border-emerald-200/60",
+  },
+  {
+    key: "reappointment",
+    label: "Reappointments",
+    short: "Reappointment",
+    pill: "border-sky-200 bg-sky-50 text-sky-700",
+    dot: "bg-sky-400",
+    accent: "from-sky-200/70 to-sky-50/40",
+    border: "border-sky-200/60",
+  },
+  {
+    key: "resignation",
+    label: "Resignations",
+    short: "Resignation",
+    pill: "border-amber-200 bg-amber-50 text-amber-700",
+    dot: "bg-amber-400",
+    accent: "from-amber-200/70 to-amber-50/40",
+    border: "border-amber-200/60",
+  },
+  {
+    key: "termination",
+    label: "Terminations",
+    short: "Termination",
+    pill: "border-rose-200 bg-rose-50 text-rose-700",
+    dot: "bg-rose-400",
+    accent: "from-rose-200/70 to-rose-50/40",
+    border: "border-rose-200/60",
+  },
+  {
+    key: "retirement",
+    label: "Retirements",
+    short: "Retirement",
+    pill: "border-violet-200 bg-violet-50 text-violet-700",
+    dot: "bg-violet-400",
+    accent: "from-violet-200/70 to-violet-50/40",
+    border: "border-violet-200/60",
+  },
+];
 
-const EVENT_TYPE_ACCENT = {
-  appointment:   "bg-gradient-mint",
-  reappointment: "bg-gradient-cool",
-  resignation:   "bg-gradient-warm",
-  termination:   "bg-gradient-warm",
-  retirement:    "bg-gradient-brand",
-};
+const EVENT_TYPE_MAP = Object.fromEntries(EVENT_TYPES.map((t) => [t.key, t]));
 
 const CONFIDENCE_META = {
-  high:   { tone: "border-emerald-200/70 bg-emerald-50/80 text-emerald-700", Icon: ShieldCheck,    label: "High" },
-  medium: { tone: "border-amber-200/70 bg-amber-50/80 text-amber-700",       Icon: ShieldAlert,    label: "Medium" },
-  low:    { tone: "border-slate-200/70 bg-white/70 text-slate-600",          Icon: ShieldQuestion, label: "Low" },
+  high: {
+    label: "High",
+    pill: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    Icon: ShieldCheck,
+  },
+  medium: {
+    label: "Medium",
+    pill: "border-amber-200 bg-amber-50 text-amber-700",
+    Icon: ShieldAlert,
+  },
+  needs_review: {
+    label: "Needs review",
+    pill: "border-slate-200 bg-slate-50 text-slate-600",
+    Icon: ShieldQuestion,
+  },
 };
 
 function formatDate(iso) {
@@ -54,26 +102,21 @@ function formatGeneratedAt(iso) {
   }).format(date);
 }
 
-function getInitials(name) {
-  if (!name) return "—";
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() || "")
-    .join("");
-}
-
-export default function KmpTracker() {
+// mode="main" shows verified events (high + medium).
+// mode="audit" shows the "needs review" bucket — invalid names, weak sources,
+// or low parsing confidence. Used by the Sources / Audit sidebar entry.
+export default function KmpTracker({ mode = "main" }) {
   const [data, setData] = useState(null);
   const [loadError, setLoadError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeKpi, setActiveKpi] = useState("all");
   const [filters, setFilters] = useState({
     query: "",
     company: "all",
-    eventType: "all",
     confidence: "all",
+    range: "all",
   });
+  const [activeEvent, setActiveEvent] = useState(null);
 
   async function load() {
     setIsLoading(true);
@@ -94,48 +137,100 @@ export default function KmpTracker() {
     load();
   }, []);
 
-  const events = data?.events || [];
+  const annotated = useMemo(() => annotateEvents(data?.events || []), [data]);
+
+  // Bucket events for the two modes.
+  const eligibleEvents = useMemo(() => {
+    if (mode === "audit") {
+      return annotated.filter((e) => e._confidence_tier === "needs_review");
+    }
+    return annotated.filter((e) => e._confidence_tier !== "needs_review");
+  }, [annotated, mode]);
 
   const companyOptions = useMemo(() => {
     const map = new Map();
-    events.forEach((event) => {
+    eligibleEvents.forEach((event) => {
       if (!map.has(event.ticker)) map.set(event.ticker, event.company_name);
     });
     return [...map.entries()].sort((a, b) => a[1].localeCompare(b[1]));
-  }, [events]);
+  }, [eligibleEvents]);
+
+  // Counts by event type — what the KPI cards show.
+  const countsByType = useMemo(() => {
+    const acc = {};
+    eligibleEvents.forEach((event) => {
+      acc[event.event_type] = (acc[event.event_type] || 0) + 1;
+    });
+    return acc;
+  }, [eligibleEvents]);
+
+  const rangeBound = useMemo(() => {
+    if (filters.range === "all") return null;
+    const days = Number(filters.range);
+    if (!Number.isFinite(days)) return null;
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    return cutoff;
+  }, [filters.range]);
 
   const filteredEvents = useMemo(() => {
     const q = filters.query.trim().toLowerCase();
-    return events.filter((event) => {
+    return eligibleEvents.filter((event) => {
+      if (activeKpi !== "all" && event.event_type !== activeKpi) return false;
       if (filters.company !== "all" && event.ticker !== filters.company) return false;
-      if (filters.eventType !== "all" && event.event_type !== filters.eventType) return false;
-      if (filters.confidence !== "all" && event.confidence_score !== filters.confidence) return false;
+      if (
+        filters.confidence !== "all" &&
+        event._confidence_tier !== filters.confidence
+      ) {
+        return false;
+      }
+      if (rangeBound) {
+        const dateStr = event.announcement_date || event.effective_date;
+        if (dateStr) {
+          const eventDate = new Date(dateStr);
+          if (!Number.isNaN(eventDate.getTime()) && eventDate < rangeBound) {
+            return false;
+          }
+        }
+      }
       if (!q) return true;
       const haystack = [
-        event.person_name, event.designation, event.company_name, event.ticker,
-        event.source_name, event.reason_for_change,
-      ].join(" ").toLowerCase();
+        event.person_name,
+        event.designation,
+        event.company_name,
+        event.ticker,
+        event.source_name,
+        event.reason_for_change,
+      ]
+        .join(" ")
+        .toLowerCase();
       return haystack.includes(q);
     });
-  }, [events, filters]);
+  }, [eligibleEvents, filters, activeKpi, rangeBound]);
 
-  const counts = useMemo(() => {
-    return events.reduce(
-      (acc, event) => {
-        acc.byType[event.event_type] = (acc.byType[event.event_type] || 0) + 1;
-        return acc;
-      },
-      { byType: {} },
-    );
-  }, [events]);
+  function toggleKpi(key) {
+    setActiveKpi((current) => (current === key ? "all" : key));
+  }
+
+  function resetFilters() {
+    setActiveKpi("all");
+    setFilters({ query: "", company: "all", confidence: "all", range: "all" });
+  }
 
   function downloadCsv() {
     if (!filteredEvents.length) return;
     const headers = [
-      "company_name", "ticker", "person_name", "designation", "event_type",
-      "effective_date", "announcement_date", "reason_for_change",
-      "brief_profile", "term_of_appointment", "resignation_letter_attached",
-      "source_name", "source_url", "source_type", "confidence_score",
+      "company_name",
+      "ticker",
+      "person_name",
+      "designation",
+      "event_type",
+      "effective_date",
+      "announcement_date",
+      "reason_for_change",
+      "source_name",
+      "source_url",
+      "confidence_tier",
     ];
     const escape = (v) => {
       const str = (v ?? "").toString().replaceAll('"', '""');
@@ -143,47 +238,58 @@ export default function KmpTracker() {
     };
     const lines = [headers.join(",")];
     filteredEvents.forEach((event) => {
-      lines.push(headers.map((h) => escape(event[h])).join(","));
+      const row = {
+        ...event,
+        confidence_tier: event._confidence_tier,
+      };
+      lines.push(headers.map((h) => escape(row[h])).join(","));
     });
     const blob = new Blob([lines.join("\n")], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = `kmp-events-${new Date().toISOString().slice(0, 10)}.csv`;
+    anchor.download = `kmp-${mode}-${new Date().toISOString().slice(0, 10)}.csv`;
     anchor.click();
     URL.revokeObjectURL(url);
   }
 
-  return (
-    <section className="surface space-y-5">
-      <div className="glass relative overflow-hidden p-6">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-brand-violet/30 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-0 h-56 w-56 rounded-full bg-brand-teal/30 blur-3xl" />
+  const totalEligible = eligibleEvents.length;
+  const isAudit = mode === "audit";
 
-        <div className="relative flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+  const title = isAudit
+    ? "Sources & parsing audit"
+    : "Listed-company KMP movements";
+  const subtitle = isAudit
+    ? "Records held back from the main dashboard — invalid person names, weak sources, or low parsing confidence."
+    : "Tracking verified senior-management changes across listed companies.";
+
+  return (
+    <section className="space-y-5">
+      {/* Hero */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/55 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-700 backdrop-blur">
-              <Sparkles className="h-3 w-3 text-brand-indigo" />
-              KMP Change Tracker
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+              <Layers className="h-3 w-3" />
+              {isAudit ? "Audit bucket" : "KMP Tracker"}
             </span>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900">
-              Listed-company KMP movements
+            <h1 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
+              {title}
             </h1>
-            <p className="mt-2 text-xs text-slate-500">
+            <p className="mt-1.5 max-w-2xl text-sm text-slate-500">{subtitle}</p>
+            <p className="mt-3 text-xs text-slate-400">
               Last refreshed{" "}
-              <span className="font-semibold text-slate-700">
+              <span className="font-medium text-slate-600">
                 {formatGeneratedAt(data?.generated_at)}
               </span>
-              {" · "}Tracking{" "}
-              <span className="font-semibold text-slate-700">
+              {" · "}
+              <span className="font-medium text-slate-600">
                 {data?.company_count ?? 0}
               </span>{" "}
               companies
               {" · "}
-              <span className="font-semibold text-slate-700">
-                {data?.event_count ?? 0}
-              </span>{" "}
-              events captured
+              <span className="font-medium text-slate-600">{totalEligible}</span>{" "}
+              verified events
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -191,7 +297,7 @@ export default function KmpTracker() {
               type="button"
               onClick={load}
               disabled={isLoading}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-white/60 bg-white/60 px-3 py-2 text-sm font-semibold text-slate-700 backdrop-blur transition hover:bg-white disabled:opacity-60"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-60"
             >
               <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
               Reload
@@ -200,193 +306,441 @@ export default function KmpTracker() {
               type="button"
               onClick={downloadCsv}
               disabled={!filteredEvents.length}
-              className="btn-gradient px-4 py-2 text-sm disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:opacity-50"
             >
               Export CSV
             </button>
           </div>
         </div>
 
-        <div className="relative mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-          {[
-            ["appointment",   "Appointments",   "bg-gradient-mint"],
-            ["reappointment", "Reappointments", "bg-gradient-cool"],
-            ["resignation",   "Resignations",   "bg-gradient-warm"],
-            ["termination",   "Terminations",   "bg-gradient-warm"],
-            ["retirement",    "Retirements",    "bg-gradient-brand"],
-          ].map(([key, label, accent]) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() =>
-                setFilters((f) => ({ ...f, eventType: f.eventType === key ? "all" : key }))
-              }
-              className={`glass-sm relative overflow-hidden p-3 text-left transition hover:shadow-glass ${
-                filters.eventType === key ? "ring-2 ring-brand-indigo/40" : ""
-              }`}
-            >
-              <div className={`absolute inset-x-0 top-0 h-1 ${accent}`} />
-              <p className="text-2xl font-semibold text-slate-900">{counts.byType[key] || 0}</p>
-              <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                {label}
-              </p>
-            </button>
-          ))}
-        </div>
+        {/* KPI filter cards */}
+        {!isAudit && (
+          <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            <KpiCard
+              label="All events"
+              count={totalEligible}
+              active={activeKpi === "all"}
+              tone="neutral"
+              onClick={() => setActiveKpi("all")}
+            />
+            {EVENT_TYPES.map((type) => (
+              <KpiCard
+                key={type.key}
+                label={type.label}
+                count={countsByType[type.key] || 0}
+                active={activeKpi === type.key}
+                tone={type.key}
+                onClick={() => toggleKpi(type.key)}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
-      <div className="glass p-4">
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="relative flex-1 min-w-[220px]">
+      {/* Search + filters */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-soft">
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="relative flex-1 min-w-[240px]">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
               type="search"
               value={filters.query}
-              onChange={(event) => setFilters((f) => ({ ...f, query: event.target.value }))}
-              placeholder="Search person, designation, source…"
-              className="w-full rounded-xl border border-white/60 bg-white/70 pl-9 pr-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 backdrop-blur focus:border-brand-indigo focus:outline-none focus:ring-2 focus:ring-brand-indigo/40"
+              onChange={(event) =>
+                setFilters((f) => ({ ...f, query: event.target.value }))
+              }
+              placeholder="Search person, company, designation or source"
+              className="w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
             />
           </div>
           <select
             value={filters.company}
-            onChange={(event) => setFilters((f) => ({ ...f, company: event.target.value }))}
-            className="rounded-xl border border-white/60 bg-white/70 px-3 py-2 text-sm text-slate-700 backdrop-blur"
+            onChange={(event) =>
+              setFilters((f) => ({ ...f, company: event.target.value }))
+            }
+            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700"
           >
             <option value="all">All companies</option>
             {companyOptions.map(([ticker, name]) => (
-              <option key={ticker} value={ticker}>{name} ({ticker})</option>
+              <option key={ticker} value={ticker}>
+                {name} ({ticker})
+              </option>
             ))}
           </select>
-          <select
-            value={filters.eventType}
-            onChange={(event) => setFilters((f) => ({ ...f, eventType: event.target.value }))}
-            className="rounded-xl border border-white/60 bg-white/70 px-3 py-2 text-sm text-slate-700 backdrop-blur"
-          >
-            <option value="all">All event types</option>
-            <option value="appointment">Appointment</option>
-            <option value="reappointment">Reappointment</option>
-            <option value="resignation">Resignation</option>
-            <option value="termination">Termination</option>
-            <option value="retirement">Retirement</option>
-          </select>
+          {!isAudit && (
+            <select
+              value={activeKpi}
+              onChange={(event) => setActiveKpi(event.target.value)}
+              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700"
+            >
+              <option value="all">All event types</option>
+              {EVENT_TYPES.map((type) => (
+                <option key={type.key} value={type.key}>
+                  {type.short}
+                </option>
+              ))}
+            </select>
+          )}
           <select
             value={filters.confidence}
-            onChange={(event) => setFilters((f) => ({ ...f, confidence: event.target.value }))}
-            className="rounded-xl border border-white/60 bg-white/70 px-3 py-2 text-sm text-slate-700 backdrop-blur"
+            onChange={(event) =>
+              setFilters((f) => ({ ...f, confidence: event.target.value }))
+            }
+            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700"
           >
             <option value="all">All confidence</option>
             <option value="high">High</option>
             <option value="medium">Medium</option>
-            <option value="low">Low</option>
+            {isAudit && <option value="needs_review">Needs review</option>}
           </select>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-            <Filter className="h-3.5 w-3.5" />
-            {filteredEvents.length} of {events.length}
-          </span>
+          <select
+            value={filters.range}
+            onChange={(event) =>
+              setFilters((f) => ({ ...f, range: event.target.value }))
+            }
+            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700"
+          >
+            <option value="all">All dates</option>
+            <option value="30">Last 30 days</option>
+            <option value="90">Last 90 days</option>
+            <option value="180">Last 6 months</option>
+            <option value="365">Last 12 months</option>
+          </select>
+          <div className="ml-auto flex items-center gap-3 pr-1">
+            <span className="text-xs font-medium text-slate-500">
+              {filteredEvents.length} of {totalEligible}
+            </span>
+            {(activeKpi !== "all" ||
+              filters.query ||
+              filters.company !== "all" ||
+              filters.confidence !== "all" ||
+              filters.range !== "all") && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="text-xs font-medium text-slate-500 underline-offset-2 hover:text-slate-800 hover:underline"
+              >
+                Clear filters
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
+      {/* Body */}
       {loadError ? (
-        <div className="glass p-6 text-sm text-rose-600">Failed to load events: {loadError}</div>
-      ) : !events.length ? (
-        <div className="glass p-10 text-center">
-          <p className="text-base font-semibold text-slate-700">
-            No KMP events fetched yet — run GitHub Action / check source access.
-          </p>
-          <p className="mt-2 text-sm text-slate-500">
-            Trigger Actions → <code className="rounded bg-white/60 px-1.5 py-0.5">kmp-tracker</code> → Run workflow
-            (or push a change under <code>scripts/</code> or <code>data/companies.json</code>)
-            to populate <code>data/kmp-events.json</code>.
-          </p>
+        <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6 text-sm text-rose-700">
+          Failed to load events: {loadError}
         </div>
+      ) : !data ? (
+        <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center text-sm text-slate-500 shadow-soft">
+          Loading events…
+        </div>
+      ) : !totalEligible ? (
+        <EmptyState
+          title={
+            isAudit
+              ? "Nothing in the audit bucket"
+              : "No verified KMP events yet"
+          }
+          body={
+            isAudit
+              ? "Every parsed record passed validation — there's nothing to review right now."
+              : "Run the GitHub Action (kmp-tracker) to refresh data/kmp-events.json."
+          }
+        />
       ) : !filteredEvents.length ? (
-        <div className="glass p-10 text-center text-sm text-slate-500">
-          No events match the current filters.
-        </div>
+        <EmptyState
+          title="No verified KMP events found for this filter."
+          body="Try clearing filters or widening the date range."
+        />
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {filteredEvents.map((event) => {
-            const eventTone = EVENT_TYPE_TONE[event.event_type] || "border-slate-200/70 bg-white/70 text-slate-700";
-            const accent = EVENT_TYPE_ACCENT[event.event_type] || "bg-gradient-brand";
-            const conf = CONFIDENCE_META[event.confidence_score] || CONFIDENCE_META.low;
-            const ConfIcon = conf.Icon;
-            return (
-              <a
-                key={event.id}
-                href={event.source_url}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="glass group relative block overflow-hidden p-5 transition hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-brand-indigo/40"
-              >
-                <div className={`absolute inset-x-0 top-0 h-1 ${accent}`} />
+        <EventTable
+          events={filteredEvents}
+          onSelect={setActiveEvent}
+          isAudit={isAudit}
+        />
+      )}
 
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex min-w-0 items-center gap-3">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-sm font-bold text-white shadow-glow">
-                      {getInitials(event.person_name)}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="truncate text-base font-semibold text-slate-900">
-                        {event.person_name || "—"}
-                      </p>
-                      <p className="mt-0.5 truncate text-xs text-slate-500">
-                        {event.designation || "Role unspecified"}
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    className={`inline-flex shrink-0 items-center rounded-full border px-2.5 py-1 text-[10px] font-semibold capitalize backdrop-blur ${eventTone}`}
-                  >
-                    {event.event_type}
-                  </span>
-                </div>
-
-                <div className="mt-4 grid grid-cols-2 gap-3">
-                  <div className="rounded-xl border border-white/60 bg-white/40 px-3 py-2 backdrop-blur">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">Effective</p>
-                    <p className="mt-0.5 text-xs font-semibold text-slate-800">{formatDate(event.effective_date)}</p>
-                  </div>
-                  <div className="rounded-xl border border-white/60 bg-white/40 px-3 py-2 backdrop-blur">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">Announced</p>
-                    <p className="mt-0.5 text-xs font-semibold text-slate-800">{formatDate(event.announcement_date)}</p>
-                  </div>
-                </div>
-
-                <div className="mt-4 flex items-end justify-between gap-3">
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-slate-800">{event.company_name}</p>
-                    <p className="truncate text-xs text-slate-500">
-                      <span className="inline-flex items-center rounded-md bg-indigo-50 px-1.5 py-0.5 text-[10px] font-semibold text-indigo-700">
-                        {event.ticker}
-                      </span>
-                      <span className="mx-1.5 text-slate-300">·</span>
-                      {event.source_name}
-                    </p>
-                  </div>
-                  <span
-                    className={`inline-flex shrink-0 items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold capitalize backdrop-blur ${conf.tone}`}
-                  >
-                    <ConfIcon className="h-3 w-3" />
-                    {conf.label}
-                  </span>
-                </div>
-
-                <div className="mt-4 flex items-center justify-between border-t border-white/40 pt-3">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-                    {event.source_type}
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-indigo opacity-0 transition group-hover:opacity-100">
-                    View source
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </span>
-                </div>
-
-                <ExternalLink className="absolute right-4 top-4 h-3.5 w-3.5 text-slate-300 transition group-hover:text-brand-indigo" />
-              </a>
-            );
-          })}
-        </div>
+      {activeEvent && (
+        <EventDrawer event={activeEvent} onClose={() => setActiveEvent(null)} />
       )}
     </section>
+  );
+}
+
+function KpiCard({ label, count, active, tone, onClick }) {
+  const meta = EVENT_TYPE_MAP[tone];
+  const isNeutral = tone === "neutral";
+
+  const baseAccent = isNeutral
+    ? "from-slate-100 to-white"
+    : `bg-gradient-to-br ${meta.accent}`;
+  const ringColor = isNeutral
+    ? "ring-slate-300"
+    : meta.key === "appointment"
+    ? "ring-emerald-300"
+    : meta.key === "reappointment"
+    ? "ring-sky-300"
+    : meta.key === "resignation"
+    ? "ring-amber-300"
+    : meta.key === "termination"
+    ? "ring-rose-300"
+    : "ring-violet-300";
+
+  const dotColor = isNeutral ? "bg-slate-400" : meta.dot;
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`group relative overflow-hidden rounded-xl border bg-white p-4 text-left transition hover:border-slate-300 hover:shadow-md ${
+        active
+          ? `border-transparent ring-2 ${ringColor} shadow-md`
+          : "border-slate-200"
+      }`}
+    >
+      <div
+        className={`pointer-events-none absolute inset-0 ${
+          isNeutral ? "bg-gradient-to-br from-slate-50 to-white" : baseAccent
+        } opacity-60`}
+      />
+      <div className="relative">
+        <div className="flex items-center gap-2">
+          <span className={`h-1.5 w-1.5 rounded-full ${dotColor}`} />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+            {label}
+          </span>
+        </div>
+        <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
+          {count}
+        </p>
+        <p className="mt-0.5 text-[11px] text-slate-500">
+          {active ? "Filter active" : "Tap to filter"}
+        </p>
+      </div>
+    </button>
+  );
+}
+
+function EventTable({ events, onSelect, isAudit }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
+      <div className="max-h-[640px] overflow-auto">
+        <table className="min-w-full text-sm">
+          <thead className="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
+            <tr className="border-b border-slate-200 text-left text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <th className="px-4 py-3">Person</th>
+              <th className="px-4 py-3">Company</th>
+              <th className="px-4 py-3">Designation</th>
+              <th className="px-4 py-3">Event</th>
+              <th className="px-4 py-3">Announced</th>
+              <th className="px-4 py-3">Effective</th>
+              <th className="px-4 py-3">Source</th>
+              <th className="px-4 py-3">Confidence</th>
+              <th className="px-4 py-3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {events.map((event) => {
+              const type = EVENT_TYPE_MAP[event.event_type];
+              const conf = CONFIDENCE_META[event._confidence_tier] || CONFIDENCE_META.needs_review;
+              const ConfIcon = conf.Icon;
+              return (
+                <tr
+                  key={event.id}
+                  onClick={() => onSelect(event)}
+                  className="group cursor-pointer border-b border-slate-100 transition hover:bg-slate-50"
+                >
+                  <td className="whitespace-nowrap px-4 py-3 font-medium text-slate-900">
+                    {event.person_name || "—"}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-slate-800">{event.company_name}</span>
+                      <span className="rounded-md border border-slate-200 bg-slate-50 px-1.5 py-0.5 text-[10px] font-semibold text-slate-600">
+                        {event.ticker}
+                      </span>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-slate-600">
+                    {event.designation || "—"}
+                  </td>
+                  <td className="px-4 py-3">
+                    {type ? (
+                      <span
+                        className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[11px] font-medium capitalize ${type.pill}`}
+                      >
+                        <span className={`h-1.5 w-1.5 rounded-full ${type.dot}`} />
+                        {type.short}
+                      </span>
+                    ) : (
+                      <span className="text-slate-400">—</span>
+                    )}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-3 text-slate-600">
+                    {formatDate(event.announcement_date)}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-3 text-slate-600">
+                    {formatDate(event.effective_date)}
+                  </td>
+                  <td className="px-4 py-3">
+                    <span className="inline-flex max-w-[160px] items-center gap-1 truncate rounded-md border border-slate-200 bg-white px-2 py-0.5 text-[11px] font-medium text-slate-600">
+                      {event.source_name || "Unknown"}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    <span
+                      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium ${conf.pill}`}
+                    >
+                      <ConfIcon className="h-3 w-3" />
+                      {conf.label}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <span className="inline-flex items-center text-slate-300 transition group-hover:text-slate-600">
+                      <ChevronRight className="h-4 w-4" />
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function EmptyState({ title, body }) {
+  return (
+    <div className="rounded-2xl border border-dashed border-slate-300 bg-white/60 p-12 text-center shadow-soft">
+      <p className="text-sm font-semibold text-slate-700">{title}</p>
+      <p className="mt-1 text-sm text-slate-500">{body}</p>
+    </div>
+  );
+}
+
+function EventDrawer({ event, onClose }) {
+  const type = EVENT_TYPE_MAP[event.event_type];
+  const conf = CONFIDENCE_META[event._confidence_tier] || CONFIDENCE_META.needs_review;
+  const ConfIcon = conf.Icon;
+
+  const reasons = [];
+  if (event._has_valid_name && event._is_trusted_source) {
+    reasons.push("Trusted source and a real person name.");
+  } else if (!event._has_valid_name) {
+    reasons.push("Person name failed validation (likely scheme/fund/role text).");
+  } else if (!event._is_trusted_source) {
+    reasons.push("Source is not on the trusted-publishers list.");
+  }
+  if (!event.designation) reasons.push("Designation missing.");
+  if (!event.event_type) reasons.push("Event type unknown.");
+
+  return (
+    <div className="fixed inset-0 z-50 flex">
+      <button
+        type="button"
+        aria-label="Close drawer"
+        onClick={onClose}
+        className="flex-1 bg-slate-900/30 backdrop-blur-sm"
+      />
+      <aside className="relative flex w-full max-w-md flex-col overflow-y-auto border-l border-slate-200 bg-white shadow-2xl">
+        <header className="flex items-start justify-between gap-3 border-b border-slate-100 px-6 py-5">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+              KMP event
+            </p>
+            <h2 className="mt-1 text-lg font-semibold tracking-tight text-slate-900">
+              {event.person_name || "—"}
+            </h2>
+            <p className="mt-0.5 text-sm text-slate-500">
+              {event.designation || "Role unspecified"} · {event.company_name}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </header>
+
+        <div className="space-y-4 px-6 py-5">
+          <div className="flex flex-wrap items-center gap-2">
+            {type && (
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium capitalize ${type.pill}`}
+              >
+                <span className={`h-1.5 w-1.5 rounded-full ${type.dot}`} />
+                {type.short}
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1 rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
+              {event.ticker}
+            </span>
+            <span
+              className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium ${conf.pill}`}
+            >
+              <ConfIcon className="h-3 w-3" />
+              {conf.label}
+            </span>
+          </div>
+
+          <dl className="grid grid-cols-2 gap-3 text-sm">
+            <Field label="Announced">{formatDate(event.announcement_date)}</Field>
+            <Field label="Effective">{formatDate(event.effective_date)}</Field>
+            <Field label="Source">{event.source_name || "Unknown"}</Field>
+            <Field label="Source type">{event.source_type || "—"}</Field>
+          </dl>
+
+          {event.reason_for_change && (
+            <Field label="Reason for change" full>
+              {event.reason_for_change}
+            </Field>
+          )}
+
+          {event.brief_profile && (
+            <Field label="Profile" full>
+              {event.brief_profile}
+            </Field>
+          )}
+
+          <Field label="Confidence reason" full>
+            <ul className="space-y-1 text-sm text-slate-600">
+              {reasons.length ? (
+                reasons.map((reason) => <li key={reason}>· {reason}</li>)
+              ) : (
+                <li>· Matches all validation rules.</li>
+              )}
+            </ul>
+          </Field>
+
+          {event.source_url && (
+            <a
+              href={event.source_url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Open source
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          )}
+        </div>
+      </aside>
+    </div>
+  );
+}
+
+function Field({ label, children, full = false }) {
+  return (
+    <div className={full ? "col-span-2" : ""}>
+      <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+        {label}
+      </dt>
+      <dd className="mt-1 text-sm text-slate-700">{children}</dd>
+    </div>
   );
 }

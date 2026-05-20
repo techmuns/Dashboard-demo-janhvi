@@ -843,10 +843,14 @@ export default function App() {
   }
 
   function renderContent() {
-    // Tracker is fully driven by the GitHub-Action JSON snapshot,
-    // so it's meaningful even without an active company.
+    // Tracker + Sources are fully driven by the GitHub-Action JSON snapshot,
+    // so they're meaningful even without an active company.
     if (activeView === "tracker") {
-      return <KmpTracker />;
+      return <KmpTracker mode="main" />;
+    }
+
+    if (activeView === "sources") {
+      return <KmpTracker mode="audit" />;
     }
 
     // Companies tab is the only other view that's meaningful with no active company.
