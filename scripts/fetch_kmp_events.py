@@ -271,6 +271,14 @@ def fetch_feed(url: str) -> list[dict]:
             or _rss_field(item, "updated")
             or _rss_field(item, "date")
         )
+        # Google News RSS ships <source url="https://www.moneycontrol.com">Moneycontrol</source>
+        source_name = ""
+        source_url = ""
+        for child in item:
+            if child.tag.rsplit("}", 1)[-1].lower() == "source":
+                source_name = (child.text or "").strip()
+                source_url = child.attrib.get("url", "")
+                break
         if not title or not link:
             continue
         entries.append({
@@ -278,6 +286,8 @@ def fetch_feed(url: str) -> list[dict]:
             "link": link,
             "summary": summary,
             "published": published,
+            "publisher_name": source_name,
+            "publisher_url": source_url,
         })
     return entries
 
@@ -349,10 +359,15 @@ _NOISE_WORDS = {
     "Mumbai", "Delhi", "Bengaluru", "Chennai", "Pursuant", "Subject", "Reference",
     "Listing", "Disclosure", "Pursuance", "Notification", "National",
     "Tata", "Reliance", "Infosys", "Wipro", "Hdfc", "Icici", "Axis", "Sbi",
-    "Jio", "Larsen",
+    "Jio", "Larsen", "Inc", "Inc.", "Plc", "Corp", "Corporation", "Fund",
+    "Capital", "Holdings", "Reinvestment", "Mutual", "Trust", "Foundation",
+    "Government", "Ministry",
 }
 
-_FORBIDDEN_TOKEN_SUBSTRINGS = ("ltd", "ltd.", "limited", "industries", "regulation")
+_FORBIDDEN_TOKEN_SUBSTRINGS = (
+    "ltd", "ltd.", "limited", "industries", "regulation", " inc", "inc.",
+    " plc", "corp", "fund", "holdings", "capital",
+)
 
 # Tokens commonly seen as designation fragments — never start a person name.
 _DESIGNATION_TOKENS = {
@@ -387,10 +402,12 @@ def _candidate_is_clean(candidate: str) -> bool:
 
 def extract_person(text: str) -> str:
     text_clean = re.sub(r"\s+", " ", text)
+    # Strip possessive prefixes like "Flipkart's" / "Infosys'".
+    text_clean = re.sub(r"\b[A-Z][\w-]*['’]s\s+", "", text_clean)
     for pattern in _NAME_PATTERNS:
         for match in pattern.finditer(text_clean):
             candidate = re.sub(rf"^{_HONORIFIC}", "", match.group(1).strip())
-            candidate = candidate.rstrip(",.;:")
+            candidate = candidate.rstrip(",.;:'")
             if _candidate_is_clean(candidate):
                 return candidate
     return ""
@@ -497,6 +514,45 @@ def normalize_source(url: str) -> tuple[str, str]:
         if domain in host:
             return name, stype
     return host or "Unknown", "search"
+
+
+_GOOGLE_NEWS_HOSTS = ("news.google.com",)
+
+
+def resolve_news_redirect(url: str) -> str:
+    """Google News RSS returns proxied URLs like
+    https://news.google.com/rss/articles/<base64>?oc=5 which redirect to the
+    real publisher. Follow with a HEAD (then GET fallback) to get the final
+    landing URL so we can recognise Moneycontrol / ET / Reuters / etc."""
+    host = urlparse(url).netloc.lower()
+    if not any(h in host for h in _GOOGLE_NEWS_HOSTS):
+        return url
+    try:
+        resp = SESSION.head(url, timeout=HTTP_TIMEOUT, allow_redirects=True)
+        if resp.url and "news.google.com" not in urlparse(resp.url).netloc.lower():
+            return resp.url
+    except requests.RequestException:
+        pass
+    try:
+        resp = SESSION.get(url, timeout=HTTP_TIMEOUT, allow_redirects=True, stream=True)
+        final = resp.url
+        # Google News sometimes returns an interstitial HTML page; scrape <a> or meta-refresh.
+        if final and "news.google.com" in urlparse(final).netloc.lower():
+            try:
+                snippet = resp.text[:6000]
+            except Exception:  # noqa: BLE001
+                snippet = ""
+            match = re.search(r'data-n-au="([^"]+)"', snippet)
+            if match:
+                final = html.unescape(match.group(1))
+            else:
+                match = re.search(r'<meta[^>]+http-equiv="refresh"[^>]+url=([^">]+)"', snippet, re.I)
+                if match:
+                    final = html.unescape(match.group(1))
+        resp.close()
+        return final or url
+    except requests.RequestException:
+        return url
 
 
 def score_confidence(source_type: str, body_hint: str, has_pdf_body: bool) -> str:
@@ -655,9 +711,24 @@ def fetch_news_events(company: dict) -> list[Event]:
                 continue
             seen_links.add(link)
 
-            source_name, source_type = normalize_source(link)
+            # Prefer publisher metadata from the RSS <source> element if
+            # present (Google News ships it); otherwise resolve the redirect.
+            publisher_url = (entry.get("publisher_url") or "").strip()
+            publisher_name = (entry.get("publisher_name") or "").strip()
+            if publisher_url:
+                source_name, source_type = normalize_source(publisher_url)
+                if source_type == "search" and publisher_name:
+                    source_name = publisher_name
+                    source_type = "news"
+            else:
+                resolved = resolve_news_redirect(link) or link
+                source_name, source_type = normalize_source(resolved)
+                if resolved != link:
+                    link = resolved
+
             pdf_text = ""
-            if link.lower().endswith(".pdf") or ".pdf?" in link.lower():
+            link_lower = link.lower()
+            if link_lower.endswith(".pdf") or ".pdf?" in link_lower:
                 pdf_text = fetch_pdf_text(link)
 
             published = entry.get("published") or ""
@@ -854,13 +925,18 @@ def load_companies() -> list[dict]:
 def main() -> int:
     companies = load_companies()
     all_events: list[Event] = []
-    diag = {"by_company": {}, "by_confidence": {"high": 0, "medium": 0, "low": 0}}
+    diag = {
+        "by_company": {},
+        "by_source": {},
+        "by_confidence": {"high": 0, "medium": 0, "low": 0},
+    }
     started_at = datetime.now(timezone.utc).isoformat()
 
     for company in companies:
         ticker = company["ticker"]
         print(f"--- {ticker} : {company['name']} ---")
         gathered: list[Event] = []
+        per_source: dict[str, int] = {}
 
         for label, fn in (
             ("serpapi", fetch_serpapi_pdfs),
@@ -871,12 +947,15 @@ def main() -> int:
             try:
                 rows = fn(company)
                 print(f"  {label}: {len(rows)} raw hits")
+                per_source[label] = len(rows)
                 gathered.extend(rows)
             except Exception as exc:  # noqa: BLE001
                 print(f"  ! {label} block failed: {exc}", file=sys.stderr)
+                per_source[label] = 0
 
         ranked = dedupe_and_rank(gathered)
         diag["by_company"][ticker] = len(ranked)
+        diag["by_source"][ticker] = per_source
         for ev in ranked:
             diag["by_confidence"][ev.confidence_score] = (
                 diag["by_confidence"].get(ev.confidence_score, 0) + 1

@@ -252,8 +252,14 @@ export default function KmpTracker() {
           <div className="p-6 text-sm text-rose-600">Failed to load events: {loadError}</div>
         ) : !events.length ? (
           <div className="p-8 text-center text-sm text-slate-500">
-            No events yet. Run the <code className="rounded bg-slate-100 px-1.5 py-0.5">kmp-tracker</code> GitHub Action
-            (Actions → kmp-tracker → Run workflow) to populate <code>data/kmp-events.json</code>.
+            <p className="text-base font-semibold text-slate-700">
+              No KMP events fetched yet — run GitHub Action / check source access.
+            </p>
+            <p className="mt-2">
+              Trigger Actions → <code className="rounded bg-slate-100 px-1.5 py-0.5">kmp-tracker</code> → Run workflow
+              (or push a change under <code>scripts/</code> or <code>data/companies.json</code>)
+              to populate <code>data/kmp-events.json</code>.
+            </p>
           </div>
         ) : !filteredEvents.length ? (
           <div className="p-8 text-center text-sm text-slate-500">No events match the current filters.</div>

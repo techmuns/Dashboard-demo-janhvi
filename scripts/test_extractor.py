@@ -172,6 +172,21 @@ def run() -> int:
         if not all([ok_event, ok_desig, ok_person, ok_eff, ok_letter, ok_conf]):
             failures += 1
 
+    # Negative tests — these strings must NOT yield a person.
+    print("\n[negative] fund / possessive / Inc strings should be rejected")
+    from fetch_kmp_events import extract_person as ep
+    neg = [
+        "Fund Regular Reinvestment Inc has appointed a new CEO",
+        "Flipkart's Jeyandran Venugopal will take charge as Chief Technology Officer",
+        "Reliance Industries Ltd appointed a successor",
+        "The Board has appointed a new CFO",
+    ]
+    expected = ["", "Jeyandran Venugopal", "", ""]
+    for text, want in zip(neg, expected):
+        got = ep(text)
+        ok = (got == want) or (want and want in got)
+        check(f"  text={text!r}", ok, f"got {got!r} expected {want!r}") or (failures := failures + 1)
+
     # Dedup test.
     print("\n[dedup] same person, same event from two sources")
     dup_input = []
