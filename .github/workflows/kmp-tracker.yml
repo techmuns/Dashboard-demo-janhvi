@@ -14,6 +14,14 @@ on:
         description: "Comma-separated tickers to restrict the run (optional)"
         required: false
         default: ""
+  push:
+    branches:
+      - claude/kmp-tracker-github-actions-nx858
+      - main
+    paths:
+      - "data/companies.json"
+      - "scripts/**"
+      - ".github/workflows/kmp-tracker.yml"
 
 permissions:
   contents: write
