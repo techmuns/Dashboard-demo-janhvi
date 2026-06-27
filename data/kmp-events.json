@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-27T04:03:56.631592+00:00",
+  "generated_at": "2026-06-27T08:45:13.816182+00:00",
   "company_count": 10,
-  "event_count": 257,
+  "event_count": 265,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -18,13 +18,13 @@
     "by_company": {
       "RELIANCE": 36,
       "TCS": 15,
-      "INFY": 21,
-      "HDFCBANK": 34,
-      "ICICIBANK": 21,
-      "WIPRO": 21,
+      "INFY": 22,
+      "HDFCBANK": 33,
+      "ICICIBANK": 25,
+      "WIPRO": 22,
       "JIOFIN": 6,
-      "SBIN": 75,
-      "LT": 11,
+      "SBIN": 77,
+      "LT": 12,
       "AXISBANK": 17
     },
     "by_source": {
@@ -32,7 +32,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 54
+        "news": 57
       },
       "TCS": {
         "serpapi": 0,
@@ -50,19 +50,19 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 38
+        "news": 37
       },
       "ICICIBANK": {
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 21
+        "news": 25
       },
       "WIPRO": {
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 26
+        "news": 27
       },
       "JIOFIN": {
         "serpapi": 0,
@@ -74,13 +74,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 113
+        "news": 116
       },
       "LT": {
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 11
+        "news": 12
       },
       "AXISBANK": {
         "serpapi": 0,
@@ -91,8 +91,8 @@
     },
     "by_confidence": {
       "high": 0,
-      "medium": 105,
-      "low": 152
+      "medium": 110,
+      "low": 155
     }
   },
   "events": [
@@ -247,6 +247,30 @@
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [],
+      "extra_sources": [
+        "https://news.google.com/rss/articles/CBMivgFBVV95cUxOZUkzQ0RlcGhYYUNpTWprVkVhbU5Hd3puNnRKeEVEZTV2dWVmQ1RFTmFZNzFCTDZyeXNlanZsalZRRmQ1WmpnaEtGUWdRSTYwTGhVMzVhU3NKbXpFcEhJSzg2bnFXdlotN215aWxCWERobFJVTENEell1dC1pMnBiektkdl93UFlQTXFHc2hTT1JOZHkzWV9wS3l3QlVTREE5Q1dhWEZqeWoxS0c3NFIxcVRycnBFbWNlYjBYRWJR?oc=5"
+      ]
+    },
+    {
+      "id": "af0dea12430a19fc",
+      "company_name": "Reliance Industries Ltd.",
+      "ticker": "RELIANCE",
+      "person_name": "Mukesh Ambani",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-07-24",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "MSN",
+      "source_url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQWFpHdHV4RC1PbThBZlBjaDRuaGhDMV9scW00MXI5RHdpYlhJTmRNQ2NzUjVwMFdEX0pIY1FRT3pJUXp2TGZDaGtsYk95ZEJRMkZsSkg2aWpGSHNQSzFoQW1ZeWxzX2NwRUw3d0FCNUEyX19YU2RmRmU0eW5MTWxGV0hxTWt4MDFjLVM4UXUyX2JHMUZId1A5WHVXODVKRzkzU2o4MlM3RmdLdTNJenlwalhQMTJBMk5vSlNVRUxxcnE3UDNibUZHdkR1YnZDVmU4RWFsT0x6ejAwblllR182SGpLOEx1T09PaTFyT0cwUzNuQWdXT3dvdEI5VklJOUp2ZURyNg?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "appointment"
+      ],
       "extra_sources": []
     },
     {
@@ -500,7 +524,7 @@
       "company_name": "Reliance Industries Ltd.",
       "ticker": "RELIANCE",
       "person_name": "Nita Ambani",
-      "designation": "",
+      "designation": "Chairman",
       "event_type": "resignation",
       "effective_date": "",
       "announcement_date": "2023-08-28",
@@ -508,12 +532,14 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "NewsBytes",
-      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTEZYNkdhRE5hRzZFcVNYd2NJQXh5WHNOU1N4MlVvODBOYlZoZU9ZX0hYdzJfNm9XZGZLYVBpRzRKa0lXXzJWVlRVR1ZxRm1LcUNXcEFra3VvSnV4dGFKbVBjTE9YOU8wSnlQaEhzV200aGI2VmhZYVFZVWM3MFd2YXlkVzF3Q0tmcHRwM0JYSHg4VUUzcnlCbQ?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
+      "source_name": "CNBC-TV18",
+      "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxONFNVZ1VqNXpSenpFdWFCdGtjNXBlQ2ZYdVYwMHhjcFlsTl9lbEx3LWl4dkNGN0NBQ3ZhUVdJSVRxLW9rTnVlYjlMbl82NTluZ29CNWVUWU5SaFlOSEN6WjhSVjZod1Z3ZDVSNmpnWlRwM2NvTTlyczlnUGN3cndVXzFxUHBLc1dXWlZEektuUDA2b2h6ckhqMFlfOUdGdE8zWVNaQ3pGaHlqTUpMZFVzMWt1dzJ2V0k2NXl6VWdWUGxQSi1pY2JDNEFIWjAwb3NvaDFHSUZwa07SAd4BQVVfeXFMTWhlSm9SSzcxT0JSWEJCRkZJdWd3TFRwdEIxQzQyNnRGbmVhdU55aHlrZkJ2ODFhdXp1eEYzSUxfMW1mQjZPdE50MWFGNDhVWXFDVENpU3lNMnpGMGdXNUdZQmxERHFzSk9PQ0xwdW8xek1ZVXNfMDZfcXpSVWNOUWY2ejZMOUVGN01SaVRZOXhxWmJPWk1zVVhoMFJIUFlya0tnN1RkUWMtNXZUSUdDYVM2S0xNa0xfeEtNakYzenN0d3Zva2Y3VGRFcTRKOXNKYmpmYzVYckpKV1diYnpB?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
       "matched_keywords": [],
-      "extra_sources": []
+      "extra_sources": [
+        "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTEZYNkdhRE5hRzZFcVNYd2NJQXh5WHNOU1N4MlVvODBOYlZoZU9ZX0hYdzJfNm9XZGZLYVBpRzRKa0lXXzJWVlRVR1ZxRm1LcUNXcEFra3VvSnV4dGFKbVBjTE9YOU8wSnlQaEhzV200aGI2VmhZYVFZVWM3MFd2YXlkVzF3Q0tmcHRwM0JYSHg4VUUzcnlCbQ?oc=5"
+      ]
     },
     {
       "id": "5d1733a730279c16",
@@ -628,26 +654,6 @@
       "extra_sources": []
     },
     {
-      "id": "3480268221b75dd9",
-      "company_name": "Reliance Industries Ltd.",
-      "ticker": "RELIANCE",
-      "person_name": "KV Kamath",
-      "designation": "Independent Director",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2022-11-05",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Moneylife",
-      "source_url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNQjVUQTdyVVJUYVlLLXUxNlV4Z2ZkaGR6Y1U1SjRJT0RBbEFMNFE0WFhYY0JsYnBZUzJyQjVZY0ZOMWNQcy1SeDdGcHJKSkQ1Q1FkdlgyalpPdWhEWm5FM1NTZEU2aVM5eFJsOGVrdVJ5ME0yeUxZa1Q4VjVXR0kyYXU1elpYMXlSdW9ENmVfXzRFNmRiSm5ZQzlmdzhZV1dremI5ODF4ZTdMR3ZCN2taMGwzX1pLaF9GSl9ZLVFOWkc3eWMyT0JibFhaUF9sR0dHN1hkaDZRaF9sM29jMFJucXdwNWh2Wms?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
-      "extra_sources": []
-    },
-    {
       "id": "e0ca00a7cb22b01f",
       "company_name": "Reliance Industries Ltd.",
       "ticker": "RELIANCE",
@@ -710,7 +716,8 @@
       "confidence_score": "low",
       "matched_keywords": [],
       "extra_sources": [
-        "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTnA3ZU5uNXF2bGlEOVRDeHJHZE1fTEt2YnZTbThoR3pZWHZFWjAyUEZuV1BhYTJhNWowOHN6V25RSzgtNzdFRnlPcDBidGtPcnVTQktNbWlsRXE2VzAycU9zcGxjQUxxN09KNFduZE5CWUh3Rkhqc3p5Mm5tendLVmVhd1NYMzBZS1ozVGlHRS1vTUlQMVFEZDJmY005UXp5cmVKMW1zdzhGSFdMUktDNUVxYlJaZV9OOFBnNmFGblFPXzEtVW9LZFU1cmN5blA1SHJaMQ?oc=5"
+        "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTnA3ZU5uNXF2bGlEOVRDeHJHZE1fTEt2YnZTbThoR3pZWHZFWjAyUEZuV1BhYTJhNWowOHN6V25RSzgtNzdFRnlPcDBidGtPcnVTQktNbWlsRXE2VzAycU9zcGxjQUxxN09KNFduZE5CWUh3Rkhqc3p5Mm5tendLVmVhd1NYMzBZS1ozVGlHRS1vTUlQMVFEZDJmY005UXp5cmVKMW1zdzhGSFdMUktDNUVxYlJaZV9OOFBnNmFGblFPXzEtVW9LZFU1cmN5blA1SHJaMQ?oc=5",
+        "https://news.google.com/rss/articles/CBMimgFBVV95cUxOcjZ1OUhYdnlPYzVZb210ODVKUklUNU16ZE9ldzlMNEk3ZllJRTNSbC1IWlFPaktZdHJIeDA1Y09tNjhqbDdyV3RONkRuc0hwcGNSbnlEcVcybDBIOG82dWtxR3dtMFJLT3NObEJfU0dIRUdlQ0ZjRnNWQmJqQ1pFelVMV0czcHE3U2dBN01ZZTFYdFJJQkZBaUVR?oc=5"
       ]
     },
     {
@@ -1288,6 +1295,26 @@
       "extra_sources": []
     },
     {
+      "id": "784c1f68472e6424",
+      "company_name": "Infosys Ltd.",
+      "ticker": "INFY",
+      "person_name": "Kishore Biyani",
+      "designation": "Executive Chairman",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2023-01-25",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Business Today",
+      "source_url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxORUtTcndwRWdCVFZqTXFTOGVzLUQ2ZzAtZGhnNXdxVTQ3V01IZWtmUnhkcTBBcnp5QTVIODVtLVJNb2NEcHAwRXBFekhQZ3JhMTdsOGJxWndXeFp1cG1iVVZrZDNOcFRyam1UQzRjdjduUnlZeWptTk9zM3NPTFpTWVQxNWFUaXpPckJ2blJTM1RzTklBcXlGd25weUFMaWYtSEUzYXVMM0prbVo2QjdmZW50a1oxN2cycEw0dER2MmRjQS1BMExjTXZVOHRHek43Q2pWNEttTnB2bGhyendZcEVOeDVZTlJEYlNEa3V4ampINE950gH6AUFVX3lxTE8xOFBXMkFKSWN5aGxnVVRrcGd3R3oyeHVNYzdQT0N2S3dFVUFGR2FSeFVnSzdKWUpfc0ZRUjAxNE85NEZ2ZUNvVTFsNl8zdGdEODRpM0hpVlVObzRnVW01bmsySHdxcTJIbE1qdWxVc2VnNmRvQklZQVN0cmt0bFRZNHp0VFRMdjhzeHFMMXc4X2YtbHlnY3pxN1gxc1VDYTFNQTNWYVpFY2h2RVQtYnpwQm5sRENQNndQSFhobFE2SmR0cFkzYkJjOURNN183M0xJUFhYcG5rWXZ0SUZJUUFPcmJGLTl5bGczU3ZvRE5PbkxlVExoRlhmTUE?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "a4f0877b3b146d89",
       "company_name": "Infosys Ltd.",
       "ticker": "INFY",
@@ -1438,14 +1465,12 @@
       "matched_keywords": [
         "CEO",
         "MD",
-        "appointment",
         "resignation"
       ],
       "extra_sources": [
         "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNRXZLUHlHWml5NUJaQ1F3OXdLYm9UQzVaSXVhWXdEY05EMnRWRjJnQUoxX21PNjRlc3lld0U1TzVqekdEOW9odlJhSm10T0VvYlRmSFNfM0xCa1hvdGtNeHRtWTJtS0l0REtOdld2NE5jd0E2aFhkSjk0TWhYaFNoLVlJb3Iwd0c4Q2ZERERTaDFxZTNWejJFME5KYnh2T1ktdXlpdTJyN2h2eV81QlhIVm8zenRtLWo5YS1QWTZVUnAybG1fY2tkakdGVnJSbVJKSHNKMHNKZUxlNUJQQ0lF0gHkAUFVX3lxTE1QRS11bXFPZnhlQ1ZfU0txQ3c1a0Rpa0p6N3JrYVdIVmtsT0xWcWZFNjRpeWFzbUhZYjdCY2tQVjZ1UmhRelJKMEFRWmUzYWdaX0tFTTBseDNyN0JsSG4zU3AxOWJxMDZHVzVISkR6OWxFRF9Gd1kyR2NKcUhLVTdDRjI0c0QtQXRkazFWWFF6VFhKRks0UUdHSVFGNUJzVzA0a1hQbEZDTEdxR0UwUVk2aWhKeUo0eVJiaVFLblBFM3h3TDlqZlJHRDh3MUZVSUphMHVaQlNBaVVob1J5OXFwYjgwOQ?oc=5",
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxNOUhDeWVvSW9OZnByUFhvaldwWEhlQThwNGJZRGp6OVFpMHRIckx3VDZ0Q0ltYUZDWWd4bGdNNnAxN21HMW1TcEk2ZkZnOS1TOU16Wk53R1UtdlhNRGEwNThtVlc2T3V0Ml9FU1h4TkU3OGF6TC10Mm1HZUc0ZDNxNA?oc=5",
-        "https://news.google.com/rss/articles/CBMijwJBVV95cUxPdXBEa0lVcEtkWmJYZFpfT1hFeWhLdlhvdFRFaUg2dmoxNk15eDJhMi1vNHd1X2k3R3Z1WWRMMjI0MHZxdkRkTFRjVy1kSGhDT0EzejJ4a0IzMGMySVU3aVYydUZURGlqSnp3TE5uZ0Q5WnZGV3hxVmUzOEMzTUs5Zmgyb0hLem81c3NTU0dvTGMwVXFNSy1heHFnT1Nfajl0bEx5a1ljeGtPb2YzbXA4czdxYWFwWDBlU3Q2a2pZNXRzTW9ISkQxRlI1UHBheDBUakE2bVFpcEtiN1pEcVllYzFDbjdyZGJ0R0xrUHlVb1lidDNFNEtFR1Vmb1A5TDFDdmRYUGhhcEYyNUFXVlpz0gGWAkFVX3lxTE5OYm1PZk9kR3hJcGVlcmVTVzZDY3pWR0xQNG1VdUI3cm03RjRCemFhd3FGT0NOcHFLb0FKWHdPNmlBOTEyWHJBeDlPTzNlRUJDRi1sOVRyUW9VYTAtV3FmVWcyM05MQWVucWhLR0VVdjVPS1h6aEs2cFBmUWFYX2VuNS1jc19JNS1oUlBaZ3FPby1ld2dwejVoZ0JIOTh2UUJkdlJpRXIxOTFaUWpEdFNJOFg1MkZBdnFpZmN0YVJIZ3BMa1JMX1BoUHp2RTJlbWJrcEh0WXl3NU5aVWVwU0cwQWtfbWFBb0NfNDRjQUd0OVBlQ0QzclpWM2VQblZtdjhZbktDZXQ5amk4TDA1SFZMZ3MzSkhB?oc=5",
-        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxORjB5aVc0dE1FYmZTNkJ4cW5SSVZmVk5sWVJSSXl2RWFOZ1lUYWZCM2xEOXpsWnNvb1RDRUlBaFFyZkdIdy1EelN4OUJ6NnotQ3ExU1lrUzVod3g0bU5abzFjQ0s4NjBRaTNrU2pUQUVlTDBKUmJ5eWlMaVh0eVo0aXlYN25UQkV1Rm9BVndPMGlnb0g2d25zcWhKQ1VtdFZVLThERm11R1NBYzZQRWNlWUZPOEtFdUtzLUxr0gHCAUFVX3lxTE1nWGd1ZFBNWFVxTWJMWFhvbDEzUnJSaWpEbV90Ql9PRVM1d0diS2hHUVRQbkJRaGN5VlFtWFIxTk5PVWxhdGEtQjFCRE9FZ1VQcVAwcS1QNTV3UkdxdWpwTmo4dGoxay11UGhzQWFSMUdmak5uUEdQV0pCMUh4ZEZHTXpLMm1IaU1sX2kzYWNrM2hQZHpSdFdoaHloODJqUTVTTFFGYnktSWlFdTRfMWJBQkNXZEtFV1VvUk1JZllxYkJB?oc=5"
+        "https://news.google.com/rss/articles/CBMijwJBVV95cUxPdXBEa0lVcEtkWmJYZFpfT1hFeWhLdlhvdFRFaUg2dmoxNk15eDJhMi1vNHd1X2k3R3Z1WWRMMjI0MHZxdkRkTFRjVy1kSGhDT0EzejJ4a0IzMGMySVU3aVYydUZURGlqSnp3TE5uZ0Q5WnZGV3hxVmUzOEMzTUs5Zmgyb0hLem81c3NTU0dvTGMwVXFNSy1heHFnT1Nfajl0bEx5a1ljeGtPb2YzbXA4czdxYWFwWDBlU3Q2a2pZNXRzTW9ISkQxRlI1UHBheDBUakE2bVFpcEtiN1pEcVllYzFDbjdyZGJ0R0xrUHlVb1lidDNFNEtFR1Vmb1A5TDFDdmRYUGhhcEYyNUFXVlpz0gGWAkFVX3lxTE5OYm1PZk9kR3hJcGVlcmVTVzZDY3pWR0xQNG1VdUI3cm03RjRCemFhd3FGT0NOcHFLb0FKWHdPNmlBOTEyWHJBeDlPTzNlRUJDRi1sOVRyUW9VYTAtV3FmVWcyM05MQWVucWhLR0VVdjVPS1h6aEs2cFBmUWFYX2VuNS1jc19JNS1oUlBaZ3FPby1ld2dwejVoZ0JIOTh2UUJkdlJpRXIxOTFaUWpEdFNJOFg1MkZBdnFpZmN0YVJIZ3BMa1JMX1BoUHp2RTJlbWJrcEh0WXl3NU5aVWVwU0cwQWtfbWFBb0NfNDRjQUd0OVBlQ0QzclpWM2VQblZtdjhZbktDZXQ5amk4TDA1SFZMZ3MzSkhB?oc=5"
       ]
     },
     {
@@ -1762,7 +1787,7 @@
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
       "source_name": "lokmattimes.com",
-      "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQQTRtMUJ0MVU0ZnAxemNlNnB2dFlTTXR1ZVYwSnFod0xodjhDTENPQXo1dG1SNTROZXZBWWFnckZRU2liQzJqYkx5M1JvQzJvd2ZEMTdXWWtfcWJSWFdleXhBc2JvVjlnQkpLaDVRNFd0Z19kSFJhSHdCeFA4TVFFdUt2RnN6MWJodHVXUzRVZnhWMXM5YjVqRTdVZEppS0h3Q25oSDhESUZqUU1vaGMwSXRxNmotdzZVUHdYaHpHeWo5eHpwOFFCa3NZMVFHNnhSSEg3Wg?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQQTRtMUJ0MVU0ZnAxemNlNnB2dFlTTXR1ZVYwSnFod0xodjhDTENPQXo1dG1SNTROZXZBWWFnckZRU2liQzJqYkx5M1JvQzJvd2ZEMTdXWWtfcWJSWFdleXhBc2JvVjlnQkpLaDVRNFd0Z19kSFJhSHdCeFA4TVFFdUt2RnN6MWJodHVXUzRVZnhWMXM5YjVqRTdVZEppS0h3Q25oSDhESUZqUU1vaGMwSXRxNmotdzZVUHdYaHpHeWo5eHpwOFFCa3NZMVFHNnhSSEg3WtIB2gFBVV95cUxOM3BnSEotZVdTQ0w3Wl9EOVJHRWQxQWM2UE45bVNqRkFSU3Q1VklDSzBIQUFVWVhkbTNlLWxsaldHZ0FwV2VnVXFreWR0dUYxd2pESk4zaERYeXBGRXRuOFFJa0djZVZRVl9nQWh1bGR5dDFYRnZIZHg1Tnl5aHlDT3hPUC0tbjBPc0s0bF9pVUxjbkhwaExhMFhaWEIxcm13MERVTE03ZGgxR2ptbjY3LVpmaUJDeV9CR3VxdzJQbDVZVE13Wkh4aHp6WFlydkhuMzdKV3VjSW14Zw?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
@@ -2117,42 +2142,20 @@
       "extra_sources": []
     },
     {
-      "id": "7e08d686ab440d77",
-      "company_name": "HDFC Bank Ltd.",
-      "ticker": "HDFCBANK",
-      "person_name": "ICICI Prudential",
-      "designation": "",
-      "event_type": "retirement",
-      "effective_date": "",
-      "announcement_date": "2022-01-21",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "ClearTax",
-      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPNDVwN0prN3g4eXE2Qk1LSWViM0lzRzFNcWpUZVROR0UtUTJZT2RKLThUWlByRkJYZ3pfbkNwUVoyWkwtLVFleHAzR1ZDZU83dWtqaFdNZUJQOGVQWUJXOHJ0Zl9xX09vNHgwNmROVFRQYnZEUThyQUVQM2Yyb3AzWG5lNnVOUjIzaVFWSGN5OFVsZFFGakF1MzE0S3FERlR4NklFSU5kSjlsSG5yNmp2dzktMjZpelpySmR4SEt3?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "retirement"
-      ],
-      "extra_sources": []
-    },
-    {
-      "id": "ab8ae6730871e5f9",
+      "id": "b4b74a55e9b342f0",
       "company_name": "HDFC Bank Ltd.",
       "ticker": "HDFCBANK",
       "person_name": "ClearTax HDFC",
       "designation": "",
       "event_type": "retirement",
       "effective_date": "",
-      "announcement_date": "2021-12-04",
+      "announcement_date": "2021-12-03",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
       "source_name": "ClearTax",
-      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNbVBlUTQ3ZnRHR05NWURKalN2alNNWGhhUm9TUnhwQ3hyTERRMTVqWnlyRENUU2JOY3NGVDd2YVFPM05qM1pRUjNBUUtad3gtbUNLaWhJdFBsVVVwa2JYcTNRNnZXZkphazdXNHpSTmJhMXd3WVZrSXNFOGNxaER1eUhyQlpuSHNSdVZ0MkhoS0JfV2k0V3JWVXRydEJVNzd0RDBpQTF4Y3NyQXc?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRHJJRWx0eTFHSVVFM3BPYXJXazQ1LUVVczZqVVhmTDloeC1PLVRTTWU1RTdhdXpuemtoaVFzSzVBZmpMNUxMNTk4VGw1OXNxN3NzMHBwWjFCWnVJSmc5NzRyd2lxbHVycVBQMVJVdExBUlotZG91dG5UT0lFajdaZ21oNUprT21jdmJnd0hsYzFneks2ZUdMYW9ON1BMWFZwNWc?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
@@ -2161,20 +2164,20 @@
       "extra_sources": []
     },
     {
-      "id": "4a34f36cbc484fde",
+      "id": "67fc43edab6253aa",
       "company_name": "HDFC Bank Ltd.",
       "ticker": "HDFCBANK",
-      "person_name": "ClearTax SBI",
+      "person_name": "ICICI Prudential",
       "designation": "",
       "event_type": "retirement",
       "effective_date": "",
-      "announcement_date": "2021-12-04",
+      "announcement_date": "2021-12-02",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
       "source_name": "ClearTax",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbmtianpweFdjeFVxS3ZBYWhlaFVvVlRZYzhTeXhIQ0dMTWRvOGdaazc5OGFEMG40TFJYQ2N2RW1idHI4T29QbllMV1FNNEdVc0t1QmYwWFQzZE1DTXdLMmtmQ1pTajJFejdLMHl3N3pjSEtzWFFDOV9TNHNBMXU5SGxnQXg1c1NFS0h6V3p1WXJBblp5T1JOQUs1Skw0c0kzSlVVQmFB?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNMmtjX2ZBQlZFT1AwWWNUcl9LYkRTYmN4NjBROHJfLWNxeDhXMjRacFF0MEVXbDNqZVhsQlVUQVptWVFRbk55M3Z5eGN0aGlTbTh0T3FONUZLMmhtaE9sS0l6VmE1YUlnTkxReG1TcHotYVhzUzJZajZwZTFWbXR4ZTNnb2ZDMFhRZlNWcVlWX1g3TEZiUDlJZUEzd0J2STZIUnhwcy1xYXVQY1JTeHM1Yi10WQ?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
@@ -2500,6 +2503,28 @@
       "extra_sources": []
     },
     {
+      "id": "c3bcbb4904dfbdf5",
+      "company_name": "ICICI Bank Ltd.",
+      "ticker": "ICICIBANK",
+      "person_name": "Order Cannot Be Challenged",
+      "designation": "",
+      "event_type": "termination",
+      "effective_date": "",
+      "announcement_date": "2025-10-30",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Raw Law",
+      "source_url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA1RDM4dFJVY013Rlp3cTBPMkEzMl92MlFwYjEzaS1GTjdRQzI0Z2M5VGVwTFktMllOZnQ3V3hXSEE0WE5uUkY4cWUta09HWjBuUEdqbzZRRjR1YnRMVE1NOHVKNWLSAWxBVV95cUxNbHg4RjQ0VGwtNDZkRV9ZSGM0UTFuUldNN1lsMTkwVF9teWFwakFaTzFnUlhlcE80c2JGNi1EXy1jdHZNV1hKUEl1amhEai1jajQ5ZEpWdTJHOEtwTkctNUJORmhDMnNwbTNIbVk?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "termination"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "b5bc423d288d421a",
       "company_name": "ICICI Bank Ltd.",
       "ticker": "ICICIBANK",
@@ -2569,6 +2594,28 @@
       "extra_sources": []
     },
     {
+      "id": "6a822f7cbe438ac1",
+      "company_name": "ICICI Bank Ltd.",
+      "ticker": "ICICIBANK",
+      "person_name": "Baroda BNP Paribas",
+      "designation": "",
+      "event_type": "retirement",
+      "effective_date": "",
+      "announcement_date": "2024-04-18",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNSF80aWxPNTlOa3RkXzFGVEZuUHB1R0R4Y1FJc2R2b19GUnhBd3lNRDdlQTFKSENrb0FLUWk5S2hjZmhTaDU2aFoydFFTRDZpQnhxMUQ4OERvZ0VPclhTYWJMT2NlNWpNckMtQXJJY2NkcDlTZVBNdUJBZTR5NUdDLTYwaThobEJiMldGc3prRmpEUWVpdlZ1bjBBaEV1c1JLaUtmZG9BMXNOdw?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [
+        "retirement"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "b08c4aa2369b9747",
       "company_name": "ICICI Bank Ltd.",
       "ticker": "ICICIBANK",
@@ -2618,6 +2665,28 @@
       "extra_sources": []
     },
     {
+      "id": "1f98ff27e73bc8b8",
+      "company_name": "ICICI Bank Ltd.",
+      "ticker": "ICICIBANK",
+      "person_name": "ICICI Prudential",
+      "designation": "",
+      "event_type": "retirement",
+      "effective_date": "",
+      "announcement_date": "2022-06-03",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOd1lMLXlvdE50OGo4bWJBX3dmWFAwY09fMDRCRnVTOVNLUTR5U0hxNGdiQnFObk5iSTZKeDE1UGxlVXZrZmVkdVZOMkwzb21XWEpCeWpLbmo3ZHZfbTNBZFZsV3RsMGs5NTZZaVdISUhtUURNdHNZYUM1QV9DS2JyZU5fYUJoOExqZWt5eEV6OXA2eDRFbC1walNZdDBybU42MmVZbjcyZ2pMVklQ?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [
+        "retirement"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "55aebd9c6c9f86d3",
       "company_name": "ICICI Bank Ltd.",
       "ticker": "ICICIBANK",
@@ -2654,6 +2723,28 @@
       "resignation_letter_attached": "unknown",
       "source_name": "ClearTax",
       "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOcV90bWxnbWNlMTlSWFVINmZaQ25lcGh1UFkxd1lMWlRtZ1p1Z0NfZlJGWmJDTS1yQ09Sa1M5bGpKbEtNd2E1Qm5rb2RlNlhKTURiOE02cFFPbDE3VkYteHBMN3ZjaEZOcWZOYVJGcUlWbHZYSlBScm8yQVhxZnFaWHlCeEh2aGxTalJkUUhhamhBYk8zLUhieks0NTY5Ym9aVlByX2xlLXE?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "retirement"
+      ],
+      "extra_sources": []
+    },
+    {
+      "id": "e8083e7cd669a21e",
+      "company_name": "ICICI Bank Ltd.",
+      "ticker": "ICICIBANK",
+      "person_name": "ICICI Prudential",
+      "designation": "",
+      "event_type": "retirement",
+      "effective_date": "",
+      "announcement_date": "2019-12-13",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Value Research",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxONzJyNzJPbUpnb1VVdnVBVERZZlBDZ2o5NjRsU2tNU3RoYTFCMjJyTDZBbExoeU5XYWtfeTlKejBZT1p6RHRJMVhaeTVSQThkLWNjRTZ1T1U4ODNieHFSNmFqZGFGVFFTMzJIbUR1ZU1NUmViTUZKRDM0Q25STWo4cDJxR1Q1ZkNZVU81V2c4TzhGMXpLWWlITGtXRmU1NzVaX1ZIdW1YNFpJUQ?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
@@ -2939,20 +3030,20 @@
       "extra_sources": []
     },
     {
-      "id": "5e196a44b8534294",
+      "id": "850c09c607c39230",
       "company_name": "Wipro Ltd.",
       "ticker": "WIPRO",
-      "person_name": "Amit Kumar",
-      "designation": "",
-      "event_type": "appointment",
+      "person_name": "Subha Tatavarti",
+      "designation": "CTO",
+      "event_type": "resignation",
       "effective_date": "",
-      "announcement_date": "2025-02-14",
+      "announcement_date": "2024-08-12",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "CNBC-TV18",
-      "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQc19fdmNYa0xzUldZdDJ4N1VVQjRIWk8wOEVwcks2Qi1MUkxZSExmcEFWVV9IZWJSYzItcTZrUHpHQXU3TklKTHNQc2hBd2xKZFhtNlEzYUlzbmFSSHlUd09Tckd4WUxtTFdCNFdGOVZJazhucUczRlFZTE9Ic0JleXZXNjF2ZlV2N2YyX1dOTTJ3bDhnNzhSeGlsTWlqZGNXQW02YnVwZHBkUnJfRDBGZWtKeVJZTkZSWEh6QmFRc2pFcTE2M01SbHJnaTU5eGJ5TTcxcks1MEh0cDFXcXfSAeMBQVVfeXFMUGF4Y1JCcHo1SU10WDZXTHREeGFyUnFEREFrQU5ZdzJVdmpUelYwV0wzYUpNcXZNeFJNUl9PRlE0enppTmU5cDVWQXR2WDdqRmJlUDVNQWYyX2MyOC1FSTR2SkZ4b2Y4dGZUalpvM04tVVkwNUFuZEVpOFdnUGJUd09md1NHMTVfdkpMMjhmVzh2Ulo2TVBKbWRzM0FGVk5fSnRvbzJQMVpJWDhZYk9SYjkzY3ludzhkMnVwVUg3UUxXMlVHOW1mS1dUOTdmSVdNV3FVZUxDanRJRllMeE85RTZSMlU?oc=5",
+      "source_name": "Mint",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVXU3dHRfVkoweVpFTlBSa3ZYd2FFZXl0VWJlaGJKaXF1UFJoZ0g2eWlYZkh1SEIxM3d2V2otOVo4Y3AyX0RNaTdmMF9tUDJUMTlWMkpaMkxlQmRUZmZzZzNpUWxXQXFETWUzOW45d2xHYVFfd2dVa0piU3lBVVBKUXlFYzVIendhdnlMMk9mMGtHSUpJeVJCQjZUYnBSV2tFRjVxV1MwaUljbEYzOFRJQVlOd9IBuAFBVV95cUxPWXh3amZxTkNnZThJcWVORXJheDJfdkZmOVdmZjdRWHRUbE1FcElqanJiMmVRSEYtMW1VTVBEUmJOTXBtT3VSWURjcW0yN2xUQjFMdUp4dFROLUhmdFNSWHVldVVsVHFxT0V2ek1URFRQcVFGbVJGQldWSHV1bWxIQ2hPMFprMmo3Z0dmckhCV0VoYUkteVF0dlRmMGI1UENzMFg2Zmg5bUpqd3M4SGxyQl8tdGMyN1U0?oc=5",
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [],
@@ -3029,6 +3120,29 @@
         "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUWNUbWhnd0gxVk9zZkFoRk9IcXhHZ2VnX0JGT2RmSkJkcFllVkJURUFpMVNLMnZHYklQT3NkeXJWMVducTg1OExUZlpILWdYYTVkb3Y0eHRjUnljeWZjWmJYd1BBWUhqc3pFU0VobzZoMmZjVHFFeWFsOEwzMV8wVGJSWHU5b1g4dVVaWVZoQlZ3M3k4YXfSAZwBQVVfeXFMTkh0Wmx0ZFJkM1dRbFNNOW5CSFFMeGdaTFNSeWQ0NDVJV2FsdHUxUGs4akwzdFRVZ0dJYVRzNi1uRWhEejhmNThaSmkxdXN1aXp1aF9HcUlkZFVRWEYwLWE5NzZzLWdYYm1NWjh3NDM4a3pwbm5fTGJKTlVpTHloazFEVHRlbldESHh5eFZweElKcHFBTUwtdEFCWERT?oc=5",
         "https://news.google.com/rss/articles/CBMilwFBVV95cUxPRlB1RHY1M2YycUUxOFB2S3hocnlhTWJXYVJLTURjRUN2MmdfeS1GR19DRC11Tm4xVmp1RlFYd2ZXM1pheVY2MXlkdTZTT0R5ck85RGlmUk5oVDhHZndDTy1yZGJNbGoySTh1MmgwTTAwQ1phYTRsbk12UmtNc3hBclBEckhQYmJRMHZodkVUa04tazlnZ3E0?oc=5"
       ]
+    },
+    {
+      "id": "f1cb6cb6f445c98b",
+      "company_name": "Wipro Ltd.",
+      "ticker": "WIPRO",
+      "person_name": "Srini Pallia",
+      "designation": "CEO",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2024-04-06",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Fortune India",
+      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQZlV5SGw2UEt5VDMwOXNSOGNuUWJMMHZlUVkxM181aXF1LUwycG9VbWNRTVBUREpMV0Z1WVl5M2JwbjdjQk5VMEpRLTBCdWVfVGVHZnQ0alFRZVp0Ml9iM3dHWl9LZ0IwNGFZczlzNEFaRDVuTTBiWFAyNnFsazJ2M2pqazg3WXd1RTVGUmp6UGFkV2Zqc0VBenRTWWdrWHlKNVBSX3VwTVhkeVNGcFdJ0gG8AUFVX3lxTE1DX243SmdCV3RmNk55MUNDV2ZySGFrelhMUnNXMDhRLVhRY2xlcnBFbGU5c3l5WWptbXdHMmxpeXlkRmx0UDFZT09RUkFtaUZFMFBsRVZ3UTdVWUphVVdzVThGcjEzbmo4SG1ZajQ0djJwSm9qMWF2WlJ1Y2duZExKeDJ2TDhZTWpDQVkyajM5b25sSEotWXptOWdxenc5OHVRM0FETnp3V01VOURFUU1yalpDQWo5OG1seVpK?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "CEO",
+        "MD"
+      ],
+      "extra_sources": []
     },
     {
       "id": "37694fa0e56e97c8",
@@ -3516,6 +3630,46 @@
       ]
     },
     {
+      "id": "8c0392922c114433",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Media SBI",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-06-08",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Exchange4Media",
+      "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPTnpTTWN0TEtabjhfQVZyeDN2dkZ2YXRqUmtwS0FPdGpKY2FsMHVEbjlFRUJydGZRYlV1NFFaY25CZERJYXNKbmxnZTAzRjJmOFZFdUJJemstTHlYMExFczVFc0RsN0dSTlZoMlN6aldsTktZX3JOSnJFR2dJdFNhTDBndGZVYWVQZEg2SjlsQjFfMnA3dHp0cERCMFpMVmpKX2ctX3ZQeTFTSjR3c1dPVnAwNjF4LVctMXM4?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "5113b309be3a7372",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Swaminathan Janakiraman",
+      "designation": "",
+      "event_type": "reappointment",
+      "effective_date": "",
+      "announcement_date": "2026-06-06",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "The Indian Express",
+      "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPRkE3SGE3eTJUSHB1ekdUd21Kbjg0THNCVDNmclNsbVFaWjd3UGNORDFKU3VGUXF2NGV5S2kxbDdCT0JRTUp6dzZYY3RLdTNMTFhxZUlob2tGQ0MwNHE2LWVSUS1PeDZtYmw4Y000QTdRSTVITHBrdE45ZEphLThmcVFhbU1lajY0ckM2eTRaampWajVVNDRfMmU3dVctMFRhWUJYWU5pVzJuQ0VTMGNGSjNYeHdOcXBGbFk3cmFnSU1yVFA4cmE0YU5jRjV4V0lHRHNQM21qdGUxVkRyR3FEM2NIREbSAesBQVVfeXFMTnlfRnBvVjlBbDhuVUVZZjk4X25uY2JVWE1PSWxRV1N6NmlRbHdwMl9POTRKZFA2SzkteXlwenNzUUJrbS00TmV5ZkdDbDNvT1ZmN2xTQWxaa2JMdnFRc010Z3lISnBUS296WDZmcEdsY0VzRmw4NHN0WExUTnAtNmFDRlBhS1VBZkw2S3RzRkQ2Mi1NRWpaZzJEdVljd3hBS0hEd1NXRGdPWDZpTXZaTVJ0MUpDVkJWMlRPNkxUOWdyeGNhMHp4TUQtQlNabkFyd215bF9vcHB4RnJHY2pneGFBTnhfb0M4bzMwUQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "8490399f0d8ad877",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -3578,6 +3732,68 @@
       "extra_sources": []
     },
     {
+      "id": "3403d4850af9f8cb",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Ashwani Bhatia",
+      "designation": "Independent Director",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-06-01",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Moneycontrol",
+      "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPN3FBZmY2WW1WWS1Eb0NyNVFRM3hyQ1kzRGJLMmxVNko2aWFMUlVpUTBvN1htU1NrbC1pcXpVelRKYTd6bWxQT2R6cmVnZHh4aV9kanRITEl0WDhxS0tzV2YwbTZWMXE3djdRS2o3WkFJa0M0UXh6MmoyQVM2Z3A5LUFUVlA0ZGpfNjd3ZzA3TEthV0dNam9KVHpaalBxVWRaSzVyaXkwcmNPYW11TWNCM00xUVpzajlMRTBaUFZyRUZSUHF1bmVaZHRuX1MzdXNlWmVtSmstekplWFlmLS1SNEdDSXhwNm1a0gHuAUFVX3lxTE03RF9fRWNHUXFQR0VKR1lVeURYbWt2ZFVJbTQzNkY0WlZkLUhGSnJtSVdCZFBjcTVaMGdFbjBRd1JjUEJOeG15cDlpTHlpSEVRcE5nb1VFenNmUnRfZTJQWkZiMDRMVlRMRGtFV1ZqcHdLd1djTDVQWEdLQWJseml3YlBrNWp5RXhuMjZkTXRlamZ3YzBMZkFzS1FOaUN2ZTlNeXdlWFNtTDh6eXRkQms3Nk9XcDFwMFZNNGNOUnQ4aWxIU2ZhbFRSMk44cG9IR19kVm1lOGlMNlFiZGh1d3h1UUl4M2RheVlpN0pEQkE?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": [
+        "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ubHpQXzFtM21NT0hCU0MzcUQ0NWZwMEJNck9OeGhaNHN2WnBTc01xZWt6WkRmRktmTXpWbV94WnJCdWl6dDNpNTUtdUJEeHZZVENUdWZUVkRjamZQUndz?oc=5"
+      ]
+    },
+    {
+      "id": "f6ee4f8fa1a8b99e",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Atul Rathi",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-05-17",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Whispers In The Corridors",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxORk4ycWg0V2ZkMFBaX3ZTbjRYUFNOaHdnWVhFanZQQXFMaUJCdUdtcFZra29LSzVvcWt1TEMtTE1EZG5ZVlh6NDZYVm5zX2F2NE5BWlhNUUg3NFdLZmZsb1JYUjdhYXBscDFiM18tOE8wZ1E4enRZdmJPMDJmZFEtNlAtS3ZJNk8tRE42V1FicFFPOHQzb19UMUE2T3hrWTV1Vkd5Qjc1TjVHQQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "31abdf944070a814",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Neelesh Dwiviedi",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-05-17",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Whispers In The Corridors",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQTmNRUkU3S2NHZjU4NXZlSU1xRDRzeWlvZUdmZFpqR3JFWld5UGF5cTlnSmdYTzNaRzRJT3NJLWRDbkxyUWFUckVSN2hzWUNjVF9Id0FSSy1SZEZkdWVoSjh0V3R1d1Z3N2s2cjVHRVFNMzI4SzZxa3VtTm9fUTlESTFrWmg2N0t4ejlSaTdUYW5DX0JqM1VYWVJ1aUkxbnQ2TkdKUldxQ1hYdEZteXpzZ1d1UQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "7f6c764d200daad8",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -3618,6 +3834,26 @@
       "extra_sources": []
     },
     {
+      "id": "5d35da508d80d0a1",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Raj Rathi",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-05-04",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Mint",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOVlhGSXBZOW5fVU9nTXhmbUk1WEEtYmZOZTBmTUN0U1VPeXZ6V1o4VDhwZ0F6TE5KcE05czloSnR3czkybzFVa0VvUGt3V1hGaVRRaTdkaWx5Rk8yckxxQnlSeDE3aGZLeE9KSUtZWkpuNUtyWXVyemZCUjk4SXc3eG9DM01hSU5QRWU5Tm9lSzJWenNTWWtxMlF6X0NseUh4ZUtoS1pPWdIBrAFBVV95cUxQU0dsQzNKRTJ1Um16NW91VjM4dEV2TDlGZ1hUb0N6dzFGQmtKZHE2R2o3alBLS2szZjRNSUVQcTJFNTZ4ZW5uaXpBTGZ3dU12ckk3S3ViUkY5Z0MyVDk3Uk5hakFOVHI2LUhPQlVXV0VDOWdBeHEtZ1ZBeDdqRlc0ZmxGbll2QmFDeFBwTTFHSXZnS3NEaGdHVVFiU3IwRFRxZ1pGNGF6Wmd6Y1pq?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "875ea2cb6624776c",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -3652,6 +3888,46 @@
       "resignation_letter_attached": "unknown",
       "source_name": "scanx.trade",
       "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNVUZIakVYaks1OUVXRkVyTnItbng2eXlBdWE1VUFLRkhzb25EcGpHZF9MUVpjQnFIYXZLUUVZTkNrR1ZiNl9tQlROZ2V1YkdUZlBSNnU5UHBKWEdSZ3lCVlIzem44ekY4d0h2bU5zYXc3WkpFUVJ5bHZtYzhQaDVta2phYjNIUFcyUG8zV0lqZHhMSzJPNk0tOG5KczVwc001cFd5QzAyT0hZejEtVldMWWZsbkZqRXp2ekF0ZC05TXpFaENaUjhVLXg2R19vSmNtSk9NdXFn?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "1f06916d7663273f",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Prabhas Bose",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-04-29",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Whispers In The Corridors",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOa0VlU2xUR1BKUGlFT3I4YVY1Nll3VGcwaVRRSno3VzJLV2szcldqYmRlMlp1VDhPOElTVzVHVmpuNXFLNVppLU80OTJDS0xtZU9HUVRGWXdrcDVHVDNUT3JUOHhVWmRtS3VZc0lUSGlnT0hBaVZ2VnQ4aGFHYU5fejVGanhyNFdQdk4yelhXSHNfdEpsZUdMR2o0UW5jaUZvNXpBZWxBTHU?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "896f00c297ce43b5",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Shailesh Raghavan Unnithan",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-04-29",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Whispers In The Corridors",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQSjE2YW5XT0UtNnBYLUdrSDlROFMyRHgxQTZTc1NmbDNXZ2FMcFdldUx4bHYtRGJWcWo3QzVMUzQtZkFXTGt5NU9qZHJkeXJpbDh3aFB5LTY0MGxaa19ObjZNZVJIMUtUZ2x3UlB0Zi1PUWY2c2ZnOTEtUGlwY3NDTlBNMjRJS0tneVBWQV84VlVLQjhuTnpVRXNEU1VxMTg3VGN1OQ?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
@@ -3930,6 +4206,38 @@
       "extra_sources": []
     },
     {
+      "id": "6779a69458729eb4",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Nitin Chugh",
+      "designation": "CEO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-03-18",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNTGFlci1mdlRZWlpXODhCTkRCdHNJb2FMa1h5TjFZWUlZQnRFOGtqenZMZjlsckl6MmludVpndWxmMDY5dmhueFlhdTlIdlpJUjJJTHg2QmNqU0U2My1ZYzNNU3k0a2RXYl80cm42dE52RWRqcXp5U1ZqSmo4T0t5RndKSnB2WU11cHhtenhqWVo4LU4xNnRKaHpmdGJtQmFfV3VmMFQ1NnZpd9IBrwFBVV95cUxOUHBMOF9LanZJMFRmVWIzYUJmeHJhM3NQZ1ZsclhXRXNfYmplUmJWWXl0b1oydVpSMEMtS2lkSG9mc3ZldE0wbmdwX3pHNFluRXlRNDQzMEpqeEE1MnlybGt6MzE0QlJoZ3BUTmZuNnpsN0ZLLVlFTVNoa1ZDS3FJVGNpRlFEWF9rTVhwcF9RYmRncFVDX3ZNU3ppZnVEc2hqZUszeDg5dmF5NWs2Vm5J?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [
+        "CEO",
+        "MD",
+        "Managing Director"
+      ],
+      "extra_sources": [
+        "https://news.google.com/rss/articles/CBMikwFBVV95cUxOc0owNDAzWEZlZE1XUEVZQXIzVDZmN1VmMVNUa2VjYThRXzlkOGluR052TjdqOW9FZTlrRWJva1VTcTVSSFhhUDQwMmQ4OW81U0htNXlNQ1E2dnFrbWVjdnQ0cUxkRE9jRnRBand4MFo2eXJsWDBoVlJ6NndtdXlFSllhZkM0U1JaR2ZuVVVjSmZCMm8?oc=5",
+        "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNUVCNHplV1REYWpuOE1tSUlJSGlmd1dnTV9mRXlLQjM1LXMzdmNQQmRfSkxEZVZTUWtBMFBhN0ktci1WcmVDbU5yNjNTS3p1eV9oVUxWSjZzbjRlVjRvNTZ1UFdGTjNONmZWdDdWVl9KNGt1RWhkdkVfeDVUa0FxWFZwZTcxRlR0R3ljSW5GMEFvWm9DeExKRlNObms?oc=5",
+        "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSERVQkQ0b2I5dVVOdjJfZkltVWt2bWowd0ZTSzhHMFFSZDFSNElUTXVENVEyTHFPWnNTRjRGVEF6ZVlHZ3BxRThhSjR3OU5rQnlIREFFNnJ1ZWVTaGFBNXN2Wjd3S01tZ3NNb00tcVFQNUhjcXdfUHFoTnVCMzNHSGlCb0RBb1RFU0xNSXp6WEtVV1hJci1TZGw4OHcxemtXbFhV?oc=5",
+        "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOGdodlhsNXpoTlRPdWJhNnZGSDR3Q0VyTHViU055RDVvYldPN2E2QUVKdFl0Vm56cjZNOFZERVk0dTBTOXUtSEFhVmFrdlp1SU8zdVdsT0dzODFjeml0NHQ4OU05ZENPRksyZ2ltcS1rWHNKUmJ1TFVFQU1LTHlPdTRTcXJPZ0tHOGRuNTJ1SW12V0ZXc05takVucG1zVDRMZTlZRDZWdGwydEduUlFjZ2piQXFJRDI4WlJHZHh0RQ?oc=5",
+        "https://news.google.com/rss/articles/CBMixAFBVV95cUxNUUJhSElGMVhpUW9QMkJSSXNyMzZaTW5Ud2FCNWRlUi1PWk1DaGVCNjZMMnEwUEc1M1RfeU9ILXR0QldSbWIzYy15ZnNzakx5YW9tdV8yN0hqTDFlbHlBS0ZlajhBWDRFWU1iNVo4YmZRak1SNE1XY1RkOEttT2gxSWlEbU1UUDhUblRSUmxoWnUzREw2WEt1NkNGRVVia2s5QXpqRFY2OXd4enM2Uy0xMVRqWGVyX0xHb3N1YXhxcDFzMVNn?oc=5",
+        "https://news.google.com/rss/articles/CBMixgFBVV95cUxQNnFhV0pPVTFROXR6WXRlLW8tZ2dCVW5RVks2b0dEb3hmam1yTzl1dXk5a2h5VjIzQndoZG55YmtZdjdSYkdMMkhHdmlRbWFrekh3Y3hjVHRXaFJlVDAzTlZmbXhnQ096Um5rOTFMNnBEaG1yZlJCdlFSTDJEZzNSengzSllBSlJwbzcyZ21NVFpEcG9pakhmYy1KODBSWmg5WHR3M1Q1V2dWd2NuMGFHVFphNFNLSWw3N1N4Ul9OX01teThrU3c?oc=5",
+        "https://news.google.com/rss/articles/CBMizwFBVV95cUxNYXJkbTkwU0s5LXJEZG05Z3gzall4Q2hzejZ2cWVBMDlqLXlicjBRNUY5d3p2QzRUMnJKTktyZ1otbFJmaTFDaUd1eHNuLVBBWEMybVlKLS1pLXA3WVhaQkg4dHR5R3JGanJJeTE4dXhGSWFDOU1IcHJYbi1lMGh6Z2k1dkdmajdiZHhUaHlCYlFheXViMWU1VnZNOFhSQ3BpTW9YUDhBV3A4MEh5V3poWmhlaVZLWEdlbmpDc0dKWWJoZTZjTS00LUZvWGpoVFnSAdQBQVVfeXFMTVUzWjNIU1pfXzFSeDVDVk53amxMSXlzNmJFV0FLU3JNZ1h5WEtWendid0w4cV8xMmNFQmVaRHI2a3JobW5XQVpYNFFCcWJRaWZRMWF4WVA4M2lRSm1JSkVMOExNdXlKNDU1cnFxZ19sR2FoS2w5bzhOZXJyRDB3RG1hWDVpNUlPcWV2dDVIR2JZYmtxQzlqZk16WkkzVmJMbDZCcndmMEZHd1YtV2JDR0YtQ0VxU2tzVHpJcmxGenRQUE1QRmdIRlJhMkpkbGpKTk1idG0?oc=5"
+      ]
+    },
+    {
       "id": "06d680e2bc77db28",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -3951,38 +4259,6 @@
         "MD"
       ],
       "extra_sources": []
-    },
-    {
-      "id": "b09fca287721d573",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Nitin Chugh",
-      "designation": "CEO",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2026-03-17",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Business Standard",
-      "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNYXJkbTkwU0s5LXJEZG05Z3gzall4Q2hzejZ2cWVBMDlqLXlicjBRNUY5d3p2QzRUMnJKTktyZ1otbFJmaTFDaUd1eHNuLVBBWEMybVlKLS1pLXA3WVhaQkg4dHR5R3JGanJJeTE4dXhGSWFDOU1IcHJYbi1lMGh6Z2k1dkdmajdiZHhUaHlCYlFheXViMWU1VnZNOFhSQ3BpTW9YUDhBV3A4MEh5V3poWmhlaVZLWEdlbmpDc0dKWWJoZTZjTS00LUZvWGpoVFnSAdQBQVVfeXFMTVUzWjNIU1pfXzFSeDVDVk53amxMSXlzNmJFV0FLU3JNZ1h5WEtWendid0w4cV8xMmNFQmVaRHI2a3JobW5XQVpYNFFCcWJRaWZRMWF4WVA4M2lRSm1JSkVMOExNdXlKNDU1cnFxZ19sR2FoS2w5bzhOZXJyRDB3RG1hWDVpNUlPcWV2dDVIR2JZYmtxQzlqZk16WkkzVmJMbDZCcndmMEZHd1YtV2JDR0YtQ0VxU2tzVHpJcmxGenRQUE1QRmdIRlJhMkpkbGpKTk1idG0?oc=5",
-      "source_type": "news",
-      "confidence_score": "medium",
-      "matched_keywords": [
-        "CEO",
-        "MD",
-        "Managing Director"
-      ],
-      "extra_sources": [
-        "https://news.google.com/rss/articles/CBMikwFBVV95cUxOc0owNDAzWEZlZE1XUEVZQXIzVDZmN1VmMVNUa2VjYThRXzlkOGluR052TjdqOW9FZTlrRWJva1VTcTVSSFhhUDQwMmQ4OW81U0htNXlNQ1E2dnFrbWVjdnQ0cUxkRE9jRnRBand4MFo2eXJsWDBoVlJ6NndtdXlFSllhZkM0U1JaR2ZuVVVjSmZCMm8?oc=5",
-        "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNUVCNHplV1REYWpuOE1tSUlJSGlmd1dnTV9mRXlLQjM1LXMzdmNQQmRfSkxEZVZTUWtBMFBhN0ktci1WcmVDbU5yNjNTS3p1eV9oVUxWSjZzbjRlVjRvNTZ1UFdGTjNONmZWdDdWVl9KNGt1RWhkdkVfeDVUa0FxWFZwZTcxRlR0R3ljSW5GMEFvWm9DeExKRlNObms?oc=5",
-        "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSERVQkQ0b2I5dVVOdjJfZkltVWt2bWowd0ZTSzhHMFFSZDFSNElUTXVENVEyTHFPWnNTRjRGVEF6ZVlHZ3BxRThhSjR3OU5rQnlIREFFNnJ1ZWVTaGFBNXN2Wjd3S01tZ3NNb00tcVFQNUhjcXdfUHFoTnVCMzNHSGlCb0RBb1RFU0xNSXp6WEtVV1hJci1TZGw4OHcxemtXbFhV?oc=5",
-        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNTGFlci1mdlRZWlpXODhCTkRCdHNJb2FMa1h5TjFZWUlZQnRFOGtqenZMZjlsckl6MmludVpndWxmMDY5dmhueFlhdTlIdlpJUjJJTHg2QmNqU0U2My1ZYzNNU3k0a2RXYl80cm42dE52RWRqcXp5U1ZqSmo4T0t5RndKSnB2WU11cHhtenhqWVo4LU4xNnRKaHpmdGJtQmFfV3VmMFQ1NnZpd9IBrwFBVV95cUxOUHBMOF9LanZJMFRmVWIzYUJmeHJhM3NQZ1ZsclhXRXNfYmplUmJWWXl0b1oydVpSMEMtS2lkSG9mc3ZldE0wbmdwX3pHNFluRXlRNDQzMEpqeEE1MnlybGt6MzE0QlJoZ3BUTmZuNnpsN0ZLLVlFTVNoa1ZDS3FJVGNpRlFEWF9rTVhwcF9RYmRncFVDX3ZNU3ppZnVEc2hqZUszeDg5dmF5NWs2Vm5J?oc=5",
-        "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOGdodlhsNXpoTlRPdWJhNnZGSDR3Q0VyTHViU055RDVvYldPN2E2QUVKdFl0Vm56cjZNOFZERVk0dTBTOXUtSEFhVmFrdlp1SU8zdVdsT0dzODFjeml0NHQ4OU05ZENPRksyZ2ltcS1rWHNKUmJ1TFVFQU1LTHlPdTRTcXJPZ0tHOGRuNTJ1SW12V0ZXc05takVucG1zVDRMZTlZRDZWdGwydEduUlFjZ2piQXFJRDI4WlJHZHh0RQ?oc=5",
-        "https://news.google.com/rss/articles/CBMixAFBVV95cUxNUUJhSElGMVhpUW9QMkJSSXNyMzZaTW5Ud2FCNWRlUi1PWk1DaGVCNjZMMnEwUEc1M1RfeU9ILXR0QldSbWIzYy15ZnNzakx5YW9tdV8yN0hqTDFlbHlBS0ZlajhBWDRFWU1iNVo4YmZRak1SNE1XY1RkOEttT2gxSWlEbU1UUDhUblRSUmxoWnUzREw2WEt1NkNGRVVia2s5QXpqRFY2OXd4enM2Uy0xMVRqWGVyX0xHb3N1YXhxcDFzMVNn?oc=5",
-        "https://news.google.com/rss/articles/CBMixgFBVV95cUxQNnFhV0pPVTFROXR6WXRlLW8tZ2dCVW5RVks2b0dEb3hmam1yTzl1dXk5a2h5VjIzQndoZG55YmtZdjdSYkdMMkhHdmlRbWFrekh3Y3hjVHRXaFJlVDAzTlZmbXhnQ096Um5rOTFMNnBEaG1yZlJCdlFSTDJEZzNSengzSllBSlJwbzcyZ21NVFpEcG9pakhmYy1KODBSWmg5WHR3M1Q1V2dWd2NuMGFHVFphNFNLSWw3N1N4Ul9OX01teThrU3c?oc=5"
-      ]
     },
     {
       "id": "d23d8d8605bddb89",
@@ -4150,6 +4426,29 @@
       ]
     },
     {
+      "id": "c4e0daf7c249f674",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Vinay Tonse",
+      "designation": "Managing Director & CEO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-02-04",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "GK Today",
+      "source_url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1rR2dOZ1FlWEl0TFNYOXV1WU9NMzFMaU5ZZjVOVEhBWVZYRDdkbk9ROWc5MC1JZVVGSEc2OHotcHZpV29oamdWdGtXNEJEVm1ZUVJ4MTdLaHFGNENHQ1B4NVFjVTdMRnlRRmJUZGFVOHFSQjRoYkhGSlRWaw?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "CEO",
+        "MD"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "69aef1b548caeed5",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4174,51 +4473,6 @@
       "extra_sources": []
     },
     {
-      "id": "c4e0daf7c249f674",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Vinay Tonse",
-      "designation": "Managing Director & CEO",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2026-02-04",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "GK Today",
-      "source_url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1rR2dOZ1FlWEl0TFNYOXV1WU9NMzFMaU5ZZjVOVEhBWVZYRDdkbk9ROWc5MC1JZVVGSEc2OHotcHZpV29oamdWdGtXNEJEVm1ZUVJ4MTdLaHFGNENHQ1B4NVFjVTdMRnlRRmJUZGFVOHFSQjRoYkhGSlRWaw?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "CEO",
-        "MD"
-      ],
-      "extra_sources": []
-    },
-    {
-      "id": "e787d805b86156ef",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Arijit Basu",
-      "designation": "Chairman",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2026-01-31",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "scanx.trade",
-      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQSVFQaUVicmdESHE0a1plS1IxblVTeHlKenhHWVBnbkhXd2hoLUpzNVJqaWcwRjE0R1FqZVRpcXJPQTZsR092dm1XTUxDNk95Nks3TjlFQTZDb21BT3FBcTMzeFM2V2Q3bFpTMVlCc01JREIybTNXaUVpbGpiOHZ1UTM2Rk4tcG5LNkJRMXZwVm14Zldldmo5c19tVERmRVkzYWFDUnJ1SWdIWmctRjVmUWR3M3pYX2pKbmlZYTQ2VnFTZnlTekV2LWlVTTNieFZrSUVfUHVORF8tUzg?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
-      "extra_sources": [
-        "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPR1dvTEcwRkkySE1nZnBwSzVOQURCaUc5NUcxRFhPZzhLNW14bUpyQU5xZUQ4RW5CbjJNbzJNcHJiSjVYVzU5Q0VUVFZya3E3TXdUcHZuRFlmX20wX3hVR2ptTk9NVllBS2ljXzVDVTRkQlREeXlNM1ZkV0ZMaWpJRXlPNENQR3RwOHRWbjJRTUZxUnMwYUdpVWFtZjhvSFBBR2FLZm5xOGRLNWF2MkthTWVrWVNMb3B6UFdfS29zUlk1YlJEWm0wT1RHdnBreEpzb0owU1k4ZUM?oc=5"
-      ]
-    },
-    {
       "id": "900db7ec3afc51a8",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4237,6 +4491,29 @@
       "confidence_score": "medium",
       "matched_keywords": [],
       "extra_sources": []
+    },
+    {
+      "id": "1a261c11b3d51eea",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Arijit Basu",
+      "designation": "Executive Chairman",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-01-23",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPRURXZFN6TUd4QkpNN2JTaElhMHBjSDd6MFREbFBxOXJWSUtKQlNWMVV1WTdOREUxaWdxZ2NBcGNfaEU2Ql9NMkhwOVp0REhPMjN2N0NtTnd6WkJhTF9ZeGxxcnp1WE81aHVwZWlfYkRBdnBuNWhVU0h6VjYwdXJDalVHenpwbzJzaTUwXzRuVlpYVDFzRVk5enY3c2Rrc2xZckNXenJkS3NoMF9HRjVuQVpGbUc2Z2Y5RzVadGFxOXhQSkoyTUpJMkNFN1E3alFBaUtZOGhqZDVlNWpVYkpZVXdqc3phQdIB6wFBVV95cUxPaF8tOWxQeDZ6cDdEbjZ2ZWJzOVpDaFd4TE03OTdYWmZnUVA2OVVHYkNMS09sbVYyNWh1SEw1akkxVElST2VFX0pwNHBPcmlvTW9lQWliTENjcDFkNHBlSW8tMXRDWW9PZHRUVEc4MVJEeTB5THAwcndab21sYmh2c3BUVXpoRnBnRzRwS0F0NEF1bGgyYUtTcjR6aS1INFVVeEFEM0RlalZ1ZjlsZXUxNy1rMGQ2cFhVM2tQR3lCcDNqU0swU2FiUjFycjlPanpGOTRPYWlaa0x2cHgtZkwxYm5oa29xTjFsLTZR?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": [
+        "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPR1dvTEcwRkkySE1nZnBwSzVOQURCaUc5NUcxRFhPZzhLNW14bUpyQU5xZUQ4RW5CbjJNbzJNcHJiSjVYVzU5Q0VUVFZya3E3TXdUcHZuRFlmX20wX3hVR2ptTk9NVllBS2ljXzVDVTRkQlREeXlNM1ZkV0ZMaWpJRXlPNENQR3RwOHRWbjJRTUZxUnMwYUdpVWFtZjhvSFBBR2FLZm5xOGRLNWF2MkthTWVrWVNMb3B6UFdfS29zUlk1YlJEWm0wT1RHdnBreEpzb0owU1k4ZUM?oc=5",
+        "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQSVFQaUVicmdESHE0a1plS1IxblVTeHlKenhHWVBnbkhXd2hoLUpzNVJqaWcwRjE0R1FqZVRpcXJPQTZsR092dm1XTUxDNk95Nks3TjlFQTZDb21BT3FBcTMzeFM2V2Q3bFpTMVlCc01JREIybTNXaUVpbGpiOHZ1UTM2Rk4tcG5LNkJRMXZwVm14Zldldmo5c19tVERmRVkzYWFDUnJ1SWdIWmctRjVmUWR3M3pYX2pKbmlZYTQ2VnFTZnlTekV2LWlVTTNieFZrSUVfUHVORF8tUzg?oc=5"
+      ]
     },
     {
       "id": "0d4ac824c5f5f8b1",
@@ -4280,6 +4557,26 @@
       "matched_keywords": [
         "Managing Director"
       ],
+      "extra_sources": []
+    },
+    {
+      "id": "f8248e3dc211a3af",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Saurabh Jain Appointed",
+      "designation": "CEO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-12-30",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "hrtoday.in",
+      "source_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPZVZ4YThjcGNfU05qQ0VJdWFHcEZNR08zX0Uzb0JDUmhLLVpLN3JtMTEtUVNTR1lXUkV4UkVWRHFUdDZkdzdzcG9aWGx0ZWVHSTQ2RVFFc0lYSWJ3ZnpGVDJEcHhsUEtNc0I2VUlWV1JjdHB1YjkydWhQVzk1cVJNYS16a1RDVmg3cDhDZm9vMy1GMGk0dlcxTGJjZXdWRVNGdGdiUUZZZ09RdmhVTkpSczFZS240UDdlUFlXZ094TTRPbzJRNEhBaFBRdVE?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
       "extra_sources": []
     },
     {
@@ -4403,7 +4700,6 @@
         "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTTk1aFp6ZHZiM1ZQWFpfbVU5bjZUcGtacWN1ZE1aVlh1c0toY3RfdFQ4bUx1ZS11VUZoM1gtUDFjMndfbGw3UklXTGY3Q0xGQ0dKZUtscWJpdmVBRllTd2NKREdzRjdZV2pzZkZrZ0hzOVR6aEVjM2VXMVpUTzJvUzVuN0lmQjlkYU9NZFd5c2ZoSXZmejNVMVhHSWFsU3FZUTBHR1cxcXBZSzNIOGJfNU9MQQ?oc=5",
         "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVUg4aDJlRDJFcjAyaGdwWnJROVBOcmFrOWVsdk5fSXFva2o3aTNmX0xRR2wtQ3g3WkRMd2tCMEh6a0VnaUJQRkZLS1pvZ1U2aFd2TEcteU9vZTE4dlZjdDdMcG16SU93WF9jdXMzMFVYbEhOZFB2M2c4eU55UEtXQzhCakhrOGxSYXBlTkUyVFZ2NEg0S3RXQUVwQzRJMGJGWDJaS0RwVmVJNzNRcFdFcmhGejTSAbQBQVVfeXFMT1VIOGgyZUQyRXIwMmhncFpyUTlQTnJhazllbHZOX0lxb2tqN2kzZl9MUUdsLUN4N1pETHdrQjBIemtFZ2lCUEZGS0tab2dVNmhXdkxHLXlPb2UxOHZWY3Q3THBteklPd1hfY3VzMzBVWGxITmRQdjNnOHlOeVBLV0M4QmpIazhsUmFwZU5FMlRWdjRINEt0V0FFcEM0STBiRlgyWktEcFZlSTczUXBXRXJoRno0?oc=5",
         "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYXBtbEIzcmpQQmRZemduek13blpPR1A3UURteHk0cGVhX29Qc1dNR1JMRm5ySGxUc2Jzc05SU3FtRlJHX3lzUHF4alIwMUVCMG9TNERTcUwwWFQxVnFnXzVyYkFiYW44a0RRUElNd0c5SDNxb0tsUjQtVFl0YlNkcVNXSTltbGxvajZ6YzNQQ2RZNmxfbVN5US1rY3Z5UkplQXQySEVYRlF6VU9ueWZybUg3TDBxR1k2QWfSAcABQVVfeXFMUHM3SnBqWkJyOHRKQnN5cFUzMndFNURCZTN0eDN2bEdSQXdmc2d5M1ZQZThnbjJRNFhEelVKbk9EMlpjVWJ6blVOazd6UnRndElaOFBUd0Y5bDk0b2xhSWxZeC1JalNqdkozZlBDdWE0WTBnQjVCSWpZdnNjeVZWRE9mZGI2TksxLW1zNDJnWm5HVlNmaExndlB3N3BZa2xBUFk4WkQyV3ZNWXRHcjMwZ0lLOU1FaFpYeUNpSEpNNDM4?oc=5",
-        "https://news.google.com/rss/articles/CBMivwFBVV95cUxON3VSNm5kblZkOFFrNDgwX0xjNnJHT1ViS1ptMWpSV1ZyNUV6OFR4d0ZTWnFHQTdjLWQ5ZDQxTUlsQXIwSmlfUjM0WE1VaHh0T0tBdlFSRWlyaFZjd0U4VmZXM2hMU2o0UkZsU1VPUnVpOHJFVEtWcGttcVFvWWktaEFzdHZQbmNUZEVjamt5X2tjVmNVd3Z0WmtqOWEzY2xQOW1zVVpWaGVqVmo3ZFBkSUNmZlAwel9PbENqMklFZw?oc=5",
         "https://news.google.com/rss/articles/CBMizAFBVV95cUxQMUpKc1libzdRMVBhN1BXZ0hrU0w4dUV2NVZvS3NKV2JUQjdQUDlDeTNHQndldmlrTnhYV3lqS3dlWksxTTdBY0FRMC0tQ19aMUNUVHdnWVFhMlhSbmRYSi1OQ2VuWnpHRE00N3Jqc0dITFB4MHd1cUZ1dFpKWWNMRU5BVEY0ck05bUdxendLQW9tRFNmZWNtbW9uWlNDbW5kZllKSzE1MGVENDdkdnpTclJocXhFSklXSnlBV01zQV94MmxRenhQaVVCVlHSAdIBQVVfeXFMUHZONTk0WGZYeWM1NnY3QkVEYnFrdGZFRFd5eS1WNkx5ckVFWkFkN0lMZG9RZ2JvdU1XVnBHbkhlTGphV0pFVDFSNTJuelEwRDJCMnhrUnAzdE9wZEhXbXFyazRiZVJ5djJNOTY1Wmt3YUZLMU80Q3FpVzFDUDZGX21UM05Rb1htMllCX19nTFFzZVJMZDdpMmdMaHVaUEJSblhEaXl4X3VFcXJmZGpURHF4Sk54VndWZk94WWozTGZhdHBfQ3Ewc3B4bUZyc2liTnBn?oc=5"
       ]
     },
@@ -4430,28 +4726,6 @@
       "extra_sources": []
     },
     {
-      "id": "a8f0d32ed9c20453",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Officially Appoints Ravi Ranjan",
-      "designation": "Managing Director",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2025-12-15",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "scanx.trade",
-      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONFByMFB3OUhwbjZoQ1FVZ2M0ZHlUZTlUOThYV3hkT2FHZFpTVDhuMzc1WjRtbDR2NUwtMWxHTkVhb1F4NFI1VWpvaU5SaTVUaXJGWVFtMzlGOXdoenI1Mnlhc1RjMnU1OEg1LU5nN3FwcVMtN3JlN0t1SnViZEdjZ2RndW4ycWxRWlVLTy1rX1NUSDBLSFI2VHQ4V1dBWXZRVlMtODctQjNrZWJGa3AzS1VmQWJUV3c?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "Managing Director"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "8631369accedc55e",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4474,26 +4748,6 @@
       "extra_sources": []
     },
     {
-      "id": "900e307a485163e4",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Surender Rana Appointed",
-      "designation": "Chairman",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2025-11-28",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "hrtoday.in",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNX213UVR1VlFEa0VleGJNalZRTU5PcE1hTlA5MFRHek1KeWEyQmtMQ253dUlhNWlXazVBOU81OUw0VlEwR0hqXzBpSmFrSEtkSXB4dWZrSThLbnV2WmxoZTNRWWxtNkF1bXIxdXJBVjdoTU9iN28zUXhvRHdqMUtIS2RjeXV3ZWx4ZGtteTZQSjJFRWt6QUI0djBFQ1FHV1RINFg0cVl3?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
-      "extra_sources": []
-    },
-    {
       "id": "ad03a6bd49d724b1",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4508,6 +4762,26 @@
       "resignation_letter_attached": "unknown",
       "source_name": "hrtoday.in",
       "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVWxzc0JhWjVwVno1ZVlOU3gxaGFYVTBiek1FTkUybS1TU0laTWxHcmYtMTJ1YlRfUE5GN2wydzlaaWRudzUzTkFrTk5EOVFQTGhIMThZandGblg2MHZaQXFpTURBS2xhYXBRTGhnTWdseUZfUkdtMmJtVGhNdVJJUzBFdzFiQVNGcGduajNR?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "a9cbb2cc822aa32c",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Vivek Joshi Appointed",
+      "designation": "Director",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-10-23",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "scanx.trade",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd2IyZ2dDbzR3YS1EclFoWDhkWnBNY1ExaVBsQko0TmRhcFFaTFFmTlJGQm93dGNwTnBuY3lzbXo3UmNVUjZLUjBXYVBXSF9hZ3lMVzd3aHNuVWo5X3Bla2oxbVFwem9Lbmp5OG5CRTh0YlM3bGdxOWNCejhGSHByeGtrYURmQ2JSS0NhczYtazMyRHN0T0oxdkJ2bENUMW9HMEpncTYxWkNVRmRWTGhJQ1FVNDYzZnRJTVZzZ3p0RkNLdUhK?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
@@ -4536,28 +4810,6 @@
       "extra_sources": []
     },
     {
-      "id": "15cffb1207755a79",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Claim Verdictum",
-      "designation": "",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2025-09-30",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Verdictum",
-      "source_url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOQU52RjN0ZWRtMHFIT0NGcEtWYjg3TEpaazJncVJNellnOWtxcHFyM0NldzhvZ2ExSzVFZ1c0WXB2ak9fLUpvY2J3cGtFWjE3akZZRmx4RGtHVUpzQlA5dS1sX01LX0sxSnhCdzU5dVdKM1F5VHRwUFpSVERCeGFMcWwwREk4cUlpZGlPQ3pzZW5QdEdoOWpwMm54MWJFSjVvTVlZcjJHLUpEbWhRUWJxMXhvb2VEQlM3LTAtRTViX2JvX25fLWFXN0RoREJhenFQWXZ6emJsV0YzRTc3TFZQd1R3bS1hNmpxVDNBZkVIbTFkTEt6YXlHTk5YWGpNMzA1U3ZjdlZXSWnSAY4CQVVfeXFMTzZjNEVoekoxdU5reWlkaFp5X3NhWUg0Ylg3S2ltbWswcUhPbkxuUnZqRTBTelNhN1FpZFFQblc0aG45VkxwUWItakVTTmZ4NnJ6aFJOVkpOemdJMGE5V0REMl96M3ZFeDhZRmVIeWRzZUppMzdzQ25aMGVhVzNBUGotM2dobENPNWRIdXVkRF8zSHI4QU5OWW5yRzYxMlV6YWxuaXhZSzhVN1ZKT3VjMG1XcEJZZjM4WWMwb0hzbE5XUVZxWTBlTVhzSDl6LU12UzFpX1JrQ3Mtdm90M3Uzc2s4SGdGRmgyTjJhbXFRMUlkSUpXM0xMVEd3WHVaTXdCLTdoY0laSUQxNXl2RGxR?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "appointment"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "b27ff3e1e88d7fb6",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4577,26 +4829,6 @@
       "matched_keywords": [
         "appointment"
       ],
-      "extra_sources": []
-    },
-    {
-      "id": "d6b552b84cbf4dc8",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Avinash Agrawal",
-      "designation": "",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2025-09-23",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "hrtoday.in",
-      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQN3gtWjNjX25sZ3BBa0loellJNUFlaERsQWxLdlhGOWxrS3pRZ2ZBX0hEaTRYTUlsTzVfbTFrTDlHRFVfZC1yZWtHUTlvZHI3NEtlUTc1WDVlekFDWjlaUE8tcVM2RGFlN3VpQUJvdVJKN04wc0hHUmJNenhPWXVHZjFrbWZ1UXY5dE1tLXZnbjNZU0xWZE4tcFJ3eGlOSmJldGZ3Xw?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
       "extra_sources": []
     },
     {
@@ -4710,28 +4942,6 @@
       "extra_sources": []
     },
     {
-      "id": "b076fe5ec06d7435",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Rama Mohan Rao Amara",
-      "designation": "Managing Director",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2024-12-18",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "India Today",
-      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOdXN0dUYzTzZZTUdvT2pMOE1jSllPb3N4dUJROVlzVVdCVlEzdjJCYlVTenNWbjh2dXJMRWRCM2dFODhZOG9ZYkpfdzhxb1JQSjBocVJ4U09GZXNxUGJuZzhQbHJMT3duLXZvTHY0azczOXdybzRQS1NwdnVrdWJ0WXY0amtyeXZRMDNKYlh6R1pvdTNoSV9IZmo0dXI4QjQwYUdXTml3NkFhMU95dU4wWmVZQkh5ZkFZT19KRUxFUE7SAcYBQVVfeXFMUGY5M1ZZMUVjNTNlVDNpckZJdlhMYUNITjROWnJVMkV6UUc5c0w5ejZsQ1NSdW02Y0wxUFlkZjlBM0ZZWkFPYk5teHVNaTZGWjdtd3BqZzhFRjlLTExhRE5EV2RsWVptR29kRG1HX1Vfb2M5M01qRDlCdUZZbS0tWnk3RnN6M29iWHFObGhvcDNVSFJ0VUw0aEVrcmxLYkRXWjVrSWczUlNldVlfdTFlZ0tXSDJNWFVkNl9qeWFfQkZ1Q0U3bUtR?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "Managing Director"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "8907836b69ed1335",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4773,26 +4983,6 @@
       "matched_keywords": [
         "resignation"
       ],
-      "extra_sources": []
-    },
-    {
-      "id": "5dc72c473b6d586a",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "CS Setty",
-      "designation": "Chairman",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2024-08-07",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Hindu BusinessLine",
-      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQblpOYng3UHRFVEt1djZ1aTJHRF9zbUNkdXdVT2hOby1ncWxKMU1OT0tNbzlzX0NTZi1iaXR3UjRKZlBKaVNEejJTdmZDUE5BZ1pCQzYtdFRBaHhVZUM0NE91Y2QxNkcyLXZWY1FvcVJPOUx5Y2pPTFY5WDdRTjJ1LUk0a2RQV243ekhUb2dwX2Jnd0pObmQwWHVpZ0t6alJieGNtN3V2S0FGM0Z3QzAwdl9ZY2RZTnZneEhBZWc2dWRJR1JFSHloUmd30gHQAUFVX3lxTE4yeWlPaGQxa2d1a3h4My04SkVxU2hNVU1fc2w5UmlwNUpONnJPbXpRcXI3OW5yd2FaMFVFNzdWeHVSakpib29qM3VId09TZ1FNMGkyR3dMRkI2Y1ZMVzFrVmxIeWJYLUllWkZCSGctN1ZtRW5tQWltbHk5TGhud1AwQnFodExBckJZcllCTW1jb29ZcXl2T29VLTBaMnAxcEV6eW4yM25McFA0NnMyeW12WmRDM2FNUHZKT2dpQllxendVUFNnYm0ta1hhXzlmRlQ?oc=5",
-      "source_type": "news",
-      "confidence_score": "medium",
-      "matched_keywords": [],
       "extra_sources": []
     },
     {
@@ -4880,20 +5070,20 @@
       "extra_sources": []
     },
     {
-      "id": "b8755ea774b3da16",
+      "id": "1a85be929fad8dd7",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
-      "person_name": "Amit Verma",
+      "person_name": "Five Years",
       "designation": "",
-      "event_type": "appointment",
+      "event_type": "resignation",
       "effective_date": "",
-      "announcement_date": "2024-02-24",
+      "announcement_date": "2023-12-27",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "The Indian Panorama",
-      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdThmYWZFNGJNV2NRTVIyVjRGNlV3LWZ5dnkzeW9NVmFuRmJKc2ZNQVBLZUY3UnFqQU5RMjN3bWVKb2Q1RW1adWo4M2JnU19vc2NOQVpQRmxNVURwbFJaenhscDFQUWh3SWFoRkZtTTVVamxvZjlabkt4TjFEMFNoa0EzcThLTVZYb29XTkp2QXdyQkMwZjF2eS0zbUdfeWNyTjBkR0p5LUpiSjZRWHRMZ2p3RlNCRGE5N3lJUEhB?oc=5",
+      "source_name": "Thekanal",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNOWhnY0pyS05mZXl3ZE15Q2xBUm83dFBHVHhKdnp4OVdvMDdHMHFvSnNzVmNoNlZHeGJhR3hLemU2NGlLXzNTZDdSdHlZbzdfQ3h4YTlNc0otZk8xN1hrZkljTjVkOV8xOFYtalMxeTdObnlTbnRYc2RnTHlkMGlPS1NDTGZZLXVPRF9qR25zS3lyMTMxNld6RmlEN2gxUQ?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
@@ -4992,26 +5182,6 @@
       "extra_sources": []
     },
     {
-      "id": "a452e12aac1a531c",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Dinesh Kumar Khara",
-      "designation": "Chairman",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2020-10-07",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "The News Minute",
-      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNaFlqeDlEMXljYWQ4VlJJSHZPdTJlWnZWMEc2SkxMWWFGNWY0Q1pXakwzWlZhdVFEMlBYWGFwY3pTTFpJZ3lpU2F0dWpIeDJ2RUFOOUU0aUFNTHktbXJQck5wcm9DWUV4QzRVcHE1cEsyLXBBcDJIcEs5R2NJOG5OSjFMdU1xdEJaVllmYU1id2pqYjQ0YXFlb0xrVmdNQdIBqwFBVV95cUxPMGI1dUE4amVtSWZwc3RRZ3h2VmRibjgtQUItYW1qR0hUZVZYN0x3V3ZBU1ZEQU1YdjhtcGJsLVFuYWszR3c5VnFLVnZFaU9TTkw3NE9SWGdiX3ZNOXdVLWNycDRXWFg0X3lWOEZTTl9kLWtqWG9EcHRfRF95ZEhjZzRnR185R3lscjlBeGNKcjVTYm1Ydjkzb21HT0xOODJJUTFqYTdxMDdsOVU?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
-      "extra_sources": []
-    },
-    {
       "id": "1d8e76f4c88f880d",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -5053,28 +5223,6 @@
       "confidence_score": "medium",
       "matched_keywords": [
         "CEO",
-        "MD"
-      ],
-      "extra_sources": []
-    },
-    {
-      "id": "55c28117101db132",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "APPOINTED MD OF SBI",
-      "designation": "Managing Director",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2020-01-20",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "IndianMandarins",
-      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTnkxNkJJdU0xOWhKZHRvdFlXNWk3UElnOXM4ektaakc0RHhaUDZnd3Mxb3VDT2lHMjZnMkx2bm1DaXRLbjV1eUN1S0p6b1lqTGVGVXpWd21iZUIxTllwWTRzUS1FMWxrcTM2Z2UyODdpTTJUZExjLUJ2aGZydnFUWVZTZzhPVmFHSnJrRzdZb1NudXRi?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
         "MD"
       ],
       "extra_sources": []
@@ -5202,6 +5350,51 @@
       "extra_sources": []
     },
     {
+      "id": "c16269c98a57cddf",
+      "company_name": "Larsen & Toubro Ltd.",
+      "ticker": "LT",
+      "person_name": "Irregularities Don",
+      "designation": "",
+      "event_type": "termination",
+      "effective_date": "",
+      "announcement_date": "2025-05-24",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "LinkedIn",
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPc2ZOa0R1d2ZMZkpJdXpBYXpKWjM5LVpGVzNjZFhxNHp0ZGI4ZGY5YTdlZTl5clBhS1hiNWVBUUlmLXhkOWVPNHlYc1o0MHBYdWhkWkRZVmQ0Q191ZVZfbC1DV1VtN1JtS0I0ODNHT3Q0SEJWTHd4RG9XMWs0WGFTMDNZS0N1U3VKcktnMTVfU0RnM0ZZWFpoa1VpRWZVRTF6?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "appointment",
+        "termination"
+      ],
+      "extra_sources": []
+    },
+    {
+      "id": "7673c92af0a061d0",
+      "company_name": "Larsen & Toubro Ltd.",
+      "ticker": "LT",
+      "person_name": "Pharma Appoints Anurag Mantri",
+      "designation": "CFO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-04-07",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "India Infoline",
+      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPY1NiSUZjRXFBZjRnaDd4SzI4V2NZN2U1OWp4VmI4djVCMXVaNGNQbUZrd1l6bUxkYzgyTlE2RGo1WURrZXpSSEcxdU9uZ2RqUjNJTnppWmZIWEhHTWpSNlJfcGJmR3VSRmh1NmVVQ1FBcUJyTTdIeDI0Ym5PWmdwazktdkVzNlNfRWtVeTRYLWVYWHEzNnVjaA?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "CFO"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "7f3fad939b995943",
       "company_name": "Larsen & Toubro Ltd.",
       "ticker": "LT",
@@ -5236,26 +5429,6 @@
       "resignation_letter_attached": "unknown",
       "source_name": "hrtoday.in",
       "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVF9UMUplOV9vV1ZoNWFmSXAtOEExM0ZOdW12OEFQekJxS09iYU9sc25YbjlfdXpEV0RGXzFjN3RwU0lSY3hQT1JaZFRHZUd2VkRRODd5WFZ5eE4tRFpGMGtaMXdpakFXX2FsMVB6cmRuT3l4eTdkcXRuZUNOOHJndXJtSHVEdHhaeUVGQ3IyM2ZRTDA?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
-      "extra_sources": []
-    },
-    {
-      "id": "5407d610b1e8b563",
-      "company_name": "Larsen & Toubro Ltd.",
-      "ticker": "LT",
-      "person_name": "Manish Pant",
-      "designation": "",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2023-01-05",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Manufacturing Today India",
-      "source_url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQd2YzcWI5NmhRbkktaGIzLWZHZkk0VUllbVpxa0xXSjlBQVE0UnNEMDUtM0ZXSTNqb0pDbU1CaVFKOFY4N1RqQXZFY2dpV04yZ2xldlduVUR6eVBEQ3UxckJybEd4U0dITkdaWWF3OGdWa1VldW9kRzZDUzlRZlRIU3JSRWp3OGRYZVJpMXMwZXlHckRMMFZKVERHQ0dITS1YMVpxZTRPNXJjTTZDdGY5T0k2QjhDdFVzcUxya3RWZVJhM3p6eUZ5MzEyamQtaGdsakd6cE03cw?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
@@ -5473,14 +5646,14 @@
       "extra_sources": []
     },
     {
-      "id": "3ae3971db0aaa683",
+      "id": "458dcef3d924b645",
       "company_name": "Axis Bank Ltd.",
       "ticker": "AXISBANK",
       "person_name": "Rajiv Anand",
       "designation": "CEO",
       "event_type": "appointment",
       "effective_date": "",
-      "announcement_date": "2025-08-04",
+      "announcement_date": "2025-08-05",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
