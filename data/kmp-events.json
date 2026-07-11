@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-11T08:05:36.412751+00:00",
+  "generated_at": "2026-07-11T13:41:21.930566+00:00",
   "company_count": 10,
-  "event_count": 259,
+  "event_count": 257,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -18,12 +18,12 @@
     "by_company": {
       "RELIANCE": 35,
       "TCS": 16,
-      "INFY": 22,
+      "INFY": 21,
       "HDFCBANK": 28,
       "ICICIBANK": 27,
       "WIPRO": 22,
       "JIOFIN": 5,
-      "SBIN": 75,
+      "SBIN": 74,
       "LT": 15,
       "AXISBANK": 14
     },
@@ -32,7 +32,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 56
+        "news": 57
       },
       "TCS": {
         "serpapi": 0,
@@ -44,7 +44,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 27
+        "news": 26
       },
       "HDFCBANK": {
         "serpapi": 0,
@@ -74,7 +74,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 110
+        "news": 109
       },
       "LT": {
         "serpapi": 0,
@@ -92,7 +92,7 @@
     "by_confidence": {
       "high": 0,
       "medium": 107,
-      "low": 152
+      "low": 150
     }
   },
   "events": [
@@ -389,7 +389,9 @@
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [],
-      "extra_sources": []
+      "extra_sources": [
+        "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOanQ0OGVBSGQ5Q2I0OEpPNVl0YzR2Q2J6bzVvdzl6TDRjYVBPbExpSU1qa0EwZnF0LTFiUGRqVGk2dkdLdTBoRzdiUGtaV2MtakJtWHRWd1pra1pQMjR0ZzFzMkNLLXFpTjFGNmxNN0VxdWttQmVabVlqVnN2Vm1ncHZsLTZMbFlnUFV0dTNWY0stdWxiY1dQTllydmJ2a3BTdnBGc05MYmN2b3NibkM1UGlLQmtNZkpWdkhDOXRqYk5TVTQ0UkpGSw?oc=5"
+      ]
     },
     {
       "id": "e0233a161c658da2",
@@ -1460,26 +1462,6 @@
       "matched_keywords": [
         "termination"
       ],
-      "extra_sources": []
-    },
-    {
-      "id": "34a98e71cfaac38e",
-      "company_name": "Infosys Ltd.",
-      "ticker": "INFY",
-      "person_name": "Ravi Venkatesan",
-      "designation": "",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2018-09-28",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "The New Indian Express",
-      "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPUVdBek9PNENzbFd3TjJYWHk4enpxWFVvWU9MMkQtZGdZckwyVlNlWjhGcmoxeFViU1kyYWhyaXdnTDlMdWVONGsyOGVuc3VLbVZTTUlmTGQ4aUx1NWVGOXhUQzd2aUppakdpR1p6aDB1d1NqUFFDV0VKb28wek45M1lINFgwaHpPRUkwV2xpV0RWbDFtalhNdTNsN2pLcUFOOU5Oa080dUtKbkdFSVkxS1VNb2pVSzBQRjRIWUIzVlZGY29pMFpuTkN1RFZnTnJIRWfSAd8BQVVfeXFMUC1vaU85Z09jeTYzUk1vbnpzN1UxeFVuNjBBU3A2MlE3dXhLMWFoZE13Z1B0SEhqOVNKeEZiZ3dwdl82Ulh2VzBjWUJtY05uMHNsdURsWF8yd2F1NHpTMm16RW8zODFkbEFoVzdYWDJ4dU5MTmp1T1NWZmtnWGdDU1M5S3RuMmdaYkJwLWx5T0cxWmpoQXA1NXR2NjhYWjhYeUpvWm1vUEdhTk9sRmJrWmkxUndXSVllbWN1b3hMNkF2T0NXVVB0MG5uR19hOHdSZDhWZ2g3c1AxZnVzQ2hGQQ?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
       "extra_sources": []
     },
     {
@@ -3952,28 +3934,6 @@
       "extra_sources": []
     },
     {
-      "id": "70a94d7ae8238c3c",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Jain Irrigation Systems Announces",
-      "designation": "Director",
-      "event_type": "resignation",
-      "effective_date": "",
-      "announcement_date": "2026-04-26",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "scanx.trade",
-      "source_url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOTi1WYVZhTDZBUDZPM0xXa3lqZ3ZrQ09za0RxSVg4UXkyWGtmVURKMTY3bEVqN3dDY0xiQVltSVI1Yks2YW8wSF8wbENSblR1Si1DWTdIN2V1RlRueGZOU202Ty1IMmVaZ00xNW5SaFJER3VlWGNiSFk1eElBUFBQWU9Ob3ZiZ3JaejFETzBFWjRyTDZNbjVuYjRVeWplaExNakV2ZTczWFhLY1VVVXRGUVBKVjQ4RldSNFpWc2NLMzJpUnZrRWxFVGJCM2VGMFhwOGc4SzVzV2l4QQ?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "resignation"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "0cff636951e98d31",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4238,7 +4198,7 @@
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
       "source_name": "ET Markets",
-      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbXA2RTRuQjJCd0VrbU4zdzdZdEVJS04zek5EbDhtbG80T0kwQ0ZiYWVkaUh2Nko2bmYyOWJtcFVmdkRCaGpTWDFaT0trbGk0akw2QnRBb2xZYW5WeXR2Yl81TTN6MndkNmNxdHl4YWVBaHM2OWhxR09uNnBxYU1zbUJfaFZRYVI0UmdXejVsR3l5cGh1TzRpRUFfU0dZLWpnNElYeHRlRHpjMDI40gGyAUFVX3lxTE1NRGJKNXB3NWN1aHVlVTR2dWtsem1UTDZCTjNOY2ltcjZIQ3dWeTBRRkU1TGJScl9qQjllaEl1S0lqRU9tSl9wZUh6YnFTLTczNEZCc3BVT215eE1qYWhfb3pSb2hyVWp6dEh3NVR1bWZiQnA2Yjd1SlBoc1I3MG02cnhWSjU0LVUwTTJ3SG1KZnYweW5ob0RveVRNcXNwQ19TTVV1LU1weDJsTXEzaEtGaFE?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbXA2RTRuQjJCd0VrbU4zdzdZdEVJS04zek5EbDhtbG80T0kwQ0ZiYWVkaUh2Nko2bmYyOWJtcFVmdkRCaGpTWDFaT0trbGk0akw2QnRBb2xZYW5WeXR2Yl81TTN6MndkNmNxdHl4YWVBaHM2OWhxR09uNnBxYU1zbUJfaFZRYVI0UmdXejVsR3l5cGh1TzRpRUFfU0dZLWpnNElYeHRlRHpjMDI4?oc=5",
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [
@@ -4615,7 +4575,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Indian Masterminds",
+      "source_name": "Indianmasterminds",
       "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQemJCUjVLZE40R0ZyZWsyeHlGSWxxcnlzUmZsM0l4X1hUa2pfZm8wOVZ4LTZsQU9QaGJzNGFYby1lcUFFWV82T2doV2dOeGNtTDNvTWxYLXlqRWtoSW1mcUVEb0wwRTFpZnQwYS11UW4zREo2TFFvSi1qZTl4dnZ5SmQ1TWNZUUs4dlF0aUpINmMyZFhHQVpTb3BoX3JLUDctT0VyR2JIX2MyekFNUUYtTzVyQ2RTeVNtUnlhR1VrSWZLa2Fp?oc=5",
       "source_type": "search",
       "confidence_score": "low",
