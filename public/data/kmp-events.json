@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-19T08:27:51.520079+00:00",
+  "generated_at": "2026-07-19T13:38:34.193553+00:00",
   "company_count": 10,
-  "event_count": 263,
+  "event_count": 267,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -16,14 +16,14 @@
   ],
   "diagnostics": {
     "by_company": {
-      "RELIANCE": 37,
-      "TCS": 13,
+      "RELIANCE": 36,
+      "TCS": 15,
       "INFY": 20,
       "HDFCBANK": 31,
-      "ICICIBANK": 26,
+      "ICICIBANK": 27,
       "WIPRO": 23,
       "JIOFIN": 4,
-      "SBIN": 74,
+      "SBIN": 76,
       "LT": 14,
       "AXISBANK": 21
     },
@@ -32,13 +32,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 53
+        "news": 52
       },
       "TCS": {
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 13
+        "news": 15
       },
       "INFY": {
         "serpapi": 0,
@@ -56,7 +56,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 26
+        "news": 27
       },
       "WIPRO": {
         "serpapi": 0,
@@ -74,7 +74,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 107
+        "news": 109
       },
       "LT": {
         "serpapi": 0,
@@ -86,13 +86,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 23
+        "news": 22
       }
     },
     "by_confidence": {
       "high": 0,
-      "medium": 110,
-      "low": 153
+      "medium": 112,
+      "low": 155
     }
   },
   "events": [
@@ -800,26 +800,6 @@
       "extra_sources": []
     },
     {
-      "id": "eea826d9f75ae072",
-      "company_name": "Reliance Industries Ltd.",
-      "ticker": "RELIANCE",
-      "person_name": "Urjit Patel",
-      "designation": "",
-      "event_type": "resignation",
-      "effective_date": "",
-      "announcement_date": "2018-12-11",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "CNBC-TV18",
-      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOQnZlRl9iOFZiOThqSEs0TnZ6TUluNHA0WE5PV0VBS05KVVhSbWlwbHdya1lIVERRbHRtb1hMZjlxNFZEZk1ZN19manE0a0dlOG43Sl9lTDJTemhZaTVsQXJsb09Wc25KTlpKSFBoZWhfLUx4RjlEUFNfTDR5ZUYyZm9STdIBiAFBVV95cUxPV0ZSam0xNW9MT3REVDBjOUtsYWxiTDVVWEdxS3NZeWdySy1TN0F5QWNRcmVvQzZqYWdWaEN5bkpzSlgwVlI3bmIxY2ZiUkN2ZmpmWlFKM3FOM2h4eTJZUHJqVHVHalFEOW95RzJBQ1ZteVpHRkV6aW80ZEhfX2UzZURCaTFoLTM5?oc=5",
-      "source_type": "news",
-      "confidence_score": "medium",
-      "matched_keywords": [],
-      "extra_sources": []
-    },
-    {
       "id": "a895706e12b00cd0",
       "company_name": "Reliance Industries Ltd.",
       "ticker": "RELIANCE",
@@ -898,6 +878,46 @@
       "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPNXVIejB4MktwTXI0VTJTY1BpX1B2Z1o5R2p1ekFoVXlVMkJDNzhVNEdKVGZhdzF5RUVxaVBhYk5oUTNmZGttMEJ4YXg4Rlg5bFBxTm42R3h0ZjBKRE5vQldWUUVtaFVCbzZuT2NZSmZmS0lBajdOd2F2RG15aXJ0T1lRc1Fkd3pkdmRzbUVRVUQ5RDc2SEJiTWhfOEtaX3U0blRTLVRDNGZCSTRqM25EdGFONWFpb3FmTWdEbUFR?oc=5",
       "source_type": "search",
       "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "aad5a1026d111aad",
+      "company_name": "Tata Consultancy Services Ltd.",
+      "ticker": "TCS",
+      "person_name": "Business Standard OpenAI",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-06-28",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Business Standard",
+      "source_url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNOGo0MmpqTEZJSUdWMV83Y3FFNndpbUVic0FvMktidFpNLXI3WUttVlJmTHdPQlVSNHlPM2hKQ1ViN3hvbFdNQ1BtcUhvVXQwaTBxcmlCb3R2a3ZsSEF6WjdtRmEtQnROOW0yZmV3N0h1TXFUNklDSE1VbEoyM2xrUlVyY01qSjN1V1Z5NGszWG9GQl9nNFJJVkhvZUtmNng1RmdCR015eHMtbG8xUHpLVUZxNjBjV1FIWlQ5d3RLTXhpUHlKZzZYY2lwRjg2SThrN2JQckcyWnBJY2hVQWFlM2FvUdIB6AFBVV95cUxPeGU3dWhiWFhfNnRaVFI2OXJMd01DU1FVYXRhNkJyTVUzaWo1TVp3R2lyd0xQOVZZY1FGQURmTUFTb1FFU1BkLW9YNnVlN3p2UzNXSnpJRE54T25tTGQtYXhhbjVkQV83OWhkV1h4NHFpMzYzZ0dlTW1WRGNKMFd4TUVicVppbTdwMERGeU0xYnpfOWRIUHFuS2d2eUJjWXhHeFFWY1VTYXg5NWJFUkFMczM4OFpRVW15LWM4S2RVelNaUkpBNDFBbGZlUXBjNW0zUkxsYXUybnVlMGtSZ20wM2xtd3V2RXNY?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "b9084b2bf1850664",
+      "company_name": "Tata Consultancy Services Ltd.",
+      "ticker": "TCS",
+      "person_name": "Keki Mistry",
+      "designation": "Independent Director",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-06-24",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPQVVPQ1F3T1Zkd01ySGVNZWlXdjNydFJPNkxEQXplZXpWbWJLSnNWUHhYZWtkeTNmRFRhaXRGWUhGQ1RtSlI0SklTLTFHZTdGMU1jUHlVczZWM1htUmQtNjB1eG9fSlBkZjJvZWhkdzVSX09hS3YtbHk5U2FuOFcwbkdYX3JLYmIxN3ZTUmNhMW1vQXFDclh3TUdNbU5ZdTBUeGFvTlNrNjc4eEJiZWcweXBPbWhlN3NMRF93bjNYR1lCcktSSFZlV0pzc2d5ZEFDNXM40gHYAUFVX3lxTE9xTG50WjJIUG1iczAwUjgwZGhMYlEwZDg3SENBallTc3pJTGtlbVVJbkxjdlhaLTNFeUI0SkV3MXoxcVZBUFlNbjR2RVdEaTRSanBqWlliTExYVEZXb1ZCWEhlLVJOc2tmc0J0bjdnNFVzYlpwVDdEX3VBZUd5Z01pM1FBcHhKb3BLaXRSU0dHWFRkd2pxbFV0Tkc1OXRvUFc4bGdyQkpBUGNONGN1TnZpUExyTnlNaEg2bkl1YllwZzFqeVdyYzZKS2t1cTMtQjlSTXI4MGtJTA?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
       "matched_keywords": [],
       "extra_sources": []
     },
@@ -2580,6 +2600,26 @@
       "extra_sources": []
     },
     {
+      "id": "8f64ca32fe3b0559",
+      "company_name": "ICICI Bank Ltd.",
+      "ticker": "ICICIBANK",
+      "person_name": "Sekhar Rao",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2023-01-14",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPeWFiMWVaUnJZamY2OHhRSnVteHNoNnQ3NG1BS0o3MFlJOEpuc3NNYVB6aUFwanZiUzFPQkp1SHlrRkc0TEJ4ekJKNVJWUnktUkNpSUloMUotWExGalVhbWJfVnQ0ekFtbFdsZ3psWTZfZ3k5dlhkR3piaVdCWFY5WHZwQXdtY1BnVWlqU2I1eVV1UFZCU0JWVEdaRlBJYkJZbm42LXVydXU1YUxvTkw0QjRwcDNjYU5xOFBQWVo2TTAzcUhiQXZUN1Rn0gHPAUFVX3lxTFBHNVp4bExVYmtoNXRCbF9jRXJFbWVsWGJPS3R2dnljUldqSEp4MWR4Rm5hTG91NGZyWDlNUmRQbkljOHJDS2U0OENNeHNVLWlTVXAtZGR5LWlGeTZ2YVNhTjFDWHY3dC1fUkhvdjE0YWhsaHp3ZU9BanAwLWFNcjI1TWw1dTd5WlRYMDlVQzFBcUxLV3Q3cUVpM2pKeTZYMW5iSDJpb3lFbjV4ZnRfV2lqTEI5UWFKLThsR1RYVzlMYmdVWnFQUmFDeERtTWJmbw?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "2bc7dbe4607b95bd",
       "company_name": "ICICI Bank Ltd.",
       "ticker": "ICICIBANK",
@@ -3819,6 +3859,26 @@
       "extra_sources": []
     },
     {
+      "id": "7f6c764d200daad8",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Credit Officer Anil Mahalka",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-05-13",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Veloxx media",
+      "source_url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE05VWtweWpVaHZoR1c0NWVmTWdQdjZsVDM0bmhBd0VyTE9pamtLcFl0Q3BwRC15VUJpVGNSSHBkRERROWFwSXFSYl90a2RldXhsdDVPQU5VZEQtei05WVd1aTN2UTJrMkNlY18wWjItdFU?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "875ea2cb6624776c",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4171,6 +4231,29 @@
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "98b94921e2516144",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Appoints Vinay Muralidhar Tonse",
+      "designation": "Managing Director & CEO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-03-08",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "scanx.trade",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQWUctRG5qTVNZbFBOd1dsSy1FYVdseE9mc2R3U3RtTHpjaDc2NzRXZDlwUXRMQTZrRENLci0yR0pQbDhMblNTVW1kYzNNbldFS1FieUhadVVlMHRud3c0UEtfMjN3UlFnX1ptQ1lkY0U1UFRrYmQyN2ctLV9hLUJuOXV1a3VyR0ZqUEdGRV93V3J0VXlsY2JMZVpLaVlMc3FNcVhJNkRjQVRYQ0o2Smd6cURMM2JSSEVfUE1NR3NTajM2eUhTeVdZ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "CEO",
+        "MD"
+      ],
       "extra_sources": []
     },
     {
@@ -5531,14 +5614,14 @@
       "extra_sources": []
     },
     {
-      "id": "3ae3971db0aaa683",
+      "id": "458dcef3d924b645",
       "company_name": "Axis Bank Ltd.",
       "ticker": "AXISBANK",
       "person_name": "Rajiv Anand",
       "designation": "CEO",
       "event_type": "appointment",
       "effective_date": "",
-      "announcement_date": "2025-08-04",
+      "announcement_date": "2025-08-05",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
@@ -5550,9 +5633,7 @@
       "matched_keywords": [
         "CEO"
       ],
-      "extra_sources": [
-        "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTzZGOWN4MGZLMUY1akltajhlQ1N6QXdMUGVGS1pHSHJTYmRaTzBqeFozUzJnQW5JWHpaRHM5RkpXd0ZmN2ZDeU5IMEpma0dYdHJHZ0k5VGUycXRUY3FWLU5RalhVbDF4cURnOElod3NXUVY5eXl1NmJpSTNkc1ZEa0hXa1hBMGctV2VSeklQNUsxdThFTEg1UGd5LTlnUkdnR2FjUWNMVUhUYk9YX2tKSWlsdm5wcmZ0NzhnUnE4WEpnR0EtR2lncjM3Uk5CUUxpMHVXc0lnTQ?oc=5"
-      ]
+      "extra_sources": []
     },
     {
       "id": "4964723502a42ec9",
