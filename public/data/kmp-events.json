@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-25T08:16:24.882676+00:00",
+  "generated_at": "2026-07-25T13:49:02.897245+00:00",
   "company_count": 10,
-  "event_count": 269,
+  "event_count": 267,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -20,10 +20,10 @@
       "TCS": 14,
       "INFY": 20,
       "HDFCBANK": 32,
-      "ICICIBANK": 25,
+      "ICICIBANK": 24,
       "WIPRO": 24,
       "JIOFIN": 5,
-      "SBIN": 81,
+      "SBIN": 80,
       "LT": 15,
       "AXISBANK": 19
     },
@@ -32,7 +32,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 52
+        "news": 51
       },
       "TCS": {
         "serpapi": 0,
@@ -56,7 +56,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 25
+        "news": 24
       },
       "WIPRO": {
         "serpapi": 0,
@@ -91,8 +91,8 @@
     },
     "by_confidence": {
       "high": 0,
-      "medium": 110,
-      "low": 159
+      "medium": 109,
+      "low": 158
     }
   },
   "events": [
@@ -471,9 +471,7 @@
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [],
-      "extra_sources": [
-        "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTEZYNkdhRE5hRzZFcVNYd2NJQXh5WHNOU1N4MlVvODBOYlZoZU9ZX0hYdzJfNm9XZGZLYVBpRzRKa0lXXzJWVlRVR1ZxRm1LcUNXcEFra3VvSnV4dGFKbVBjTE9YOU8wSnlQaEhzV200aGI2VmhZYVFZVWM3MFd2YXlkVzF3Q0tmcHRwM0JYSHg4VUUzcnlCbQ?oc=5"
-      ]
+      "extra_sources": []
     },
     {
       "id": "5d1733a730279c16",
@@ -2399,28 +2397,6 @@
       "extra_sources": []
     },
     {
-      "id": "9814e41c4cccb0c6",
-      "company_name": "ICICI Bank Ltd.",
-      "ticker": "ICICIBANK",
-      "person_name": "Labour Offices Alleging Illegal",
-      "designation": "",
-      "event_type": "termination",
-      "effective_date": "",
-      "announcement_date": "2025-02-04",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "NDTV Profit",
-      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPMVZHa0hGZjYxX0xKUXhQN1hmRWk0dHcxcm53LU5uMUJGZ2NQN04tRHNmSzBwRVpwVG5RTE1QSzVIdktudkhHbE1tUkUydXpiY0hDeldkSU9ib2RKTTBHaFB2VEVfX1JIRHZSRW9JRjUwVVlLWklGdHhPNnFrLUNER0FjcG1ITmx1SThsSUFSdS1RZlZEbU5YaTU0dFJodkE2UnprT1NoeDM5Z3BWY2ZJYnJFNHI1Wm0xanBRaEdaSS02TlpwN0U5bFhnZ1lJU3FzVnJscDZDYkhiV1XSAeMBQVVfeXFMTTBfXzVqN192MWdCUXVHWnEySzU3R0F0UkJ0aEk3NkNqdmlyMnVQYnZSNEJvSU5FTHAtbXlvZkZvemdvOGwzb1FXZGR2Wm5xYjZPX2tlNUl5MHpQNm1EQ2FUS3J6QnBJdUJ0am9Xb1A4bmVnenI4b05mYlJHM29YdV8tcERmZXRHVlFhNXlvMWpmaHdyVmcxTnRCSmV5QnM2QldLY290Um5kREJEVEluT2sxYTItYVIzd0ZTNm5WNF9TNUZ2bGRxYlNCcHZIOUl2cXdXc2ZsUkJ0Y3lWS1JsMWNaMTQ?oc=5",
-      "source_type": "news",
-      "confidence_score": "medium",
-      "matched_keywords": [
-        "termination"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "4800735767cbc673",
       "company_name": "ICICI Bank Ltd.",
       "ticker": "ICICIBANK",
@@ -2841,30 +2817,6 @@
       "extra_sources": []
     },
     {
-      "id": "098a743f62bff353",
-      "company_name": "Wipro Ltd.",
-      "ticker": "WIPRO",
-      "person_name": "Business Standard",
-      "designation": "CFO",
-      "event_type": "resignation",
-      "effective_date": "",
-      "announcement_date": "2026-06-24",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Business Standard",
-      "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPUExycjBLaUE2c0JiYTF0SWpBVENaZllIRWlqLTdJWkRudkZfSTBpRE1HR0JtNVlPaVZTT2lkaEpFTTM3ZnRoUnpGR2tHX0dnano1UmJ4RGJqMElQMy00QnRfU0ZiNHJpTl83RGc0Nzhma1JTWmdyOEtQYzN6bEpfb2hrUVQzWFdOM3l4WkFEOC1Ia1dsbEprbC1sdzVDT2o2M1l5c0lKZDVmN09GNUdYX21tTi1IY1Y1OVhXZF8zQy1OV09naGVGN0t0SG9BNi0zaDQtVVZ6VUbSAd4BQVVfeXFMTUltRHBpQ2ZGajdySWRzVHN0RnpibGluU1ZNTkdCSmxWWmxzdzZkQ2ExVVJiSmtqcjNWTmlfZTJMbDRiSnVZdWpLQzdkenhaajEzcXpESVJwaHpnTlRBREVpUW9scjNZS1FnQjMxMmY2eC03a0dQNUVCakNwWjJ1Y0s5Yk9XQWQyMWdsaWpmSTRRRmV2a252dEZ4ZFl6WU5hODFwMHVRU3NzMkUybnNsMkNhLV95N3lRY2xkTXRkU1JUTlpFVllnS0tlQTREaThnZFA4Y2I0b09qTFBxdTVn?oc=5",
-      "source_type": "news",
-      "confidence_score": "medium",
-      "matched_keywords": [
-        "CFO"
-      ],
-      "extra_sources": [
-        "https://news.google.com/rss/articles/CBMizAFBVV95cUxPVjZvb1FRZ0UxT2dyd1ZIQW54SS1BUVhZX0paWGhpSS0tdUxYLUVpYlRmUkhyZU5HQk9pMVRfX1JPc0VyaHRwYWVwdVZQZ0tZNWQwWEtKSVRhSFpDUWxOT081UzZMZU5MTTB0d2lEbDNabWZpV3k0d0pQWWdhUUJJNGpqZGl3b3p1RmNFb0EteE1KQTd4YU43RFUxWlA3MG0zOWFndnNnNGY0WnF4VHVwNXdDUC1OT19iczE1dmlZN3daQ3RISVotcXVuZXjSAdIBQVVfeXFMTTAtUm5Nbm5FVGFnZjhBeEVoXzdhcWFMSVU0ZVFjdEE5allXV3NLaVlIWk0yY2VLcFNxYzZuZEFlVTBpLUY5Z011aEt6Z0lOc1B3dGhzS2lwMVhRSFJUQ0xJcFNSTzV3N1JKNGZoaUVwY0R6MkpOWXRiSzNuMHl0aW1LZW5jMEY3TV9kNEVvd0lWdWVvUTAtLTVzQTRPVnlCU2Z3SFN4SUZtanVUWXMxbmkxbzYxaFM4aGQzNkpHaWJNN3EzaG9ka05HNWNPaURGTW93?oc=5"
-      ]
-    },
-    {
       "id": "4b8c6297a09c5b1c",
       "company_name": "Wipro Ltd.",
       "ticker": "WIPRO",
@@ -2885,6 +2837,30 @@
         "CFO"
       ],
       "extra_sources": []
+    },
+    {
+      "id": "43bdaaa339ca0400",
+      "company_name": "Wipro Ltd.",
+      "ticker": "WIPRO",
+      "person_name": "Business Standard",
+      "designation": "CFO",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2026-06-11",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Business Standard",
+      "source_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPVjZvb1FRZ0UxT2dyd1ZIQW54SS1BUVhZX0paWGhpSS0tdUxYLUVpYlRmUkhyZU5HQk9pMVRfX1JPc0VyaHRwYWVwdVZQZ0tZNWQwWEtKSVRhSFpDUWxOT081UzZMZU5MTTB0d2lEbDNabWZpV3k0d0pQWWdhUUJJNGpqZGl3b3p1RmNFb0EteE1KQTd4YU43RFUxWlA3MG0zOWFndnNnNGY0WnF4VHVwNXdDUC1OT19iczE1dmlZN3daQ3RISVotcXVuZXjSAdIBQVVfeXFMTTAtUm5Nbm5FVGFnZjhBeEVoXzdhcWFMSVU0ZVFjdEE5allXV3NLaVlIWk0yY2VLcFNxYzZuZEFlVTBpLUY5Z011aEt6Z0lOc1B3dGhzS2lwMVhRSFJUQ0xJcFNSTzV3N1JKNGZoaUVwY0R6MkpOWXRiSzNuMHl0aW1LZW5jMEY3TV9kNEVvd0lWdWVvUTAtLTVzQTRPVnlCU2Z3SFN4SUZtanVUWXMxbmkxbzYxaFM4aGQzNkpHaWJNN3EzaG9ka05HNWNPaURGTW93?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [
+        "CFO"
+      ],
+      "extra_sources": [
+        "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPUExycjBLaUE2c0JiYTF0SWpBVENaZllIRWlqLTdJWkRudkZfSTBpRE1HR0JtNVlPaVZTT2lkaEpFTTM3ZnRoUnpGR2tHX0dnano1UmJ4RGJqMElQMy00QnRfU0ZiNHJpTl83RGc0Nzhma1JTWmdyOEtQYzN6bEpfb2hrUVQzWFdOM3l4WkFEOC1Ia1dsbEprbC1sdzVDT2o2M1l5c0lKZDVmN09GNUdYX21tTi1IY1Y1OVhXZF8zQy1OV09naGVGN0t0SG9BNi0zaDQtVVZ6VUbSAd4BQVVfeXFMTUltRHBpQ2ZGajdySWRzVHN0RnpibGluU1ZNTkdCSmxWWmxzdzZkQ2ExVVJiSmtqcjNWTmlfZTJMbDRiSnVZdWpLQzdkenhaajEzcXpESVJwaHpnTlRBREVpUW9scjNZS1FnQjMxMmY2eC03a0dQNUVCakNwWjJ1Y0s5Yk9XQWQyMWdsaWpmSTRRRmV2a252dEZ4ZFl6WU5hODFwMHVRU3NzMkUybnNsMkNhLV95N3lRY2xkTXRkU1JUTlpFVllnS0tlQTREaThnZFA4Y2I0b09qTFBxdTVn?oc=5"
+      ]
     },
     {
       "id": "a00a17e58afaf915",
@@ -3597,7 +3573,7 @@
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
       "source_name": "Business Upturn",
-      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQ2wtb1g2LVNvOUFweGliOVVvUnFTbHFqNDdmWjFFWFZaMWtBeTlQX1FEOEhqMERnVmVQY0dUczBjeEd6dW9SRm9vSHJ1SEltQ1JRemZIcEZnVlp3d0lVY3I4ZEhYZU5Gem1PSkR0T3NxSjNIN21uVkxtM0dKRVMtRHl6RGdoMXF2OUoycnYtYXExZXpMMlpjcnRFY1g0RWtZYzRBdl9WckZZT190N3lfbTRENVRJSFNyNmVyTEhEZ3g?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMm5rNEswc0ZFS05yWWhkdjFBdU9vQzd4LWM4b0JzUXZISi1aTEFiS3VOY2RzMmlFY0RxMnc0RVhoQjNQeWZISHFMNjBBRHVDVDM5TUEyY3l4R011SDZaRHQxdHhNaFlybTVadFR2YUZoQmEyQW5kOU5XNjN4djJsOHNVQTNfRG44NndvdnAwMXRHeU1aSlhDOG9ScEdQMkFaaDJ6OUcwUlhDMnlfMEttUVhva0c?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
@@ -4657,6 +4633,7 @@
         "https://news.google.com/rss/articles/CBMihwFBVV95cUxQRmhkMFBCdnQyajcyZU1KUlZQQ0Vla2MyVG8yT0RkTjFFNk92S0F6aVZQR1hCZXZfQXFoYk1WbEhkOEttdVhHcnpKSG1KaF81Y3hFaVFPajJZeGtkQ05mVmhqSmVVeHZDWi01SVJ1TndORGtMTmVhSkpPMGZDMGUwUWFIZEVSbEHSAYwBQVVfeXFMT2x3WFU3S2plVGV3dllNYjJUVFlQQUVwNTFvSUw4aHhmbnFvYmR4MS1xbVlrNVJZY1lIZ2tHU2tCU29VVEdhbllUblpPdmRseG9EQ2x3SWYtSHY3MTFlZ0tHX3NFM0p2bDV0YlFMdGpDczd3NnJMaHBuandQUXJHQzFjcUNLYXJMVHVYbEI?oc=5",
         "https://news.google.com/rss/articles/CBMilAFBVV95cUxOU0Y3LWNSaTNwV1BWOFQtd1J3WERKczh4RGtMTTdfRE96SjBJSHdndjhWSEVETEpfRmFFNzhxZjRabVMtZzJpNHVBOW00ODFnTUNmOFhRaXY0dk5ZR2ZkMDRwTjJoZDZSdXk0TFBOMEdJYmZWSUNzUXkzenpsLXdqNVJLN281c3l3MVZSRXl2VlhSSUNG?oc=5",
         "https://news.google.com/rss/articles/CBMilgFBVV95cUxQc180VWZkUEowazJRUW1fT1VfOUNxSy03V3BzODRqenctV1M1dUpwS1RjcEhXb3VvX1VrelAxWWp1a29oWWU2MUNIenVCcEt3N3dvNTctcDFyLVVBVm9RVDkxblJDTm13Znl5eXNnZ1M3T0Vpd1N4TkZJZlVidmFVY0tvZ0ZDMVVFYkMyUjNXVThZalFfRGfSAaMBQVVfeXFMTm9ld0Rka0VkSFdZZE5NYkZac2FJRG90Q0VIYm1WS1JDZlYwdTM2S2NYNkYwcXpfcVdkUVRrUWp3QlNjT0wxRDcwNndzR0EtdzhVaEdVczB3bW9CMVNjZ24yb3pSWnZZb1NERVJzN2Yya05sYngwcHdjX1pQOFg0ZjdqQkcyOWF6X1cxUGtDd1Z2NXJKTmlfODN3dE1KY092TzIwTQ?oc=5",
+        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQS3JhbWRJa29tSDlHRmZMNUxjYVFEMUJnYzBNVklsTEJ1b0lXWU9MTzZZSlc2WFVkVURBam9kV3BrYmowMW9EbmY3aTFYRHFhdm9pOEdtS3RwUVk1SDBPTVVhS3A2VUM5UUJLZEFQWWg3dll3bV8zb1djRk1nYzBBWGRpblJNWnNkaVJocGFMWDNQLWtCTXFXMVBBd3FNVk1SdkpLOVI0bXBYQQ?oc=5",
         "https://news.google.com/rss/articles/CBMirAFBVV95cUxNemlfNVdRY2o2SXRVeFBnNVExM2FhcUtQcEpVLUdKbkFfcVJWWEJmb0hDSGR4RjBab0EtX3N1YWgyS1M2ek03ZGRyQWJieUlhaDdraEc5eWtaRkVyR2RQS1FHWDd5dV9YajduSGN2LW81NEx0SU9WU01zaE1zeXphX0gwRm1Dem9rRnpuZmI5V1J0d1gxdGltMjVhTlUzYWM1V3NtUnJuOGR0NXJ6?oc=5",
         "https://news.google.com/rss/articles/CBMirgFBVV95cUxPcXJUWGNLSUZ3UUJiZkRpSXFRa0NwMWdIWjFUY054M2FjY19CSkxhMFBxNl9KbnNDWkM4RlptYU1FNEJXRlBtLVNpRXRGR1lDLUxyX0tvVVdURERBYXNYLXhTeTdyRU9vWk90djdIbllzSnYySDVTQXdHZnJ6N3dmTGE3b3A1VGozbmgyN0puMzYyYUFnTTZ4OWpQMUpoazdJNFJ1VlRMejZSNl9JLXc?oc=5",
         "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQ0o2OENwTEJaNHJiOHpyYlkyYmhRcDNOMUhxNVZhaE5OaHRtcENFbTRtZTBIQS1CQnE0eE1OWU9XcnVfZmptMWNSRUg5cldDV3EyLVlUYlJmTHRvdnktYml3UFJablBXNy1YZUF1blRGZEJvUndycmhsNkhxd1dWWlNJSzR6VFhrc01qU0xmcDlMSG9kUUliaUFmTXhZVzlGSkJTNkQwcVlUWU5CNk1CYklR?oc=5",
@@ -4706,26 +4683,6 @@
       "matched_keywords": [
         "retirement"
       ],
-      "extra_sources": []
-    },
-    {
-      "id": "a9cbb2cc822aa32c",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Vivek Joshi Appointed",
-      "designation": "Director",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2025-10-23",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "scanx.trade",
-      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd2IyZ2dDbzR3YS1EclFoWDhkWnBNY1ExaVBsQko0TmRhcFFaTFFmTlJGQm93dGNwTnBuY3lzbXo3UmNVUjZLUjBXYVBXSF9hZ3lMVzd3aHNuVWo5X3Bla2oxbVFwem9Lbmp5OG5CRTh0YlM3bGdxOWNCejhGSHByeGtrYURmQ2JSS0NhczYtazMyRHN0T0oxdkJ2bENUMW9HMEpncTYxWkNVRmRWTGhJQ1FVNDYzZnRJTVZzZ3p0RkNLdUhK?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
       "extra_sources": []
     },
     {
