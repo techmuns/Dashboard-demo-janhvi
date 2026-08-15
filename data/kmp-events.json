@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-15T06:48:30.543657+00:00",
+  "generated_at": "2026-08-15T12:49:35.161342+00:00",
   "company_count": 10,
-  "event_count": 264,
+  "event_count": 271,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -16,23 +16,23 @@
   ],
   "diagnostics": {
     "by_company": {
-      "RELIANCE": 30,
+      "RELIANCE": 31,
       "TCS": 21,
-      "INFY": 21,
+      "INFY": 22,
       "HDFCBANK": 30,
       "ICICIBANK": 28,
       "WIPRO": 19,
       "JIOFIN": 5,
-      "SBIN": 77,
+      "SBIN": 81,
       "LT": 16,
-      "AXISBANK": 17
+      "AXISBANK": 18
     },
     "by_source": {
       "RELIANCE": {
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 49
+        "news": 50
       },
       "TCS": {
         "serpapi": 0,
@@ -74,7 +74,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 108
+        "news": 112
       },
       "LT": {
         "serpapi": 0,
@@ -86,13 +86,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 18
+        "news": 19
       }
     },
     "by_confidence": {
       "high": 0,
       "medium": 107,
-      "low": 157
+      "low": 164
     }
   },
   "events": [
@@ -142,6 +142,28 @@
         "https://news.google.com/rss/articles/CBMiswFBVV95cUxNLXprcHlGQ3RaTU12bU9rRzdxVW1SVGVGM0hnX2hBeDRPQ1RjX0VUMHJVa2oycjlYc0poVGdtdUZ3VFlpUGlhZUdIN0JhdUQtNE5zQ3RTN1FzNEVwSi1YbFV0RmhSY29FNGEzRnRjVWtOVGd2NzA2MFFFRUFJSTBib0EyM0lLT3N5UTI0ZGF0a05mYTZmQW9EbGRtNWVWOUVqWDRxMUFMLWlMWEZYVFFtQ2dlOA?oc=5",
         "https://news.google.com/rss/articles/CBMixAFBVV95cUxQUjFYMzFxUU14bWdic1dCMEp6WG1NekstZmdHdDVsUzZ3WklwaHZkeE92VVg5UC16SkFGQW5jWUplaUNIdWI2RGs5LTk5bVVPdlB5YjR6ajdOd1UxdFphUEFaZmVLVlBoOURVMDFrTUJFYXptaU1UdWNmMkdTNnpYeFZ4UVl5aEROQ042VHpKQzJNYzZKRVFJbkMzbnNndFFYdUo0NWlUeDdBNnJhVTc5TGlVdFdzaUZuMVllNm5tUmtfRXhu0gHEAUFVX3lxTFBSMVgzMXFRTXhtZ2JzV0IwSnpYbU16Sy1mZ0d0NWxTNndaSXBodmR4T3ZVWDlQLXpKQUZBbmNZSmVpQ0h1YjZEazktOTltVU92UHliNHpqN053VTF0WmFQQVpmZUtWUGg5RFUwMWtNQkVhem1pTVR1Y2YyR1M2elh4VnhRWXloRE5DTjZUekpDMk1jNkpFUUluQzNuc2d0UVh1SjQ1aVR4N0E2cmFVNzlMaVV0V3NpRm4xWWU2bm1Sa19FeG4?oc=5"
       ]
+    },
+    {
+      "id": "51f787ea7fccc2ff",
+      "company_name": "Reliance Industries Ltd.",
+      "ticker": "RELIANCE",
+      "person_name": "Retail Appoints Jeyandran Venugopal",
+      "designation": "CEO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-12-03",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Indian Retailer",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZHh6UTQ3cmoyY3VZSGF0YmNlVTZhYUpoTllveHMxaHhsY2V5aHQzVER4c0h0VHExRkpsQVRUbDRCeXhzd24xV0sxSS1NNXlLNHhrYnBPeFVMVjlCc2U0dGpGWkdHMkhMLWhqcjdmWURBVF8ySHRwTXRqZTNRM0RmZmtTeXFCOGZTaGFSWFJjUmtfRXJQQ0FHUlJnM3h2Zk5DckxuMQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "CEO"
+      ],
+      "extra_sources": []
     },
     {
       "id": "89101c9e6d77a596",
@@ -1094,7 +1116,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "ScoopWhoop",
+      "source_name": "scoopwhoop.com",
       "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPVW5wVF9QX0ZpOHZFWmhWNVVUMVc5NWNfUE56YWVhYXBOaEVyQlN4R3M1U0JpQU1zbUhfTmc4RWZ5Q0p6M2Z0eWF4VFNwd2JzaWZ2ZmsxR2poSzYzeDJpQkZTalFva3hTR1puaVhvZnFIamlkeVg5WS03bDNPODh4LUkybVd3VGN2dnBFOXdxVDlOT0dFRTNGajRSOGpnSFNoNlF0bks4NXlObU5qY0J0TmNLemxTZkROTUNmMg?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -1183,6 +1205,28 @@
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "c772886591063ca6",
+      "company_name": "Infosys Ltd.",
+      "ticker": "INFY",
+      "person_name": "ICICI Prudential",
+      "designation": "",
+      "event_type": "retirement",
+      "effective_date": "",
+      "announcement_date": "2026-08-06",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "HDFC Sky",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZWJQSWVjem1ZRDNQWGZ3UktCVUN2bmR1cXkzcW9lZjNxdUVFamFROFNCZXRRRnA2VW5fQy1xVV80c1lCWTQta0MwOExyNG44cmNfMnhLTHlWU1FJUEhGTmlUWThjNHdWbE9nNmJRQ2FRT1NlMXJJdEE4bmhwRUVlN1Q2TFVRWHJ0QU00Wmg5QXFzNWwtYkdSMWtMLWZvUQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "retirement"
+      ],
       "extra_sources": []
     },
     {
@@ -1480,15 +1524,13 @@
       "confidence_score": "medium",
       "matched_keywords": [
         "CEO",
-        "MD",
         "appointment",
         "resignation"
       ],
       "extra_sources": [
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxNOUhDeWVvSW9OZnByUFhvaldwWEhlQThwNGJZRGp6OVFpMHRIckx3VDZ0Q0ltYUZDWWd4bGdNNnAxN21HMW1TcEk2ZkZnOS1TOU16Wk53R1UtdlhNRGEwNThtVlc2T3V0Ml9FU1h4TkU3OGF6TC10Mm1HZUc0ZDNxNA?oc=5",
         "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdVNsSHQzVGN4TmJ5eGZONXVJTEtDelVST2ZQQWRxdjNmQXZxR3B6cnF1cXJsWVYtV3U1QldqWC1haG45SjFENnV0VG95Sm94OGtzOFJKMmM2N0hYWWY3NjlkZ0Y2ZHp0dnZEY1FXN2ItRkhZal9PTUQxajlQczY0Uml6OUlDOHNsOTNXcG5pOUt3MHhUSDhvY0Q1emFoZGVjUmZib2hpbENuQUlTMklQSmdoZ1A4OFN00gG_AUFVX3lxTFByYUNLN1FrNHA4dWNOejNGd2phNFBkRzFqTjdETzgwZ3g0SDZLVEt3RnhteEw1V2RJUjBLVmJKQkFFaHl0Y3IwZDN0WGEzY1o3MWNOeW50SzJEbHh0UWhZSWlhWHhHcUJ2U2VFWHZyNU1Pb1E3UDMtb3BBMk1xeVVockFjSHF2MzZpcnotQkU2N0tHRWEyOWtuMFFna0wzUTZxYk1DV1Y2YlJScE5DTnFYMEMzTTNBNElSMTE4aEdZ?oc=5",
-        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxORjB5aVc0dE1FYmZTNkJ4cW5SSVZmVk5sWVJSSXl2RWFOZ1lUYWZCM2xEOXpsWnNvb1RDRUlBaFFyZkdIdy1EelN4OUJ6NnotQ3ExU1lrUzVod3g0bU5abzFjQ0s4NjBRaTNrU2pUQUVlTDBKUmJ5eWlMaVh0eVo0aXlYN25UQkV1Rm9BVndPMGlnb0g2d25zcWhKQ1VtdFZVLThERm11R1NBYzZQRWNlWUZPOEtFdUtzLUxr0gHCAUFVX3lxTE1nWGd1ZFBNWFVxTWJMWFhvbDEzUnJSaWpEbV90Ql9PRVM1d0diS2hHUVRQbkJRaGN5VlFtWFIxTk5PVWxhdGEtQjFCRE9FZ1VQcVAwcS1QNTV3UkdxdWpwTmo4dGoxay11UGhzQWFSMUdmak5uUEdQV0pCMUh4ZEZHTXpLMm1IaU1sX2kzYWNrM2hQZHpSdFdoaHloODJqUTVTTFFGYnktSWlFdTRfMWJBQkNXZEtFV1VvUk1JZllxYkJB?oc=5",
-        "https://news.google.com/rss/articles/CBMixAFBVV95cUxNbWltSlVMeWszRDhHdmUxS19PR0EzRGMtT0Jza1RKV3dZRmFUTGhPd3NsQWR2VlpPc1ZjNVFoMlF0ck1QSzl2NmIwT28yRFRvZG5Kb1NDaVZrYjloSjVTcEU0dm81VXhMcU5zX245SXpfTExLMldSdWttbzRJREttTHhTeW5xZ0lBRlRiZ0lHbGJiWWhGNG05VzkwcFdaLVFtQlNBNGQtY1FGVUVndVlPMmlUakpSN3RhUDljendTaE1QalAw0gHKAUFVX3lxTE4wakV3YkQ1LWRLUUtVUFNVV0tlR2ZjWTNYOTRzSFR6R1VaUnpiQ1VqT3d1YTZydkpTb1lORGJpTjBKeHNrU0FkUWZGM3BEbFZaa1dxZlRDYXhWNnVSTTNDeF9nODJUQTlyU1dJMW1mLWxiTUUtakpuY3dWQVJ1VG56UUhJUTM3bF9kaVlqUThwdnJvZlQ2bHE4cDEwNHZLVk5EbUNrZWFGTVZ6U09WcFNQTXhocGlOeGM2b2oyajFWQmRlX3dlcmtmU1E?oc=5"
+        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxORjB5aVc0dE1FYmZTNkJ4cW5SSVZmVk5sWVJSSXl2RWFOZ1lUYWZCM2xEOXpsWnNvb1RDRUlBaFFyZkdIdy1EelN4OUJ6NnotQ3ExU1lrUzVod3g0bU5abzFjQ0s4NjBRaTNrU2pUQUVlTDBKUmJ5eWlMaVh0eVo0aXlYN25UQkV1Rm9BVndPMGlnb0g2d25zcWhKQ1VtdFZVLThERm11R1NBYzZQRWNlWUZPOEtFdUtzLUxr0gHCAUFVX3lxTE1nWGd1ZFBNWFVxTWJMWFhvbDEzUnJSaWpEbV90Ql9PRVM1d0diS2hHUVRQbkJRaGN5VlFtWFIxTk5PVWxhdGEtQjFCRE9FZ1VQcVAwcS1QNTV3UkdxdWpwTmo4dGoxay11UGhzQWFSMUdmak5uUEdQV0pCMUh4ZEZHTXpLMm1IaU1sX2kzYWNrM2hQZHpSdFdoaHloODJqUTVTTFFGYnktSWlFdTRfMWJBQkNXZEtFV1VvUk1JZllxYkJB?oc=5"
       ]
     },
     {
@@ -1538,25 +1580,23 @@
       "extra_sources": []
     },
     {
-      "id": "7849d0a49e64efe4",
+      "id": "e73d31f5efd3d6b4",
       "company_name": "Infosys Ltd.",
       "ticker": "INFY",
-      "person_name": "Says Vishal Sikka Resigns",
-      "designation": "CEO",
-      "event_type": "resignation",
+      "person_name": "Karmesh Vaswani",
+      "designation": "",
+      "event_type": "appointment",
       "effective_date": "",
-      "announcement_date": "2017-08-18",
+      "announcement_date": "2017-06-16",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Bloomberg.com",
-      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNM3RTX0FsaXI1R2RGcm5KWDRWa2I3M2VhcnhLMF9MamYxVk4tODJqNG9PQUg3Wnh0STNOVWdmYk15U3gyaGIyY2NWd0VqQkxab1ltMUtKR1Z5eTN6RnQ4QUg0Rnd6Z011OUNQN01pY2hQdjlzNEUyaDU0cFFaRXI4NU5hXzNCUGFfMlQ3blQzWjQ3SWdPX3FtSzl2TzNwUk5wc0ZKUnVKNkxvLUJUWjFGSU1qMA?oc=5",
+      "source_name": "TechStory",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9fRVJSRFVCZk56a0tLYnVaLW9ULUFlNUI0bWpNMFExSzFFSjVjRHFuOE1CVGIyU1NfVlNhbWpCZVZQU3g0bTh4NVpVZ1ZnaTZjN3Bz?oc=5",
       "source_type": "search",
       "confidence_score": "low",
-      "matched_keywords": [
-        "CEO"
-      ],
+      "matched_keywords": [],
       "extra_sources": []
     },
     {
@@ -1642,6 +1682,28 @@
       "extra_sources": []
     },
     {
+      "id": "e1e1b75358ab6955",
+      "company_name": "HDFC Bank Ltd.",
+      "ticker": "HDFCBANK",
+      "person_name": "ICICI Prudential",
+      "designation": "",
+      "event_type": "retirement",
+      "effective_date": "",
+      "announcement_date": "2026-08-06",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "HDFC Sky",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZWJQSWVjem1ZRDNQWGZ3UktCVUN2bmR1cXkzcW9lZjNxdUVFamFROFNCZXRRRnA2VW5fQy1xVV80c1lCWTQta0MwOExyNG44cmNfMnhLTHlWU1FJUEhGTmlUWThjNHdWbE9nNmJRQ2FRT1NlMXJJdEE4bmhwRUVlN1Q2TFVRWHJ0QU00Wmg5QXFzNWwtYkdSMWtMLWZvUQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "retirement"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "a53523f846e3fd0e",
       "company_name": "HDFC Bank Ltd.",
       "ticker": "HDFCBANK",
@@ -1676,7 +1738,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Bloomberg.com",
+      "source_name": "Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWU13c3o2QWM5SDNaQ1ZFMFhFSkd3VkNLYjlNZWpLUXI5c2xSX3ZRVkk0UGlSUjZiQ0sxbVE1dWpSSEtBSVNVQWhGV2JnMExTa3VYTFJGLThHRUVBVnMwQi1wa0ZwaEVpYUhsS0lhaXo0SU5TclZpN05OQVFfaVFrdU8zZmdlMk5OOEdIOWJwOEVDTDhpMWlyaUJmUkNBVTZ1Q2labUtNaHYybXdBMjNiclNmNlQ?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -1726,28 +1788,6 @@
         "CEO",
         "resignation",
         "appointment"
-      ],
-      "extra_sources": []
-    },
-    {
-      "id": "653cb6cac141f4b4",
-      "company_name": "HDFC Bank Ltd.",
-      "ticker": "HDFCBANK",
-      "person_name": "Disruption Banking",
-      "designation": "Chairman",
-      "event_type": "resignation",
-      "effective_date": "",
-      "announcement_date": "2026-03-30",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Disruption Banking",
-      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOQks0QjB1emw1cEU4S2cwTVQtVGJtdHJmNFFoRl9sZzQ0Z1hkMkktZzdDVGRsSjFMa1Etam5WVXU5aWJfTW1leTVKMVBoSHBVOGE1MHJmUDBXT2RuOGV6QmwycS1OaXc2UU9nZTNLcTBrOVloeGlZX1FNNm03V1hRcDJCeHNFVWM1dmhmSFROYlZJOWdqYW1ta2twRVpzTG4tRlNOZG02Szhqc2NJMkFrQ3dnUHRNbm9Wc0U0V2hGdlUwbmdEMzZN?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "resignation"
       ],
       "extra_sources": []
     },
@@ -1828,7 +1868,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Bloomberg.com",
+      "source_name": "Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSWJoYVRmSnd2XzRaeVRRLWc4Sk8wT3owUFRSQ3BiczRuSFowNGdmTmtkTGRBVGcxaFlsRjNSemtpTXpocHB1N2hMYXpjcDQzRlZOdDRfU0dSTS01SHpIcXJHNS1DXzdaa0w3RlNHbHI5YkppVG5qQ19XRVA0NjlLaEd3U2pCVHBCdWw4cHNXelFfWjdmUFFteXBQU1FLVXEwN05oMjlKcnBJb2t4eVRxaS1n?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -1883,10 +1923,10 @@
       "extra_sources": []
     },
     {
-      "id": "06c8a192f2998066",
+      "id": "4d652bb04bc50dd5",
       "company_name": "HDFC Bank Ltd.",
       "ticker": "HDFCBANK",
-      "person_name": "Bloomberg.com Shock",
+      "person_name": "Bloomberg Shock",
       "designation": "",
       "event_type": "resignation",
       "effective_date": "",
@@ -1895,13 +1935,33 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Bloomberg.com",
+      "source_name": "Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPbTRsdFFvMW1keG5uVDhXa0x1LUNZYkZwb3htQ29UYjFXc0RYRHU2cVBsaWp4SFY1X1Joc3puR2pNcTFya05ITWdiR3JSWnk1NnF2d0daS0pvS0JfNHlicmItYngxV3I2MWZVaDJLaUFsa3MtR3poemNnb2NEWlVfc3ctUzZlTEVGYUpxZ2s3cHBMWDROMzlhUk1EWDZpcS1aU1ZOc2xMVW5rMml5Q1ljQ3kxUzBnQXNIZF96b1Uzdng1UlRaQnc?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
         "resignation"
       ],
+      "extra_sources": []
+    },
+    {
+      "id": "e6080707ca9911eb",
+      "company_name": "HDFC Bank Ltd.",
+      "ticker": "HDFCBANK",
+      "person_name": "HDFC Chakraborty",
+      "designation": "",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2026-03-19",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "pressinsider.com",
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOV09UUEd0dElMR01PejNMZk9EV1B3ajYwdzRnNnFtV2N1YmNQWWNXN0V0dHQ2dGxlbzAzSklVaWkzN2JVZ3loQmMwZ2p2NjlOZWpGaXV5M3NIOGh2NzNvR2ZzVEg0dndvbFplX1pxQkhMcmw2X2hib19VWnFSYVpKRUpjTlowWWNva0U2NGYyLWFpdGRwV3h2bDBoRk8zM2l1?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
       "extra_sources": []
     },
     {
@@ -1928,26 +1988,6 @@
         "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQTTZiTmtPVmRxeHp4NGQwVVFvVDJqZGxNUHhweTRHZl9XWndHQUtyWnFJVEFMb3A3NlRGVngzc3dhU19hVk9OU3VoQ3dOWWlBWTJ6cXRyWVN0ajU0WTgzRkR6aHpERU9XOEdSUU1rM1NfalJfLXBZY2VpcW12c2ZiaTdEeTU5bW4tY2VfNkpId1M1akhFQTVKUDYzWkMxMWdINVF1aGJPYmFBNkdCUW1rSVBaSFBaYWlKOF9mWGdDQ2liQ3FHMjVKRUFnZVdEemdOdUd3M3p4MEtjZzJl0gHiAUFVX3lxTE5ibG9xNVU0S3hBYUZPa09qQ25zcGFjZUN5V19IRnRQbElJSFZVdENHVDJzb3JORGVHQ1RpSXFhRlFQMHJhdXdicWhuZVEzYlNQRWc1MDlQQWNWRGswcmJVenE4d3ViUGlCeGVwLW8yV2g3QmhvbmJHMU9VMzFPUExjZ1BTekhsel9Ra0xFeGRtcVloa0lkSjl4NVBYel9LOWlmcGNseTd5UTVfdDJVTXpDeWVDaXhfY2RxS1RkZm43RTFZdUVhc2w1U3FDTkx1NHNJREtSY243VWdLMmNqckkyU3c?oc=5",
         "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPVmxWUEY3VjRrTzlQeVB2WmdCS3J5VjVzdEQ0YzZubDN5LUhJVDUzcTNHYlhjanRVZTUwdjBiRDYyclJZNUJUaGd5TVVsYkxYMTRmaWNjdTItZEowaU82NTJNdmFKUjd0OU5rOVhGaVY0UklqbG5jVFRfcm96LXBLdGc2MWFaZENDa3l6NTBPWmlmQVZndFZpeTBvcUd4ZHBiTkZ2WmtEd0FNdU5rZEJJQkc1dGNQUngzWlhVNUhvWXA2ZEF3Z2lXMHVRMTNHejh5TU44TU5sOWhOZW1YWkFUSzkwZElLMEFDN3fSAe8BQVVfeXFMT19JSmZXMFJFajZXTkxEMlV5ZzVkbU13UkdtQTJXeGdCR21ESUotMmozN0JvS3pnWTk5dzlUWWxPb3pwekxzd0g3UFRkZ3UzdTgzODFHbk1JVzNoT1RlN3Fid09VMm02a0FfUmxzU05ITUFQWVM4TVVuRUJRVXVRYlNoYU1taHV0SnhNeVVUMmJzbUJIdGJvMG5QUV9qVzJLZHRsS2g4cFJ2OEV1cVE3bWtnbDJYaE9SSm8zRkZ3S3RHRGdoX1dpLV94WjJaN0MzSF9MOWhVVDdFVWlPNjgtNG52T2JwR2ZGY2E4Y3ZlMDQ?oc=5"
       ]
-    },
-    {
-      "id": "df116ad0cc6dc6ee",
-      "company_name": "HDFC Bank Ltd.",
-      "ticker": "HDFCBANK",
-      "person_name": "HDFC Chakraborty",
-      "designation": "",
-      "event_type": "resignation",
-      "effective_date": "",
-      "announcement_date": "2026-03-18",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "PRESS Insider",
-      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOV09UUEd0dElMR01PejNMZk9EV1B3ajYwdzRnNnFtV2N1YmNQWWNXN0V0dHQ2dGxlbzAzSklVaWkzN2JVZ3loQmMwZ2p2NjlOZWpGaXV5M3NIOGh2NzNvR2ZzVEg0dndvbFplX1pxQkhMcmw2X2hib19VWnFSYVpKRUpjTlowWWNva0U2NGYyLWFpdGRwV3h2bDBoRk8zM2l1?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [],
-      "extra_sources": []
     },
     {
       "id": "ec1ce1c31cea6579",
@@ -4069,7 +4109,29 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "thekanal.in",
+      "source_name": "Thekanal",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX1R1ZGhZcUVORXhwekFhN2tfNXd4aDh0QzZQMVBLM3hON2dTXzRoM2pBaG4xc2dicjBVUTBDaHhqY2ppZkRNeHNiV3hyUk91WjFLZFFxb1BGUVlLTHhDNk5BZWZodmVWWjJiQzdKUS1KanpvTVJOME43Tk9zdzJoYlcyVmFibHBkY0VWM0puYWFBQngwZFItY1NOMVczelRwazJKbmhyZWtqUW4yNmhpNEhVVVBHUmM?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "resignation"
+      ],
+      "extra_sources": []
+    },
+    {
+      "id": "461bc2ea4bdc5be3",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Settlement Thekanal",
+      "designation": "",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2026-04-03",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Thekanal",
       "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX1R1ZGhZcUVORXhwekFhN2tfNXd4aDh0QzZQMVBLM3hON2dTXzRoM2pBaG4xc2dicjBVUTBDaHhqY2ppZkRNeHNiV3hyUk91WjFLZFFxb1BGUVlLTHhDNk5BZWZodmVWWjJiQzdKUS1KanpvTVJOME43Tk9zdzJoYlcyVmFibHBkY0VWM0puYWFBQngwZFItY1NOMVczelRwazJKbmhyZWtqUW4yNmhpNEhVVVBHUmM?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -4464,6 +4526,28 @@
       "extra_sources": []
     },
     {
+      "id": "e0504fa3dd3cbf77",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "As SBI Managing Director",
+      "designation": "Managing Director",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-12-16",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Sarkaritel.com",
+      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNME5iX282RDExSEdJN2MzQll0OW5iZkZqbm9fNW0zWWJFTmM3RmVVNEFBRmd3YTJnUUdobkRybDJNQ28tZGtZOGJVTl9xNWVZUzZDbWJOSTFPY3ZNTHJCbFV5UUpWSXAwR3M3Zy0xR194R19FVUMxTEEwUXBfQU4xaERqTQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "Managing Director"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "286f14393fba469a",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4646,6 +4730,28 @@
       "resignation_letter_attached": "unknown",
       "source_name": "LawBeat",
       "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPaDFUOVF4S21fZEFYemtHX2ZRSS1nakYtX2NaMEdoSXlmMURUelFwaTRSTU9LUlp3OXFqNGRZalAzc0MxMXg5dXUxWnlYdFlmYmxhVHRyajN0bjBnZ3pIUEhNRmUyZjEyZ0hWekN1UEY5VV9sekNQdWk1dlppV2ZhYmdYb2tvZy1Id21KWm84U1o4NndwaThXS29tZDhUZ0UzdkUteUFOU25jWHJlZk80eHFTUlhhYjlPRFFBZkVVdF9NbWZXTmNuTW1fZ0xBNUIzQmfSAdcBQVVfeXFMTWExTUl1LU5uUGtpdDhEc1BwNzN1ZnFIU2ZLcUgxeHBqXzM4UWFQdXpNTTZIMGs3RUpWaEZWNVh5SGgyYW1ZX01yb1YyREM1Z0FXN0p0bWtIWkp0T1lFSzlWd3p1aE1BVTdQMzc0dzNVY3M4dUdCMTE3aUsxMEkxeV9kc3JaZkpzOVhXcnhjWnNwNzk2WE1oVEcySUQ5NTZxb2NoRWFaMk5JVUxXTFloY0h2bjBTekZQb0d3UDdBWHdlSjNRWWZxTk5XZEFueTFVTUVFY0xuUkE?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "appointment"
+      ],
+      "extra_sources": []
+    },
+    {
+      "id": "b27ff3e1e88d7fb6",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Claim Live Law",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-09-29",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Live Law",
+      "source_url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQdVBsUlRwWXlNYXhZR3Y4Mm9yZ2x0dTN6c1dDWVZyVEtONjZMQlBoTnlaaE9iX2d3STN0U2pyUW9iTWdJaFNiRVpnWWE3OEx1RFJEajlMUGdUTFdUS3dack5CRnJ5OWR0SUpHTjE1SlhRV0kwemdSZnJ1SlJMV1dUOW5QSkp4alZ6X3EtZFN5WGw4VjhISmlGbnhOdE5iRC1SUjg2SEVmTkNwQlQ4Tklvck9nQmtTSkpORnBCeW1qT2JyRjI1YTRDTzUxdHhJcXE3aWFvMDlpTHA4RHltQ3dNdV9XNGhVMkNPUEJ0VUg3QlpnNjFIeHZWTNIB_gFBVV95cUxNSGsxUFV4NlhDakdrTGJhV2RHVU1CeGtJbVotdnFqRExvd2VwVlJmYjlma2ViQU1xVE5Fc21fUURTVmhqNFQya1RKQjlhaHpfZ3FHaHZlMGlfU0J3dnQxWWc3Nzc3dUpjcXBFbmZpLTNSNkpBX1hMNmxxWUs5TWs1ZGpoWGd1Yjk3dTAwRjNsWjFFQXJFalM1M1ZlVDJjOWdhTjZtYllYbnAzbUVWRElaanlWQTVBZUNKOUVOZU5HLUhuQWFFUnJ0TGlCamJVMGVJMm5jRVZ6dWtUUENCcVlXRjZ4OVhza1lCRmIzWk10bGtONzRIS0o3TGt3UVFyUQ?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
@@ -4850,6 +4956,26 @@
       "extra_sources": []
     },
     {
+      "id": "1a85be929fad8dd7",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Five Years",
+      "designation": "",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2023-12-27",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Thekanal",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNOWhnY0pyS05mZXl3ZE15Q2xBUm83dFBHVHhKdnp4OVdvMDdHMHFvSnNzVmNoNlZHeGJhR3hLemU2NGlLXzNTZDdSdHlZbzdfQ3h4YTlNc0otZk8xN1hrZkljTjVkOV8xOFYtalMxeTdObnlTbnRYc2RnTHlkMGlPS1NDTGZZLXVPRF9qR25zS3lyMTMxNld6RmlEN2gxUQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "a888deb7f88bbbe9",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -4862,7 +4988,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Adda247",
+      "source_name": "currentaffairs.adda247.com",
       "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUjJSSWxTR1h4UWhUaTZIM3RGbUJMYllVc1ZmSWNWUHZGalJ5cWNEbmVuRzFITVdBbmpCU29fd0ZZMzNlSUd6UzVDTFRxWVl4STlIcFFScVF4aS1LdkxPUy1qV28tdHBZZG1jaFV5cGQ0dEJ5ZjBId0ZoTTFmakFZeXVZdjlJanZMSHZkYnZVd0dCVFNMYzVVWDRPSQ?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -5004,28 +5130,6 @@
       "extra_sources": []
     },
     {
-      "id": "6970eab551d40eff",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Contractual Employment",
-      "designation": "",
-      "event_type": "termination",
-      "effective_date": "",
-      "announcement_date": "2021-01-07",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "CaseMine",
-      "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNampKOUFyekpqUUVHXzlaZEduTjlzOE0xRUtkbGV2T1J3NzY4R3Bsa0NkcFNoTWNrR2JnUkxrMEl0WDltN0RDeVBwbHQ2czB3X2tXekFNZEZzbklIYkRIaXlrZHRDaVY5RXZoOTYwMXBRWjRzbzVkZVZ0blltUVR2eU82MXVSVzV0eDY3V2ZCTG80M3JaUnZhNkZPbjhDVXNSVllVXzZZLXpOdWwzNVFwWGdBN2VlRnhwRGpqYjZWZHJQajl0d1Q1a20yN2phQQ?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "termination"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "1d8e76f4c88f880d",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -5066,6 +5170,28 @@
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "51b1c48806c07369",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "APPOINTED MD OF SBI",
+      "designation": "Managing Director",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2020-01-21",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "IndianMandarins",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTnkxNkJJdU0xOWhKZHRvdFlXNWk3UElnOXM4ektaakc0RHhaUDZnd3Mxb3VDT2lHMjZnMkx2bm1DaXRLbjV1eUN1S0p6b1lqTGVGVXpWd21iZUIxTllwWTRzUS1FMWxrcTM2Z2UyODdpTTJUZExjLUJ2aGZydnFUWVZTZzhPVmFHSnJrRzdZb1NudXRi?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "MD"
+      ],
       "extra_sources": []
     },
     {
@@ -5227,7 +5353,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Juris Hour",
+      "source_name": "jurishour.in",
       "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPRmFHMnh3cS1YYng4OUtvcXIxbkphR29xZFJkcTFFc3R3VUxfZV91ekxUdDZXcnVtTG5xS0JZdHVSQzByVjd2eFNBZnY5OU5SeEJDTmxIREUtb1Zyam5rRkhPR21QekUyLTZvUi1EQ0wyMkZOOWNjLXUzSGpEOE44d3kwMUxGczhf?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -5270,7 +5396,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "indiainfoline.com",
+      "source_name": "India Infoline",
       "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPY1NiSUZjRXFBZjRnaDd4SzI4V2NZN2U1OWp4VmI4djVCMXVaNGNQbUZrd1l6bUxkYzgyTlE2RGo1WURrZXpSSEcxdU9uZ2RqUjNJTnppWmZIWEhHTWpSNlJfcGJmR3VSRmh1NmVVQ1FBcUJyTTdIeDI0Ym5PWmdwazktdkVzNlNfRWtVeTRYLWVYWHEzNnVjaA?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -5471,6 +5597,26 @@
       "extra_sources": []
     },
     {
+      "id": "1167a86563260bc5",
+      "company_name": "Axis Bank Ltd.",
+      "ticker": "AXISBANK",
+      "person_name": "Alfa Transformers",
+      "designation": "",
+      "event_type": "reappointment",
+      "effective_date": "",
+      "announcement_date": "2026-07-28",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "scanx.trade",
+      "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNHZlOVdGRUhodFJhVkYwVDYyZlB6bkRid29YZXB4YkFRdTBOVEV0MWJ0SHMtM2d3UXpCZC0zQlJ6aHBRYjExNEI3UmllZVVpanZLN2tGdDFTYzZzY0dGbWNKb213R3JPakdzTFdjZDJGN1RoQ20xYmtKVnB1NFVIZTNvYmJGU2I3eUt6TURFdUNiTVl2STFSOXdJY1dZdy1QMWF1X3VrV2E2MzREYnp0cU51b3BLbUkxTUpocTczOA?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "a3c9a1515ba5882b",
       "company_name": "Axis Bank Ltd.",
       "ticker": "AXISBANK",
@@ -5555,14 +5701,14 @@
       "extra_sources": []
     },
     {
-      "id": "458dcef3d924b645",
+      "id": "3ae3971db0aaa683",
       "company_name": "Axis Bank Ltd.",
       "ticker": "AXISBANK",
       "person_name": "Rajiv Anand",
       "designation": "CEO",
       "event_type": "appointment",
       "effective_date": "",
-      "announcement_date": "2025-08-05",
+      "announcement_date": "2025-08-04",
       "reason_for_change": "",
       "brief_profile": "",
       "term_of_appointment": "",
@@ -5633,7 +5779,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "AffairsCloud.com",
+      "source_name": "affairscloud.com",
       "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOdlhvOGF1Vnp5YkVyR1JwVW5NTGxUOHo3ZG9zQjQ2RVRsUG1BSW9TYnVzZG4zU3B1M0FOT0lodEphQ0RObVZTTWIxX1RPbElSMzRsal9jUnZwTVVSaHp1WmhCbjczaGx5ZFJqajIxSHZkWld5VDdiM0RiSlI0Z2tXdTJyd0IyOTg2ZjBETUdWbDJ5WUZENzBYUVMwRlZGZjFSeV9zRm42aDlkOVZyOWNnNHNyOW9MMmxvNzh3cFhnZmtKUFd3allqcS1vRXBDcGM?oc=5",
       "source_type": "search",
       "confidence_score": "low",
