@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-15T21:11:53.617462+00:00",
+  "generated_at": "2026-10-16T04:07:41.245643+00:00",
   "company_count": 10,
-  "event_count": 271,
+  "event_count": 270,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -16,12 +16,12 @@
   ],
   "diagnostics": {
     "by_company": {
-      "RELIANCE": 32,
+      "RELIANCE": 33,
       "TCS": 18,
       "INFY": 25,
-      "HDFCBANK": 35,
+      "HDFCBANK": 34,
       "ICICIBANK": 26,
-      "WIPRO": 26,
+      "WIPRO": 25,
       "JIOFIN": 5,
       "SBIN": 73,
       "LT": 17,
@@ -32,7 +32,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 48
+        "news": 49
       },
       "TCS": {
         "serpapi": 0,
@@ -50,7 +50,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 41
+        "news": 40
       },
       "ICICIBANK": {
         "serpapi": 0,
@@ -62,7 +62,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 29
+        "news": 28
       },
       "JIOFIN": {
         "serpapi": 0,
@@ -91,7 +91,7 @@
     },
     "by_confidence": {
       "high": 0,
-      "medium": 116,
+      "medium": 115,
       "low": 155
     }
   },
@@ -752,6 +752,28 @@
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "7b5724de02ef2269",
+      "company_name": "Reliance Industries Ltd.",
+      "ticker": "RELIANCE",
+      "person_name": "ICICI Prudential",
+      "designation": "",
+      "event_type": "retirement",
+      "effective_date": "",
+      "announcement_date": "2021-12-02",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ClearTax",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNMmtjX2ZBQlZFT1AwWWNUcl9LYkRTYmN4NjBROHJfLWNxeDhXMjRacFF0MEVXbDNqZVhsQlVUQVptWVFRbk55M3Z5eGN0aGlTbTh0T3FONUZLMmhtaE9sS0l6VmE1YUlnTkxReG1TcHotYVhzUzJZajZwZTFWbXR4ZTNnb2ZDMFhRZlNWcVlWX1g3TEZiUDlJZUEzd0J2STZIUnhwcy1xYXVQY1JTeHM1Yi10WQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "retirement"
+      ],
       "extra_sources": []
     },
     {
@@ -1979,26 +2001,6 @@
       "matched_keywords": [
         "resignation"
       ],
-      "extra_sources": []
-    },
-    {
-      "id": "901b845fe2432ff5",
-      "company_name": "HDFC Bank Ltd.",
-      "ticker": "HDFCBANK",
-      "person_name": "External Auditors",
-      "designation": "",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2026-03-24",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "NDTV Profit",
-      "source_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNNGhoQUZUalRBQVRNcmlKVGR5U0lkbG5FZXJ0WE5XTXFpM0ExR0RxWGI5aG9QUW1sQ1hhZzFzaEFicTN3TVdBSXRVa3dZTjJKdmJPeGdPREJ2SnJQRkYtT0tsUGZfdzdtOVFrQ253bV9MeXZNZ05JZVpiRXNtTW4wZmotci1HZkgxU002eXhfMFZZRkJvZFFxMzNSODFTUUFFNGtIMjc0Tml5NGdjRGdIVlFtWGExV0ZUNFFtUTUwT1VwUkF3bVhzZFZJTHFzXzlX0gHYAUFVX3lxTFBkU1JiekNqVEZQNGdlb1B3VVF5c1NiQWpLb0VMVlV3REo4RFVSb1hsWTIzdjJtOEM4MVNmU25BN0dmMTdRLXJJUV9sRnZRUE5abEJwX2tXMzM1bWdBX211NVlsU2xrdlJWVDlSTnNqSmpsdjlDTHB2S2FSNkswUzRLUTdfR0swMDNrTUJuRExBa3EySGZCMWxoeWMyNDFkM1ZxTjAtemNNUHhqcGxRY0lKMWlsVnJhT01KdDh6TFBncVByNVhiRVpFMnJMbS1LV1phbExNdVdCaw?oc=5",
-      "source_type": "news",
-      "confidence_score": "medium",
-      "matched_keywords": [],
       "extra_sources": []
     },
     {
@@ -3389,28 +3391,6 @@
       "resignation_letter_attached": "unknown",
       "source_name": "Outlook Business",
       "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOU2dXUmRjS1FMOXNoaF9Sd3V1NklZb2FSRUIwQTJEalFiSzQtclNYbEphMG5ZQkZHRkk4eEV6WHVDcXJNYkwyM3phYzlVb1diSmlXUkpBcEhKWWZ3NkZkSGlVbzdsZHpNbzlsd2hzeXJsdkt4QmVCazVHckI0TDk0Yy1wdFdZZzNROXYxbkNhZEp2VERP0gGiAUFVX3lxTE9hUEYyYjJ2b2FUMHFDTkRHY0I1NFYtYVdpN3owdXBKa0ttZFFtakFvaDBHODNzelEwM29aa0xQaUlybjVQU3QzUkRHT1lGdDdGNU1xS1M2OUNZbzlYMTVabmQ2aXEtNDVxWXE0dEwta2R1Mk1nRUxDbXdpSmZ0T2hYc1BSWmc3a05GNTNsZUFjR0dRR0R2YnlMUmc2RHlJRXA0Zw?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "CEO"
-      ],
-      "extra_sources": []
-    },
-    {
-      "id": "c5922642c15a0a9c",
-      "company_name": "Wipro Ltd.",
-      "ticker": "WIPRO",
-      "person_name": "Insurance CEO Tulsi Naidu",
-      "designation": "CEO",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2021-05-14",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Hindustan Times",
-      "source_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOYWhVQWQtUzJ6Y3VzYVR6Q2Z2SV90Y1RnZ050ZkFiOVQzcjBhM2h4NDNuWEhwbGRrZ2pkMG9vaFQ0TG5yOEplMHA2YVhQYUZqY3hSZERBaVZ5Vnl1bnE1NTk4bk5ta19TTHhWSk5pZ28xUWN5R1VRdVpiNWRzOEM2MEF1bTJoUmNPTEFNanJCQlpCOFBCQzRySGNaem9uTnY2TDdZZ2QxWUFzUGNtWWVBM2VDaDdIMzctSXlsekdlcmg3X1NMMjhzM1B4ZTHSAdIBQVVfeXFMT0RIY19DNlpyNzdVQmY4S2lvRTRiMTdYX2U2SnJ6N0hMSE8yWmJWUFJYUEsxZWJjMzJCREpfa01CX25PemVFbE41WHZqcWVJSTY3ZV9makFCanFWUGwzdWpnTWIxTnB3dzNFOWs2OUJGdnRyeDhtLTFGdWt3eTJQRFRqTXZpNGNnUnZYVldwTjU1c2didUI5WjMyRnZQN3pGUnN0TU5QUVVycVVRY2F4MmtIRmNvTVdncFlfbzFFbjVKakxGX01JdUpFWWxMRU9ZSTNn?oc=5",
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [
