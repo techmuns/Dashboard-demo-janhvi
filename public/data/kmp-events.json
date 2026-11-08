@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-07T21:40:13.986637+00:00",
+  "generated_at": "2026-11-08T05:37:58.744518+00:00",
   "company_count": 10,
-  "event_count": 131,
+  "event_count": 134,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -19,13 +19,13 @@
       "RELIANCE": 10,
       "TCS": 2,
       "INFY": 14,
-      "HDFCBANK": 20,
-      "ICICIBANK": 9,
+      "HDFCBANK": 21,
+      "ICICIBANK": 10,
       "WIPRO": 11,
       "JIOFIN": 5,
       "SBIN": 47,
       "LT": 8,
-      "AXISBANK": 5
+      "AXISBANK": 6
     },
     "by_source": {
       "RELIANCE": {
@@ -50,13 +50,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 23
+        "news": 24
       },
       "ICICIBANK": {
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 9
+        "news": 10
       },
       "WIPRO": {
         "serpapi": 0,
@@ -86,13 +86,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 5
+        "news": 6
       }
     },
     "by_confidence": {
       "high": 0,
       "medium": 52,
-      "low": 79
+      "low": 82
     }
   },
   "events": [
@@ -1090,6 +1090,29 @@
       "extra_sources": []
     },
     {
+      "id": "721cff33f8483283",
+      "company_name": "HDFC Bank Ltd.",
+      "ticker": "HDFCBANK",
+      "person_name": "Aditya Puri",
+      "designation": "CEO",
+      "event_type": "reappointment",
+      "effective_date": "",
+      "announcement_date": "2018-10-30",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Moneycontrol",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNcXdNY3dCT3lXQ1hTRVRKYlZqRS1BeUVmUUczSFZpM1lQWVRDNXQ4OEpTRWRBVzBYNmhReFBnS2N6R0liN2otcmVqTXFYaTVKelFKTDh5TTd2V2xGNjdvWjhibHdyUUxSZ000Wm94U0xieGV2Q09NV19ZUFNZd2QxSjJUUzZWV1oxRm1GV2NJbERJc2w0RU9oM2t3Ql9kN1BsSFJUdWg4VmNNYWk4TzVtUEFZeE5zYzZwZ2xmaHNMNEhJcm1nVEU40gHMAUFVX3lxTE9jRFlQSjJFOGtadHZiNkluaGYxZWpuOHl5TXJIeXNFVWJrVVRmVlI3Mktnd1JEb19SUWxPLVZQVHNobWhaSm96NkptWE9QWnFsZWl6eDRzeUhKMEZidnF3bjFUb0FIdlQ4OWJVR0NndXBic0xUVzU0Sjl2dnl1anpJeUktaUN3Tm1XSGo5dGRrQ2J6RjB4YW5KQnJMQlBHaTJQZk1ZMWMyS3dzNGo0Ny1ja0VjbllhbTgzbk9KYUtGRXJ1RFFYUHVlN1BKdg?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [
+        "CEO",
+        "appointment"
+      ],
+      "extra_sources": []
+    },
+    {
       "id": "f3d3c740bc13405f",
       "company_name": "HDFC Bank Ltd.",
       "ticker": "HDFCBANK",
@@ -1195,6 +1218,28 @@
         "Managing Director",
         "appointment",
         "reappointment"
+      ],
+      "extra_sources": []
+    },
+    {
+      "id": "4b0ca63062c9f288",
+      "company_name": "ICICI Bank Ltd.",
+      "ticker": "ICICIBANK",
+      "person_name": "ClearTax SBI",
+      "designation": "",
+      "event_type": "retirement",
+      "effective_date": "",
+      "announcement_date": "2021-12-02",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ClearTax",
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSFk5VTgydnZzUDVmWjI3bUhxbEFWQTVlTVJ0LVBCNGdiaW5kV21WWTFudWRhLVhvNnIzQTF0eFhCU0lRZkRUV3YzcFhidXdPQ1FEencwNnBERTYxUnNOMG1MdXZ2RWhPRG90eHJxeFlPbjljNTVMZFp1UjhJTm5yelJMQlpsNzNXMngzQl9DX3pQeHpjUlhuaGVEVEkyclAy?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "retirement"
       ],
       "extra_sources": []
     },
@@ -1653,6 +1698,28 @@
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "3f020f51da21945f",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "Sulabh Engineers",
+      "designation": "CFO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-11-06",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Multibagg AI",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNODY4VlJOTUE4dGd5aExLRTlrSUdkOWpnNFEyajgtYXE5UExFU2NNTXZ0MExqNXFvMkNLbGRMZVdaU0R0MHdpRkV3ZVhOX3oyOGJFNjVGLXRNUWcyWXl0Y05FUDV5RGpxTVUtUVdPMjhPdEs5U2FWNEdHUDV5YzhvOGdaQi1yRERRRkNxaXdFREFnbzFWTWtVYzFaMjl1dmR5ZWRoV0RaY25vSHkzS2ZaRWhycTRBZlY4N2c?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [
+        "CFO"
+      ],
       "extra_sources": []
     },
     {
@@ -2176,7 +2243,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Indianmasterminds",
+      "source_name": "Indian Masterminds",
       "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQemJCUjVLZE40R0ZyZWsyeHlGSWxxcnlzUmZsM0l4X1hUa2pfZm8wOVZ4LTZsQU9QaGJzNGFYby1lcUFFWV82T2doV2dOeGNtTDNvTWxYLXlqRWtoSW1mcUVEb0wwRTFpZnQwYS11UW4zREo2TFFvSi1qZTl4dnZ5SmQ1TWNZUUs4dlF0aUpINmMyZFhHQVpTb3BoX3JLUDctT0VyR2JIX2MyekFNUUYtTzVyQ2RTeVNtUnlhR1VrSWZLa2Fp?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -2671,28 +2738,6 @@
       "extra_sources": []
     },
     {
-      "id": "7e4a6ead98e12db3",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "Business Standard Palvesan",
-      "designation": "Managing Director",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2017-01-16",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "Business Standard",
-      "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOcGxZUG54eXRfMWhvMU5SQjJBMXhXa2l4Z2RzY2o3dmxlNGF2YUxFNHVVTGRZOWlaSi0zV1dkdEIyUGs2dGl5dVZWR3ZldnN6TE1Sa3NKRF8tUzZyMW1WcExNRFRxWEZBc2NlVkduYm5JenFkSmw2VmEzS20teS1YUVlGNDBDSVhuS1VRY05mczN3V3JuQXRLdXNEUU43aUJ5bWl5dEczUXp4Q0xWbkRXZllyWkVicFVFbU1kLV9fNHVpNWphbXE3Q0d1bzA4N2tkTjUxQnZOYjbSAd4BQVVfeXFMTUtkcHBBaE9qN0dhQ2xoX193dXVmbGhnSFpfek5tRVVEVDN1LUJIRnFua0xHZDlRV3I5cXAwQnBhTXBXajJFQ0dpcHB0Tk5VNlloTUtrQVpSV2hKaWVWbERVRE9xWmNhaXJLT3RBOG5TbGRwdU4wVU1EckVWbC1ZcVQxTkkzV1dpbWZnMVdEaDJSUkdsTXJrN1I0Z0RZbGNrRkNfYkFJVXRlbUhTcjB2RFZfTXR3bWtCQ3diclExcE5XcVVudG9VMXVfdllpRDhMVXlaOFFxTzR1UUplN3Vn?oc=5",
-      "source_type": "news",
-      "confidence_score": "medium",
-      "matched_keywords": [
-        "Managing Director"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "e6b9b404231a3ec3",
       "company_name": "Larsen & Toubro Ltd.",
       "ticker": "LT",
@@ -2900,6 +2945,26 @@
       "matched_keywords": [
         "retirement"
       ],
+      "extra_sources": []
+    },
+    {
+      "id": "0c53c1942bf7afc5",
+      "company_name": "Axis Bank Ltd.",
+      "ticker": "AXISBANK",
+      "person_name": "Sanjay Jain Appointed",
+      "designation": "CTO",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2025-10-04",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "hrtoday.in",
+      "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNSXFNdUI4THBVNmduaElvOWdLQm14VklNYkRPUUVNTk9MYlZnc1FFek9mVmU2bldYNmNMOVM2ODFCVkI1M1dVeXk4dWQtaS1CWl9Da2lMVE16eWtxRm54dUFnV255NjNvbUduZjJLdGx0Vmc4T0Z6ekNLU1BoWXJHNFJGbkYwbnR4aXpkTQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
+      "matched_keywords": [],
       "extra_sources": []
     },
     {
