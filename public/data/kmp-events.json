@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-14T22:12:33.216868+00:00",
+  "generated_at": "2026-11-15T05:55:54.627143+00:00",
   "company_count": 10,
-  "event_count": 138,
+  "event_count": 140,
   "companies_tracked": [
     "RELIANCE",
     "TCS",
@@ -16,12 +16,12 @@
   ],
   "diagnostics": {
     "by_company": {
-      "RELIANCE": 17,
-      "TCS": 2,
+      "RELIANCE": 19,
+      "TCS": 3,
       "INFY": 13,
       "HDFCBANK": 17,
       "ICICIBANK": 13,
-      "WIPRO": 11,
+      "WIPRO": 10,
       "JIOFIN": 4,
       "SBIN": 42,
       "LT": 9,
@@ -32,13 +32,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 29
+        "news": 31
       },
       "TCS": {
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 2
+        "news": 3
       },
       "INFY": {
         "serpapi": 0,
@@ -50,7 +50,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 20
+        "news": 18
       },
       "ICICIBANK": {
         "serpapi": 0,
@@ -62,7 +62,7 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 12
+        "news": 11
       },
       "JIOFIN": {
         "serpapi": 0,
@@ -86,13 +86,13 @@
         "serpapi": 0,
         "tijori": 0,
         "trendlyne": 0,
-        "news": 11
+        "news": 10
       }
     },
     "by_confidence": {
       "high": 0,
-      "medium": 48,
-      "low": 90
+      "medium": 51,
+      "low": 89
     }
   },
   "events": [
@@ -366,6 +366,46 @@
       "extra_sources": []
     },
     {
+      "id": "ad4fa2a08a900843",
+      "company_name": "Reliance Industries Ltd.",
+      "ticker": "RELIANCE",
+      "person_name": "Adhiraj Harish",
+      "designation": "Independent Director",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2022-05-04",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQSE10OXBlVEU2TVBldk03NEhZdEFZeEZabGJSRHcyX0NPTEdyWVZSb1h2WGwwR3ktWWxhc0pKZXVaUGw3SlZDM2VlYkV5VDhUR2NOUmZmenNPZ0c1U0w3TFZkSkMzZXltbWVhVFU3OWxVSWdWTHZvazZEQ09jZnVOcGJ3ZVBIblQwZEFsbFU5YWZ5RjVyUHg4RTNZWmQzWVcwaGpfYU9yMVJIQWdLNW92UTNraHdZX2hzNkhJQXpRMHFkRDR0T3BwVk1XQ0VyVnBmbnBhaTNhVXhtOWPSAeABQVVfeXFMUF81UWtYZmY5NVI5X2NxTDIzZ2hXc0pVREVXQk9qb29scERQbVA5MVBNVmZzMzVYYWI2ZGdDY0s4bjFzTUNmbjVHWDA3UktQWEVfbm1nQUd6ZkF4aTFtWDA0czBXOU1UTmRuMmZVZUJHRzlSUEZtbXdqeC13RklCWmFEVUxtMUNFVGFMbDNBMnp3ZDZGOGVtS0ZkdVNGcjg2ajI5bEw0TWhzUW1EdmVyeEVqd05UUHluXzBGVnU2VU44MTBQQkkxckdkbUVyWUdLT0pYODZCRjJQMHVsV2QxMF8?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "460ed72c5cc00cf9",
+      "company_name": "Reliance Industries Ltd.",
+      "ticker": "RELIANCE",
+      "person_name": "ET Retail",
+      "designation": "Independent Director",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2022-05-04",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "ET Markets",
+      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQSE10OXBlVEU2TVBldk03NEhZdEFZeEZabGJSRHcyX0NPTEdyWVZSb1h2WGwwR3ktWWxhc0pKZXVaUGw3SlZDM2VlYkV5VDhUR2NOUmZmenNPZ0c1U0w3TFZkSkMzZXltbWVhVFU3OWxVSWdWTHZvazZEQ09jZnVOcGJ3ZVBIblQwZEFsbFU5YWZ5RjVyUHg4RTNZWmQzWVcwaGpfYU9yMVJIQWdLNW92UTNraHdZX2hzNkhJQXpRMHFkRDR0T3BwVk1XQ0VyVnBmbnBhaTNhVXhtOWPSAeABQVVfeXFMUF81UWtYZmY5NVI5X2NxTDIzZ2hXc0pVREVXQk9qb29scERQbVA5MVBNVmZzMzVYYWI2ZGdDY0s4bjFzTUNmbjVHWDA3UktQWEVfbm1nQUd6ZkF4aTFtWDA0czBXOU1UTmRuMmZVZUJHRzlSUEZtbXdqeC13RklCWmFEVUxtMUNFVGFMbDNBMnp3ZDZGOGVtS0ZkdVNGcjg2ajI5bEw0TWhzUW1EdmVyeEVqd05UUHluXzBGVnU2VU44MTBQQkkxckdkbUVyWUdLT0pYODZCRjJQMHVsV2QxMF8?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
       "id": "98d0b5a14f230444",
       "company_name": "Reliance Industries Ltd.",
       "ticker": "RELIANCE",
@@ -486,6 +526,26 @@
       "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOd2Rid1B3dnBkbGtuZzdyRHZZdW1sWXNRU2tuRm16VlloeEloYWJOT1EzUGh1WEJTNV9CTi1IU0FOY1huOENPZjc3N19sand2NWpGMUx3V2lLX1ZhQU9zWThhWlBBd1pyeGpmc3NySklLUVhVV2xqTDJrREVBSXFlc2VuQm01cnVSTmFsdjgyTmJ1c3pxRG1FTVc5X1dIWlk0T2pWcm1MTlZzOE44Z1FLVFNYREZhdzE2TTZxdEtEOUVmbFB1LTlyQ2prdkJ2RnBxc1FJanV1b2bSAd4BQVVfeXFMT0EzelNBVGVfUkZ4b2pEOVROdzM5T3g4d2pHQVdZQzN5THNxSC01UXVUTXgwNy1FUEVQb0dIenhoWlQtcXpFYllyUTRnTDlsWUgxeVZsVk4tY1JzMkYyREozZGo1RVFVamYwOEVjWkI1NW5WOV9tXzcxa0Y1V2dfajhub0hyMVlFVnpSVEctWEhibjg0WDlmX25GYXcybVdWNzY0S1hfYWpPNGVWb3JWd21ZbkhvVW55SXpNMU12R2tDNVVqT1h1ZWhaN3M3cEpEQzR5QUJnTEo5UldKamp3?oc=5",
       "source_type": "search",
       "confidence_score": "low",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "11ca6b7f2054bf2d",
+      "company_name": "Tata Consultancy Services Ltd.",
+      "ticker": "TCS",
+      "person_name": "Suresh Muthuswami",
+      "designation": "",
+      "event_type": "resignation",
+      "effective_date": "",
+      "announcement_date": "2024-08-26",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "Moneycontrol",
+      "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNR2xRckdMaUgydEphWG1jMVRoRVRkTlFmY1pnMlBVMU9NRzJOTml5T1prejdISXNjVW9xd2JZcG84UHBlakFYSUtIa1lxX3RjOUNYaG8wTTRlczdSOFpxaEZKRVFxZUxiUk81UHRVTllicVFJQVI4WDluSG1xR1pySHhhYlJfN0h5a1BvMGNBZ1Jic3VBQ0pITEhkRm9rNzZfR201djhFSzZWTjQxa2VRYmNfbmE4UTVLOUxvNG5jWFdQV2lfM3pmQXd2ZWZ1eTdRdUtwaHB6S1NmX1BYaElJLVQ3MVV4VllX0gHuAUFVX3lxTE1KbmNva0tmb0FxcHpNVEVKM1ZVT3ZTbDhWRno4RDh4eUpMVG83NzZoWjZuQy1IclBWcGxJeWZjczdPclRVRjNvN1VVWVFJSVdfbHJraXROa05mZXRIX0RYbmJWT296M28wU0x5bGJpS1JPTVY2aENVMU1hckhUWjY4RlZIZjl6RllwUHlSR19VU3E2YkhqeGJOd0Y2QkFWSjRjTk1TOWYtc28wZ19Za2xoX3NSMkw4WElxal8yTDRYeVh6bWVxSlh3YTEzX2NSVjVGYmlTUXplQVJJMVJUUmYySVBLazNsb3RwejM2N0E?oc=5",
+      "source_type": "news",
+      "confidence_score": "medium",
       "matched_keywords": [],
       "extra_sources": []
     },
@@ -982,7 +1042,7 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Bloomberg.com",
+      "source_name": "Bloomberg",
       "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSWJoYVRmSnd2XzRaeVRRLWc4Sk8wT3owUFRSQ3BiczRuSFowNGdmTmtkTGRBVGcxaFlsRjNSemtpTXpocHB1N2hMYXpjcDQzRlZOdDRfU0dSTS01SHpIcXJHNS1DXzdaa0w3RlNHbHI5YkppVG5qQ19XRVA0NjlLaEd3U2pCVHBCdWw4cHNXelFfWjdmUFFteXBQU1FLVXEwN05oMjlKcnBJb2t4eVRxaS1n?oc=5",
       "source_type": "search",
       "confidence_score": "low",
@@ -1007,9 +1067,7 @@
       "source_type": "search",
       "confidence_score": "low",
       "matched_keywords": [],
-      "extra_sources": [
-        "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPVmxWUEY3VjRrTzlQeVB2WmdCS3J5VjVzdEQ0YzZubDN5LUhJVDUzcTNHYlhjanRVZTUwdjBiRDYyclJZNUJUaGd5TVVsYkxYMTRmaWNjdTItZEowaU82NTJNdmFKUjd0OU5rOVhGaVY0UklqbG5jVFRfcm96LXBLdGc2MWFaZENDa3l6NTBPWmlmQVZndFZpeTBvcUd4ZHBiTkZ2WmtEd0FNdU5rZEJJQkc1dGNQUngzWlhVNUhvWXA2ZEF3Z2lXMHVRMTNHejh5TU44TU5sOWhOZW1YWkFUSzkwZElLMEFDN3fSAe8BQVVfeXFMT19JSmZXMFJFajZXTkxEMlV5ZzVkbU13UkdtQTJXeGdCR21ESUotMmozN0JvS3pnWTk5dzlUWWxPb3pwekxzd0g3UFRkZ3UzdTgzODFHbk1JVzNoT1RlN3Fid09VMm02a0FfUmxzU05ITUFQWVM4TVVuRUJRVXVRYlNoYU1taHV0SnhNeVVUMmJzbUJIdGJvMG5QUV9qVzJLZHRsS2g4cFJ2OEV1cVE3bWtnbDJYaE9SSm8zRkZ3S3RHRGdoX1dpLV94WjJaN0MzSF9MOWhVVDdFVWlPNjgtNG52T2JwR2ZGY2E4Y3ZlMDQ?oc=5"
-      ]
+      "extra_sources": []
     },
     {
       "id": "a284ee3ece46c6ef",
@@ -1032,8 +1090,7 @@
         "resignation"
       ],
       "extra_sources": [
-        "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNdW1XcGhvcXR4VlN4T1dVTDFQNENsRTRzYXM3NEMxTHJqQWk4eVVaRG9sWlpIOXppTFk3QTNYSkdnTDdTMmNud0xJRFhfWC1GZndVU1gtSFlXQ2dIMzFzWkVHY2ZFcDE5c3p1RmU3dVpNMlpNV1pvMXhSclBhN1NxN1pic3A2LUZZN0tYQlpVbVd3OVUxT0NtZXNLMTNrRlFLTkpEVnljTURBakJmTGZrMExDWGNNOVpIWkMyZkVVeTlyVkxkenI0LXNabFp5d3V1Wm1hMkRVdzdqVHlIc2M00gHkAUFVX3lxTFBiam90cUtRRW5qQlZNeEhBOGg0WDJjQkRvZkljNlJuQnNFTVBzVVQ3YnRRNzByQ0RoM2FRVDFVY0Y4NHg2RlhZYXZFS2xENW1aTXZMU1RmZVhFT01FMmt4a0psTFJWWGF1cEJ4UjlaRFowYnk5anhXWEM2QU5LakpaSEtjRlVwcGZ4SHBlaWN5MDdsendaei1EckZINk52a0JNcXhvNGdiTVpoanhWN0JRVDRPYUJaMFhSTGJLWFJ5SjZsM0NKVVBhaHYwUk5ULUlnTF82NlF1VVRmY19oS3BRNmJIXw?oc=5",
-        "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPVmxWUEY3VjRrTzlQeVB2WmdCS3J5VjVzdEQ0YzZubDN5LUhJVDUzcTNHYlhjanRVZTUwdjBiRDYyclJZNUJUaGd5TVVsYkxYMTRmaWNjdTItZEowaU82NTJNdmFKUjd0OU5rOVhGaVY0UklqbG5jVFRfcm96LXBLdGc2MWFaZENDa3l6NTBPWmlmQVZndFZpeTBvcUd4ZHBiTkZ2WmtEd0FNdU5rZEJJQkc1dGNQUngzWlhVNUhvWXA2ZEF3Z2lXMHVRMTNHejh5TU44TU5sOWhOZW1YWkFUSzkwZElLMEFDN3fSAe8BQVVfeXFMT19JSmZXMFJFajZXTkxEMlV5ZzVkbU13UkdtQTJXeGdCR21ESUotMmozN0JvS3pnWTk5dzlUWWxPb3pwekxzd0g3UFRkZ3UzdTgzODFHbk1JVzNoT1RlN3Fid09VMm02a0FfUmxzU05ITUFQWVM4TVVuRUJRVXVRYlNoYU1taHV0SnhNeVVUMmJzbUJIdGJvMG5QUV9qVzJLZHRsS2g4cFJ2OEV1cVE3bWtnbDJYaE9SSm8zRkZ3S3RHRGdoX1dpLV94WjJaN0MzSF9MOWhVVDdFVWlPNjgtNG52T2JwR2ZGY2E4Y3ZlMDQ?oc=5"
+        "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNdW1XcGhvcXR4VlN4T1dVTDFQNENsRTRzYXM3NEMxTHJqQWk4eVVaRG9sWlpIOXppTFk3QTNYSkdnTDdTMmNud0xJRFhfWC1GZndVU1gtSFlXQ2dIMzFzWkVHY2ZFcDE5c3p1RmU3dVpNMlpNV1pvMXhSclBhN1NxN1pic3A2LUZZN0tYQlpVbVd3OVUxT0NtZXNLMTNrRlFLTkpEVnljTURBakJmTGZrMExDWGNNOVpIWkMyZkVVeTlyVkxkenI0LXNabFp5d3V1Wm1hMkRVdzdqVHlIc2M00gHkAUFVX3lxTFBiam90cUtRRW5qQlZNeEhBOGg0WDJjQkRvZkljNlJuQnNFTVBzVVQ3YnRRNzByQ0RoM2FRVDFVY0Y4NHg2RlhZYXZFS2xENW1aTXZMU1RmZVhFT01FMmt4a0psTFJWWGF1cEJ4UjlaRFowYnk5anhXWEM2QU5LakpaSEtjRlVwcGZ4SHBlaWN5MDdsendaei1EckZINk52a0JNcXhvNGdiTVpoanhWN0JRVDRPYUJaMFhSTGJLWFJ5SjZsM0NKVVBhaHYwUk5ULUlnTF82NlF1VVRmY19oS3BRNmJIXw?oc=5"
       ]
     },
     {
@@ -1453,28 +1510,6 @@
       "extra_sources": []
     },
     {
-      "id": "233bb74171f07a18",
-      "company_name": "Wipro Ltd.",
-      "ticker": "WIPRO",
-      "person_name": "Angan Guha",
-      "designation": "CEO",
-      "event_type": "appointment",
-      "effective_date": "",
-      "announcement_date": "2026-11-06",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "TradingView",
-      "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNdTlIb3p3bExhN0pHTV9INXA1LUY0MHBYRlRhVzEwQ0Uyc2NIUU1zSnE4S09IemRnQUZfRE92Ukp2V2dHenc4T1c4SFJiWHV0UTlqQW5FRVZwWE5XXzRNeVNJYy1ybXlGLTZVZ3djVEp5RG56WWpNb3l6QjRkaHlSQmZLa3ZieW1oSW5XUkVtNjlxcW9pNUpiRFNsVkgxb0NIMU52NXlReFpzdzlZZU9lSU52ZmxwdnNBdTR1VjdvQQ?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "CEO"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "4b8c6297a09c5b1c",
       "company_name": "Wipro Ltd.",
       "ticker": "WIPRO",
@@ -1824,28 +1859,6 @@
       "extra_sources": []
     },
     {
-      "id": "9e81521de530e645",
-      "company_name": "State Bank of India",
-      "ticker": "SBIN",
-      "person_name": "DGM Divakara",
-      "designation": "",
-      "event_type": "retirement",
-      "effective_date": "",
-      "announcement_date": "2026-11-13",
-      "reason_for_change": "",
-      "brief_profile": "",
-      "term_of_appointment": "",
-      "resignation_letter_attached": "unknown",
-      "source_name": "scanx.trade",
-      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPTVRkVU16eDRvY0NNNy1aS19ZWlNZX2p5WmVTY0U4cWQ0dl9mWkwxaEhENk04cWtXcXd1TkdzSE10OVBqTVVSeUt0SnJ3TnJFU1lramJic1pOZWZTek1yc2pHQThTUk84WE5UM2gyWU02SXh4Tnp2eEtXa25nWnpqaWN6Q0tabXhUeUhfbVRfcExUOW1DdE10UjFHQkh4ZlFzVUxuc0VXbTlpc216UUJ3S3c2LURIa2VP?oc=5",
-      "source_type": "search",
-      "confidence_score": "low",
-      "matched_keywords": [
-        "retirement"
-      ],
-      "extra_sources": []
-    },
-    {
       "id": "5dab95c04d34ec49",
       "company_name": "State Bank of India",
       "ticker": "SBIN",
@@ -1904,6 +1917,26 @@
       "source_url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNSURlZ2hDTUhFUlpzYWtiZWppMG1BNWdLT3BycUl4Q3pXR3NtVW1ES1pCMEVRLXVLZXRuLU9NWk9QM3N6dHk4RjZXZ3RsdURFMjc5UDZ1REYwYWZJTTEzUHAzTWpYdEZuVVB1UTBvVnR2dVBUQlcybzFmWXpJaHpXOGZiVFA2Tnd6ZnQ4NWVKREdMZzFEQ2ZvaWI1WWIweEEyRkxIbUxUaE15b0R1dmtfaWxsZy1MWDZnTi1XejV5b2Z4VXFoYXBvZmtKTDFTaTBsNkthX1MweDIyWWFVSnVYejhB0gHnAUFVX3lxTFBmM1FweEhNNHZaNVVDQ0hoeF9zWUk5bUhOdGFtWnRSaEZreGdMVFhUblpzM1NiR0JPSDR0NTJfRElYdE9weXNKemkwZEg3LVZWakEydlc1Y1RpRE41V2VhQ2YtUjBhemI1LTJtNGRjbHJ1RzNmZXJiUUQ2QlRPM2lPcFJPckhwa1dqN19WX2VpaTQtX25jNWc5S3lDWE5Oa3dHVkFHVmJDNHlmVl9Vd2JhUDBuVTc5cjZxaGs1WEo0S1B6cjVOZ0VRd0R6VHlCR1g5b1VXbEpUczJfcURpTnN0QWplallnTQ?oc=5",
       "source_type": "news",
       "confidence_score": "medium",
+      "matched_keywords": [],
+      "extra_sources": []
+    },
+    {
+      "id": "de029ef11ae48716",
+      "company_name": "State Bank of India",
+      "ticker": "SBIN",
+      "person_name": "V. Singhi",
+      "designation": "",
+      "event_type": "appointment",
+      "effective_date": "",
+      "announcement_date": "2026-07-29",
+      "reason_for_change": "",
+      "brief_profile": "",
+      "term_of_appointment": "",
+      "resignation_letter_attached": "unknown",
+      "source_name": "scanx.trade",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOY2tfRlRORVBmNGpRUWQ4TTVsSGJxUGdfSjNyZTNuRTl4dW9WQ2hKVWNheGZPdzRCNVNsd0VCMkc3ZFBOOFVDLWQybVpSeVEwQ3pTUzFrbVpLc1VlMG5iZkphbk8yQTlHRnVXY2pNeV9GSnM4QmV1X1J5cGV1QzdpQ0V4b29EdVZUWEJSWXFPTHJwNnJ5WEN5LUdEX21tckR6UVBRYzR3LW1XaW80a2hDdkhXYlY3Z3d0S1ZFUXUwSVJSUTdONEw2NQ?oc=5",
+      "source_type": "search",
+      "confidence_score": "low",
       "matched_keywords": [],
       "extra_sources": []
     },
@@ -2051,8 +2084,8 @@
       "brief_profile": "",
       "term_of_appointment": "",
       "resignation_letter_attached": "unknown",
-      "source_name": "Hindu BusinessLine",
-      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYXBtbEIzcmpQQmRZemduek13blpPR1A3UURteHk0cGVhX29Qc1dNR1JMRm5ySGxUc2Jzc05SU3FtRlJHX3lzUHF4alIwMUVCMG9TNERTcUwwWFQxVnFnXzVyYkFiYW44a0RRUElNd0c5SDNxb0tsUjQtVFl0YlNkcVNXSTltbGxvajZ6YzNQQ2RZNmxfbVN5US1rY3Z5UkplQXQySEVYRlF6VU9ueWZybUg3TDBxR1k2QWfSAcABQVVfeXFMUHM3SnBqWkJyOHRKQnN5cFUzMndFNURCZTN0eDN2bEdSQXdmc2d5M1ZQZThnbjJRNFhEelVKbk9EMlpjVWJ6blVOazd6UnRndElaOFBUd0Y5bDk0b2xhSWxZeC1JalNqdkozZlBDdWE0WTBnQjVCSWpZdnNjeVZWRE9mZGI2TksxLW1zNDJnWm5HVlNmaExndlB3N3BZa2xBUFk4WkQyV3ZNWXRHcjMwZ0lLOU1FaFpYeUNpSEpNNDM4?oc=5",
+      "source_name": "Business Standard",
+      "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPMzV2Ml83VEswdTQwd1ZYeWd5dTQ1cW1pam8tcDQzejg4M2pDY01hWUF4SWlOemVYeW9rNkRpQ2VRakp0UW8wbzdzckk4bnZBSEE1VmhKYUtjMGtWdkhOMXdiaWZrcndBU0NzQ1ZtWi1UeTVJRHQyQ21jd0ZyWFk4YjhBVGRiZEdhNHpka3VTaXRIdDI5S2VNNVlrWG5mSVZWUVFfNEsySVdKTWtHVEExck5FZ2wyZ2hGdlY1MTVpR2pHclBBbzFUSGpYeTJ3WFBqWG5fdFdR0gHbAUFVX3lxTE16dGtxSDZseUdLZVZjQXNBcFRfS0xNSGFPSHVTNDM4S1hyVERTVGV1TU15Z1Y3ektGQXVJLVJTbERYX1Bvc2F6YmVLR0R5VWhlcDZjN2tRbWQ2ZXZMcTBCTTR0YVRfTHRwRFRBVV95Rk1WTmZId0lXWHh0VnFkd1Z6M0MxV0d4M01EUC1QZHBnYmEyNDg5eDlpV25zdG5pT0o4TWM0eFowRlpNZDdtdkJjLUtCbE9JeUhlOWNkSy1NZUFBZFhhTzhFNEluYW52ZHNwTThUMjJOY0hkTQ?oc=5",
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [
@@ -2061,7 +2094,6 @@
         "appointment"
       ],
       "extra_sources": [
-        "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPMzV2Ml83VEswdTQwd1ZYeWd5dTQ1cW1pam8tcDQzejg4M2pDY01hWUF4SWlOemVYeW9rNkRpQ2VRakp0UW8wbzdzckk4bnZBSEE1VmhKYUtjMGtWdkhOMXdiaWZrcndBU0NzQ1ZtWi1UeTVJRHQyQ21jd0ZyWFk4YjhBVGRiZEdhNHpka3VTaXRIdDI5S2VNNVlrWG5mSVZWUVFfNEsySVdKTWtHVEExck5FZ2wyZ2hGdlY1MTVpR2pHclBBbzFUSGpYeTJ3WFBqWG5fdFdR0gHbAUFVX3lxTE16dGtxSDZseUdLZVZjQXNBcFRfS0xNSGFPSHVTNDM4S1hyVERTVGV1TU15Z1Y3ektGQXVJLVJTbERYX1Bvc2F6YmVLR0R5VWhlcDZjN2tRbWQ2ZXZMcTBCTTR0YVRfTHRwRFRBVV95Rk1WTmZId0lXWHh0VnFkd1Z6M0MxV0d4M01EUC1QZHBnYmEyNDg5eDlpV25zdG5pT0o4TWM0eFowRlpNZDdtdkJjLUtCbE9JeUhlOWNkSy1NZUFBZFhhTzhFNEluYW52ZHNwTThUMjJOY0hkTQ?oc=5",
         "https://news.google.com/rss/articles/CBMijwFBVV95cUxQWTZLU053YnpWcDM3VjFiRm5Xd0tzZ1VPTHp3VzEyLUh2a21oM1NqakpObll6M1VLWWJtODg1VkF2NC1teFJMQWItRUx0VERKbnBMX2NFU3NBeXB0VXBMU3FDbkk2SmdfUkljLVVFRmtIbUdfZE5oVXhjVktPeTdDbFpYZW1tc1QzTGN0YlJyUQ?oc=5",
         "https://news.google.com/rss/articles/CBMilAFBVV95cUxORmlMZnc1ZGRqbC1lZ1VsdUtKRDRPcmdXTmpZUXpoZDR2Ymd3S0FBV2ppM1M4NVBWNC0wUlVSNEIycWFFWUQ1cXc1UUxBWnVSUTFwdUUzVDhCUU96MWY5NnNpUUNCYTU0UzFQN2JsN0ZkTC1hbzlnSkNPSnJhTzVDSTRqcEUycGw3OTRlLWl0MUFFdHRo?oc=5",
         "https://news.google.com/rss/articles/CBMilAFBVV95cUxOU0Y3LWNSaTNwV1BWOFQtd1J3WERKczh4RGtMTTdfRE96SjBJSHdndjhWSEVETEpfRmFFNzhxZjRabVMtZzJpNHVBOW00ODFnTUNmOFhRaXY0dk5ZR2ZkMDRwTjJoZDZSdXk0TFBOMEdJYmZWSUNzUXkzenpsLXdqNVJLN281c3l3MVZSRXl2VlhSSUNG?oc=5",
@@ -2069,6 +2101,7 @@
         "https://news.google.com/rss/articles/CBMirAFBVV95cUxNemlfNVdRY2o2SXRVeFBnNVExM2FhcUtQcEpVLUdKbkFfcVJWWEJmb0hDSGR4RjBab0EtX3N1YWgyS1M2ek03ZGRyQWJieUlhaDdraEc5eWtaRkVyR2RQS1FHWDd5dV9YajduSGN2LW81NEx0SU9WU01zaE1zeXphX0gwRm1Dem9rRnpuZmI5V1J0d1gxdGltMjVhTlUzYWM1V3NtUnJuOGR0NXJ6?oc=5",
         "https://news.google.com/rss/articles/CBMirgFBVV95cUxPcXJUWGNLSUZ3UUJiZkRpSXFRa0NwMWdIWjFUY054M2FjY19CSkxhMFBxNl9KbnNDWkM4RlptYU1FNEJXRlBtLVNpRXRGR1lDLUxyX0tvVVdURERBYXNYLXhTeTdyRU9vWk90djdIbllzSnYySDVTQXdHZnJ6N3dmTGE3b3A1VGozbmgyN0puMzYyYUFnTTZ4OWpQMUpoazdJNFJ1VlRMejZSNl9JLXc?oc=5",
         "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQ0o2OENwTEJaNHJiOHpyYlkyYmhRcDNOMUhxNVZhaE5OaHRtcENFbTRtZTBIQS1CQnE0eE1OWU9XcnVfZmptMWNSRUg5cldDV3EyLVlUYlJmTHRvdnktYml3UFJablBXNy1YZUF1blRGZEJvUndycmhsNkhxd1dWWlNJSzR6VFhrc01qU0xmcDlMSG9kUUliaUFmTXhZVzlGSkJTNkQwcVlUWU5CNk1CYklR?oc=5",
+        "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYXBtbEIzcmpQQmRZemduek13blpPR1A3UURteHk0cGVhX29Qc1dNR1JMRm5ySGxUc2Jzc05SU3FtRlJHX3lzUHF4alIwMUVCMG9TNERTcUwwWFQxVnFnXzVyYkFiYW44a0RRUElNd0c5SDNxb0tsUjQtVFl0YlNkcVNXSTltbGxvajZ6YzNQQ2RZNmxfbVN5US1rY3Z5UkplQXQySEVYRlF6VU9ueWZybUg3TDBxR1k2QWfSAcABQVVfeXFMUHM3SnBqWkJyOHRKQnN5cFUzMndFNURCZTN0eDN2bEdSQXdmc2d5M1ZQZThnbjJRNFhEelVKbk9EMlpjVWJ6blVOazd6UnRndElaOFBUd0Y5bDk0b2xhSWxZeC1JalNqdkozZlBDdWE0WTBnQjVCSWpZdnNjeVZWRE9mZGI2TksxLW1zNDJnWm5HVlNmaExndlB3N3BZa2xBUFk4WkQyV3ZNWXRHcjMwZ0lLOU1FaFpYeUNpSEpNNDM4?oc=5",
         "https://news.google.com/rss/articles/CBMivAFBVV95cUxPakpxSlIzcHJYQXJQRmFBTDRhZFd3Q2V5d3V1bFdxcjAyMWxTLW02RXFBTXdlTzhJTERicGV3UjZkZDljTHUySzM5R04xWGcyYTkwbkUySGhDY0t0ZGhwUEdvdHdfeEFTUHFjbWdLR1loWFBPZ19IdlVoOEYxelh1U2ZlelRBZW9tQnJDRWcyZVVHb3RPRnJGUkg1WVJCSk80SWxXYXlJcmFmTnZkVzREZ09MSXZOdHp0OUJ1eNIBygFBVV95cUxPWUJIVHN1UUlQQlRucC1QSDRsbUJVUGl4Uk9ncmk4c2Nib0kyRjZndERyUkpLcjRZM0NocnJwM3I4c1dqUm51QWdJb0U2OEFuLTM1am5ZYmRmWVUwbFFLLVE2Zzg5YUtMcm1KOWNtZjZNYjlNMUZMNjlWbkxVcHJyVktaRGNJdmNJZWc2eVcwcUlERnRuNE5oWTlKMlREQUF3azgtb2w1MXcxMnhfMERxWDFUNV9jV1NxQWd6MF8zYm5FaTAzRUpxZjdR?oc=5"
       ]
     },
@@ -3072,12 +3105,9 @@
       "source_type": "news",
       "confidence_score": "medium",
       "matched_keywords": [
-        "CEO",
-        "MD"
+        "CEO"
       ],
-      "extra_sources": [
-        "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZzRFWUx1QVlrb1h3c29sQnJDa3dEYVJESHEtQXdzY0RtN2tWOTJiQnBLU2JOVlhfdUxfRzhUeUdSUUxqTHBQT2FKS3hpM0c5TzlQOE5Ka3JRSlBGN0UwQXJNaVVHX0x6bTRucXp0SmU0YWdkMzhjQkpxMjMxVm5Pd2tCUnpZVkxhQjlwTA?oc=5"
-      ]
+      "extra_sources": []
     },
     {
       "id": "d6649610e8e5ca5b",
